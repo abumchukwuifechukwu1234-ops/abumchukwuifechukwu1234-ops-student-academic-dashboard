@@ -36,6 +36,171 @@
     .assistant-launcher { position:fixed; right:22px; bottom:18px; z-index:31; width:96px; height:112px; padding:0; border:0; background:transparent; animation:robotFloat 4s ease-in-out infinite; filter:drop-shadow(0 10px 12px #0b284838); }.assistant-launcher:hover { animation-play-state:paused; transform:scale(1.04); }.assistant-launcher img { width:100%; height:100%; object-fit:contain; object-position:center bottom; display:block; animation:robotNod 7s ease-in-out infinite; }.assistant-launcher .assistant-status { position:absolute; right:0; bottom:3px; width:14px; height:14px; background:#20a774; border:2px solid white; border-radius:50%; }.assistant-launcher::after { content:""; position:absolute; left:46%; top:26%; width:35%; height:10%; border-radius:50%; background:rgba(111,226,255,.22); opacity:0; animation:robotBlink 7s infinite; }.assistant-panel { position:fixed; z-index:32; right:24px; bottom:126px; width:min(380px,calc(100vw - 32px)); max-height:min(570px,calc(100vh - 150px)); background:#fff; border:1px solid #d7e3ea; border-radius:15px; box-shadow:0 20px 55px #061d3040; display:flex; flex-direction:column; overflow:hidden; opacity:0; transform:translateY(18px) scale(.97); pointer-events:none; transition:.24s ease; }.assistant-panel.open { opacity:1; transform:translateY(0) scale(1); pointer-events:auto; }.assistant-panel.minimized { max-height:56px; }.assistant-panel.minimized .assistant-body,.assistant-panel.minimized .assistant-input { display:none; }.assistant-header { background:linear-gradient(110deg,#0b2848,#19517c); color:#fff; padding:13px 14px; display:flex; align-items:center; gap:10px; }.assistant-header img { width:31px; height:31px; object-fit:contain; }.assistant-header b { font-size:14px; display:block; }.assistant-header small { font-size:10px; color:#bdd7e9; }.assistant-controls { margin-left:auto; display:flex; gap:3px; }.assistant-controls button { color:#fff; border:0; background:#ffffff19; width:28px; height:28px; border-radius:5px; font-size:16px; }.assistant-body { padding:15px; overflow:auto; background:#fbfdfe; }.chat-bubble { background:#edf4f8; color:#294454; padding:11px 12px; border-radius:3px 12px 12px 12px; line-height:1.45; font-size:13px; margin-bottom:12px; }.chat-bubble.user { background:#123b63; color:#fff; margin-left:36px; border-radius:12px 3px 12px 12px; }.assistant-quick { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }.assistant-quick button { border:1px solid #cbdce7; background:white; color:#123b63; border-radius:20px; padding:7px 10px; font-size:11px; font-weight:600; }.assistant-quick button:hover { background:#edf4f8; }.assistant-input { display:flex; gap:8px; border-top:1px solid #e2e9ee; padding:11px; background:white; }.assistant-input input { min-width:0; flex:1; border:1px solid #cbd8e1; border-radius:6px; padding:9px 10px; font:inherit; font-size:12px; color:var(--ink); }.assistant-input button { border:0; border-radius:6px; background:var(--navy2); color:#fff; font-weight:700; padding:0 12px; font-size:12px; }.assistant-disclaimer { color:#7c8d99; font-size:10px; line-height:1.35; margin:12px 1px 0; } @keyframes robotFloat { 0%,100%{translate:0 0}50%{translate:0 -8px} } @keyframes robotNod { 0%,85%,100%{transform:rotate(0)}90%{transform:rotate(3deg)}95%{transform:rotate(-2deg)} } @keyframes robotBlink { 0%,45%,47%,100%{opacity:0}46%{opacity:1} } [data-theme="dark"] .assistant-panel,[data-theme="dark"] .assistant-input { background:#172630; border-color:#314b5c; } [data-theme="dark"] .assistant-body { background:#13212b; } [data-theme="dark"] .chat-bubble { background:#263f4f; color:#e1edf4; } [data-theme="dark"] .assistant-quick button { background:#1d3442; color:#d7eafa; border-color:#3b5b6e; } [data-theme="dark"] .assistant-input input { background:#10212b; color:#e3edf4; border-color:#385568; } [data-theme="dark"] .assistant-launcher .assistant-status { border-color:#172630; }
     .access-screen { position:fixed; inset:0; z-index:60; display:grid; place-items:center; padding:20px; background:linear-gradient(135deg,#071d34,#174d76); }.access-screen.hidden { display:none; }.access-card { width:min(430px,100%); padding:34px; background:#fff; border-radius:14px; box-shadow:0 24px 65px #00000042; text-align:center; }.access-logo { width:68px; height:68px; object-fit:contain; margin-bottom:16px; }.access-card h1 { font-family:"Playfair Display",serif; color:var(--navy); margin:0; font-size:28px; }.access-card p { color:var(--muted); line-height:1.5; margin:10px 0 20px; }.access-card form { display:grid; gap:11px; text-align:left; }.access-card label { color:var(--navy); font-size:12px; font-weight:700; }.access-card input,.finance-modal input { width:100%; border:1px solid #c7d6e0; border-radius:7px; padding:12px; font:inherit; color:var(--ink); }.access-error { min-height:18px; color:#b13b42; font-size:12px; margin:0; }.access-note { color:#80909c; font-size:11px; margin:16px 0 0!important; }.screen-shield { display:none; position:fixed; inset:0; z-index:50; background:#06192b88; backdrop-filter:blur(3px); place-items:center; padding:18px; }.screen-shield.open { display:grid; }.finance-modal { width:min(410px,100%); background:#fff; border-radius:13px; padding:28px; box-shadow:0 22px 50px #06192b5c; text-align:center; }.finance-lock { width:48px; height:48px; margin:0 auto 14px; display:grid; place-items:center; border-radius:50%; background:#edf4f8; color:var(--navy2); font-size:23px; }.finance-modal h2 { font-size:24px; }.finance-modal p { font-size:13px; line-height:1.5; color:var(--muted); }.finance-modal form { display:grid; gap:11px; text-align:left; margin-top:18px; }.finance-error { min-height:17px; color:#b13b42; font-size:12px; margin:0; }.lock-button { border:1px solid #c8d7e1; background:white; color:var(--navy2); border-radius:5px; padding:7px 9px; font-size:12px; font-weight:700; }.verification-stages > * { display:none; }.verification-stages > *.active { display:block; }.consent-box { display:flex; gap:10px; align-items:flex-start; padding:13px; background:#f4f8fa; border:1px solid var(--line); border-radius:7px; font-size:13px; line-height:1.45; }.consent-box input { margin-top:3px; accent-color:var(--navy2); }.camera-frame { width:min(100%,620px); aspect-ratio:4/3; margin:0 auto; background:#071a2b; border-radius:12px; overflow:hidden; position:relative; display:grid; place-items:center; }.camera-frame video { width:100%; height:100%; object-fit:cover; transform:scaleX(-1); }.camera-frame::after { content:""; position:absolute; width:45%; height:62%; border:2px solid #c99835; border-radius:45% 45% 40% 40%; box-shadow:0 0 0 999px #061a2a45; pointer-events:none; }.camera-error { color:#a33b42; background:#fff1f1; border-left:3px solid #b13b42; padding:12px; font-size:13px; border-radius:4px; margin-top:15px; }.processing { min-height:260px; display:grid; place-items:center; text-align:center; }.processing-ring { width:58px; height:58px; border:5px solid #dce7ee; border-top-color:var(--gold); border-radius:50%; animation:spin 1s linear infinite; }.complete-check { width:70px; height:70px; display:grid; place-items:center; margin:0 auto 18px; border-radius:50%; background:#e2f4eb; color:#187151; font-size:35px; animation:checkPop .35s ease both; } @keyframes checkPop { from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1} } [data-theme="dark"] .access-card,[data-theme="dark"] .finance-modal { background:#172630; } [data-theme="dark"] .access-card h1,[data-theme="dark"] .finance-modal h2 { color:#e0edf6; } [data-theme="dark"] .consent-box { background:#1c303c; } [data-theme="dark"] .access-card input,[data-theme="dark"] .finance-modal input,[data-theme="dark"] .lock-button { background:#10212b; color:#e3edf4; border-color:#385568; }
     @media(max-width:1050px){.quick-grid{grid-template-columns:repeat(3,1fr)}.profile-meta{gap:12px}.two-col{grid-template-columns:1fr}.sidebar-profile{display:none}.service-grid{grid-template-columns:1fr 1fr}} @media(max-width:760px){.shell{display:block} aside{position:fixed; z-index:10; transform:translateX(-100%); transition:.2s; width:245px; height:100vh}.shell.menu-open aside{transform:translateX(0)}main{padding:0 18px 30px}.topbar{min-height:68px;margin-bottom:24px}.hamburger{display:block;background:none;border:0;font-size:22px;color:var(--navy)}.top-right{gap:8px}.top-right .date,.clock{display:none}h2{font-size:25px}.welcome{padding:24px}.welcome .session{display:none}.profile-card{grid-template-columns:auto 1fr;padding:18px}.profile-meta{grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; width:100%; gap:10px}.profile-meta div{padding-left:0;border:0}.quick-grid{grid-template-columns:1fr 1fr;gap:10px}.quick{min-height:112px}.info-grid,.meta-grid{grid-template-columns:1fr 1fr}.fee{grid-template-columns:1fr auto;gap:12px}.fee .btn{grid-column:1/-1;width:100%}.option-grid{grid-template-columns:1fr}.bank-details,.service-grid{grid-template-columns:1fr}.payment-hero{display:block}.count{text-align:left;margin-top:20px}.summary{grid-template-columns:1fr}.slot{grid-template-columns:1fr auto}.slot .time{grid-column:1/-1}.slot small{display:none}.selection-footer{align-items:start;gap:15px;flex-direction:column}.selection-footer .btn{width:100%}.course-row{grid-template-columns:24px 1fr 55px}.course-row .course-code{grid-column:2}.course-row .semester{grid-column:2}.course-row .course-title{grid-column:2}.course-row .course-unit{grid-column:3;grid-row:1/4}.course-total{align-items:start;gap:15px;flex-direction:column}.toast{left:18px;right:18px;bottom:18px;max-width:none}.assistant-launcher{right:12px;bottom:12px;width:78px;height:93px}.assistant-panel{right:12px;bottom:111px;width:calc(100vw - 24px);max-height:min(540px,calc(100vh - 130px))}.access-card,.finance-modal{padding:25px 20px}.camera-frame{aspect-ratio:3/4}}
+    /* Notification Centre */
+.notification-bell {
+  position: relative;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 7px;
+  line-height: 1;
+  border-radius: 7px;
+}
+
+.notification-bell:hover {
+  background: #edf3f7;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  display: grid;
+  place-items: center;
+  background: #c83f4b;
+  color: white;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+  border: 2px solid var(--cream);
+}
+
+.notification-panel {
+  position: fixed;
+  z-index: 45;
+  top: 76px;
+  right: 46px;
+  width: min(390px, calc(100vw - 30px));
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 18px 45px #071b2a2e;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px) scale(.98);
+  pointer-events: none;
+  transition: .2s ease;
+}
+
+.notification-panel.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.notification-header {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.notification-header b {
+  color: var(--navy);
+  display: block;
+}
+
+.notification-header small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.mark-read-btn {
+  border: 0;
+  background: transparent;
+  color: var(--navy2);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.notification-list {
+  max-height: 390px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: white;
+  padding: 15px 16px;
+  display: flex;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.notification-item:hover {
+  background: #f6f9fb;
+}
+
+.notification-item.unread {
+  background: #f0f7fb;
+}
+
+.notification-item span:last-child {
+  display: grid;
+  gap: 4px;
+}
+
+.notification-item strong {
+  color: var(--navy);
+  font-size: 13px;
+}
+
+.notification-item small,
+.notification-item time {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.notification-item time {
+  color: var(--navy2);
+  font-weight: 600;
+}
+
+.notification-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  background: #e7f0f6;
+  border-radius: 8px;
+}
+
+[data-theme="dark"] .notification-panel,
+[data-theme="dark"] .notification-item {
+  background: #172630;
+  border-color: #29404f;
+}
+
+[data-theme="dark"] .notification-item.unread {
+  background: #1c3342;
+}
+
+[data-theme="dark"] .notification-item:hover {
+  background: #203846;
+}
+
+[data-theme="dark"] .notification-bell:hover {
+  background: #213b4d;
+}
+
+@media(max-width:760px) {
+  .notification-panel {
+    top: 64px;
+    right: 12px;
+  }
+}
   </style>
 </head>
 <body>
@@ -56,7 +221,48 @@
       <div class="sidebar-profile"><div class="avatar">IJ</div><div><b>Ifechukwu Jesse</b><span>EU250-303-4990</span></div></div>
     </aside>
     <main>
-      <header class="topbar"><div><button class="hamburger" id="menuBtn">☰</button><span class="crumb" id="crumb">Student Portal / Dashboard</span></div><div class="top-right"><span class="date" id="currentDate"></span><span class="clock" id="liveClock"></span><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐ Dark</button><button class="lock-button" id="lockPortal">Lock Portal</button><span class="bell">♧</span><div class="avatar">IJ</div></div></header>
+      <header class="topbar"><div><button class="hamburger" id="menuBtn">☰</button><span class="crumb" id="crumb">Student Portal / Dashboard</span></div><div class="top-right"><span class="date" id="currentDate"></span><span class="clock" id="liveClock"></span><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐ Dark</button><button class="lock-button" id="lockPortal">Lock Portal</button><button class="notification-bell" id="notificationBell" aria-label="Open notifications" aria-expanded="false">
+  🔔
+  <span class="notification-badge" id="notificationBadge">3</span>
+</button><div class="avatar">IJ</div></div></header>
+<div class="notification-panel" id="notificationPanel" aria-hidden="true">
+  <div class="notification-header">
+    <div>
+      <b>Notifications</b>
+      <small id="notificationCountText">3 unread notifications</small>
+    </div>
+    <button id="markAllRead" class="mark-read-btn">Mark all as read</button>
+  </div>
+
+  <div class="notification-list" id="notificationList">
+    <button class="notification-item unread">
+      <span class="notification-icon">📚</span>
+      <span>
+        <strong>Course Registration</strong>
+        <small>Please review and complete your course registration before the deadline.</small>
+        <time>Today</time>
+      </span>
+    </button>
+
+    <button class="notification-item unread" data-go="fees">
+      <span class="notification-icon">💳</span>
+      <span>
+        <strong>Payment Reminder</strong>
+        <small>You have payment information and levies that may require your attention.</small>
+        <time>Today</time>
+      </span>
+    </button>
+
+    <button class="notification-item unread" data-go="announcements">
+      <span class="notification-icon">📢</span>
+      <span>
+        <strong>New Announcement</strong>
+        <small>Check the Announcements section for the latest student information.</small>
+        <time>Recently</time>
+      </span>
+    </button>
+  </div>
+</div> 
 
       <section class="page active" id="dashboard"><p class="eyebrow">Student portal</p><div class="welcome"><div><h2>Welcome back, Ifechukwu.</h2><p>Here is an overview of your academic journey at Elizade University.</p></div><div class="session">Current Session<b>2025 / 2026</b></div></div><div class="privacy-warning"><b>DO NOT SHARE YOUR STUDENT LINK WITH ANYBODY</b><span>Your dashboard link may contain private academic and financial information. Keep it confidential and sign out on shared devices.</span></div><div class="profile-card"><div class="profile-avatar">IJ</div><div><h3>Ifechukwu Abumchukwu Jesse</h3><p>Computer Engineering · Faculty of Engineering</p></div><div class="profile-meta"><div><span>Matric Number</span><b>EU250-303-4990</b></div><div><span>Academic Level</span><b>200 Level</b></div><div><span>Age</span><b>19 Years</b></div></div></div><div class="section-title"><h3>Quick Access</h3><a href="#" data-go="profile">View profile →</a></div><div class="quick-grid"><button class="quick" data-go="profile"><span class="q-icon">◉</span><b>My Profile</b><small>Personal details</small></button><button class="quick" data-go="results"><span class="q-icon">▤</span><b>Academic Results</b><small>View semester grades</small></button><button class="quick" data-go="timetable"><span class="q-icon">▦</span><b>Course Timetable</b><small>Weekly schedule</small></button><button class="quick" data-go="registration"><span class="q-icon">☑</span><b>Course Registration</b><small>Select current courses</small></button><button class="quick" data-go="fees"><span class="q-icon">₦</span><b>School Fees</b><small>Payments & levies</small></button><button class="quick" data-go="drug"><span class="q-icon">▣</span><b>Drug Test</b><small>Evaluation record</small></button><button class="quick" data-go="services"><span class="q-icon">⋮</span><b>Student Services</b><small>Help and resources</small></button></div></section>
 
@@ -66,7 +272,7 @@
 
       <section class="page" id="timetable"><p class="eyebrow">Weekly schedule</p><h2>Course Timetable</h2><p class="subtitle">200 Level · Computer Engineering · Academic activities, 8:00 AM – 7:00 PM.</p><div class="card" id="timetableList"></div></section>
 
-      <section class="page" id="registration"><p class="eyebrow">Academic registration</p><h2>Course Registration</h2><p class="subtitle">200 Level · Computer Engineering · 2025/2026 Academic Session</p><div class="card"><div class="meta-grid"><div><span class="data-label">Student</span><b>Ifechukwu Abumchukwu Jesse</b></div><div><span class="data-label">Matric Number</span><b>EU250-303-4990</b></div><div><span class="data-label">Department</span><b>Computer Engineering</b></div></div></div><div class="card" style="margin-top:20px"><h3>Select Courses</h3><div class="registration-note">This is an editable indicative course template based on subjects commonly found in 200-level Computer Engineering programmes in Nigeria. Course codes, titles, units and departmental requirements must be confirmed against the University’s approved course catalogue before final registration.</div><div class="course-list" id="courseList"><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 201</b><span class="course-title">Circuit Theory I</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 203</b><span class="course-title">Digital Electronics</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 205</b><span class="course-title">Programming Methodology</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 207</b><span class="course-title">Computer Architecture</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">EEE 201</b><span class="course-title">Electrical Engineering Fundamentals</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">MTH 201</b><span class="course-title">Differential Equations</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="2"><b class="course-code">GST 211</b><span class="course-title">Philosophy, Logic and Human Existence</span><span class="semester">First semester</span><b class="course-unit">2 units</b></label></div><div class="course-total"><span>Selected credit units <strong id="selectedUnits">20</strong></span><button class="btn" id="registerCourses">Register Courses</button></div><div class="success" id="courseSuccess">Course registration received. This is a simulated confirmation: no email has been sent because this static prototype has no email service connected.</div></div></section>
+      <section class="page" id="registration"><p class="eyebrow">Academic registration</p><h2>Course Registration</h2><p class="subtitle">200 Level · Computer Engineering · 2025/2026 Academic Session</p><div class="card"><div class="meta-grid"><div><span class="data-label">Student</span><b>Ifechukwu Abumchukwu Jesse</b></div><div><span class="data-label">Matric Number</span><b>EU250-303-4990</b></div><div><span class="data-label">Department</span><b>Computer Engineering</b></div></div></div><div class="card" style="margin-top:20px"><h3>Select Courses</h3><div class="registration-note">This is an editable indicative course template based on subjects commonly found in 200-level Computer Engineering programmes in Nigeria. Course codes, titles, units and departmental requirements must be confirmed against the University’s approved course catalogue before final registration.</div><div class="course-list" id="courseList"><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 201</b><span class="course-title">Circuit Theory I</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 203</b><span class="course-title">Digital Electronics</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 205</b><span class="course-title">Programming Methodology</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 207</b><span class="course-title">Computer Architecture</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">EEE 201</b><span class="course-title">Electrical Engineering Fundamentals</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">MTH 201</b><span class="course-title">Differential Equations</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="2"><b class="course-code">GST 211</b><span class="course-title">Philosophy, Logic and Human Existence</span><span class="semester">First semester</span><b class="course-unit">2 units</b></label></div><div class="course-total"><span>Selected credit units <strong id="selectedUnits">20</strong></span><button class="btn" id="registerCourses">Register Courses</button></div><div class="success" id="courseSuccess">Course registration received.An email will be sent for your course registration.</div></div></section>
 
       <section class="page" id="fees"><p class="eyebrow">Finance</p><h2>School Fees & Payments</h2><p class="subtitle">Review your fee obligations and payment status for the current session.</p><div class="fee-list"><div class="fee"><div><h3>School Fees</h3><p>Full payment ₦1,950,000 · Half payment ₦975,000</p></div><span class="status unpaid">PAYMENT REQUIRED</span><button class="btn" data-go="selection">Pay School Fees</button></div><div class="fee"><div><h3>Medical Fee</h3><p>₦200,000 · Medical services and coverage</p></div><span class="status unpaid">UNPAID</span><button class="btn btn-outline" id="medicalPayBtn">View Payment Instructions</button></div><div class="fee"><div><h3>Academic Resource Fee & Laboratory Access and Practical Materials</h3><p>₦250,000 · Academic Resource Fee & Laboratory Access and Practical Materials</p><p style="margin-top:7px;color:#896820">Payment for the Academic Resource Fee & Laboratory Access and Practical Materials is to be made in cash at the school bursary.</p></div><span class="status unpaid">UNPAID</span><button class="btn btn-outline" onclick="showToast('Please make this payment in cash at the school bursary.')">Payment Notice</button></div><div class="fee"><div><h3>Hostel Maintenance and Residential Services</h3><p>₦150,000 · Hostel maintenance and residential services</p></div><span class="status unpaid">UNPAID</span><button class="btn" id="hostelPayBtn">Make Payment</button></div></div></section>
 
@@ -105,7 +311,7 @@
     const go=(id,bypassFinance=false)=>{if(financePages.includes(id)&&!financeUnlocked&&!bypassFinance){openFinanceGate(id);return}if(id!=='guardian')stopCamera();document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav-link').forEach(x=>x.classList.toggle('active',x.dataset.page===id));document.getElementById('crumb').textContent='Student Portal / '+titles[id];document.getElementById('shell').classList.remove('menu-open');window.scrollTo({top:0,behavior:'smooth'});if(id==='payment')startTimer();};
     document.querySelectorAll('[data-go]').forEach(x=>x.addEventListener('click',e=>{e.preventDefault();go(x.dataset.go)})); document.querySelectorAll('.nav-link').forEach(x=>x.addEventListener('click',()=>go(x.dataset.page))); document.getElementById('menuBtn').onclick=()=>document.getElementById('shell').classList.toggle('menu-open');
     // Demo-only gates. Replace these client-side checks with secure server-side authentication and authorization in production.
-    const portalAccess=document.getElementById('portalAccess'),portalPassword=document.getElementById('portalPassword'),portalAccessError=document.getElementById('portalAccessError');document.getElementById('portalAccessForm').onsubmit=e=>{e.preventDefault();if(portalPassword.value==='ifechukw2007'){portalAccess.classList.add('hidden');portalAccessError.textContent='';portalPassword.value='';showToast('Portal unlocked. Welcome back.')}else{portalAccessError.textContent='That password iJesselifes not correct. Please try again.';portalPassword.focus();}};document.getElementById('lockPortal').onclick=()=>{stopCamera();financeUnlocked=false;portalAccess.classList.remove('hidden');portalPassword.focus();};
+    const portalAccess=document.getElementById('portalAccess'),portalPassword=document.getElementById('portalPassword'),portalAccessError=document.getElementById('portalAccessError');document.getElementById('portalAccessForm').onsubmit=e=>{e.preventDefault();if(portalPassword.value==='ifechukw2007'){portalAccess.classList.add('hidden');portalAccessError.textContent='';portalPassword.value='';showToast('Portal unlocked. Welcome back.')}else{portalAccessError.textContent='Please try again.';portalPassword.focus();}};document.getElementById('lockPortal').onclick=()=>{stopCamera();financeUnlocked=false;portalAccess.classList.remove('hidden');portalPassword.focus();};
     const financeAccess=document.getElementById('financeAccess'),financePassword=document.getElementById('financePassword'),financeAccessError=document.getElementById('financeAccessError');function openFinanceGate(destination){financeDestination=destination;financePassword.value='';financeAccessError.textContent='';financeAccess.classList.add('open');setTimeout(()=>financePassword.focus(),100)}document.getElementById('financeAccessForm').onsubmit=e=>{e.preventDefault();if(financePassword.value==='jesselife'){financeUnlocked=true;financeAccess.classList.remove('open');const destination=financeDestination||'fees';financeDestination=null;go(destination,true);showToast('Financial information unlocked for this session.')}else{financeAccessError.textContent='That access code is not correct. Please try again.';financePassword.focus();}};document.getElementById('financeCancel').onclick=()=>{financeAccess.classList.remove('open');financeDestination=null;};
     let cameraStream=null;const guardianStages=document.querySelectorAll('.guardian-stage'),captureVerification=document.getElementById('captureVerification');function setGuardianStage(id){guardianStages.forEach(stage=>stage.classList.toggle('active',stage.id===id))}function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(track=>track.stop());cameraStream=null}const preview=document.getElementById('cameraPreview');if(preview)preview.srcObject=null}function cameraMessage(error){if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)return 'Camera access is not supported by this browser. Please use a supported browser on a device with a camera.';if(error&&['NotAllowedError','SecurityError'].includes(error.name))return 'Camera permission was denied. Please allow camera access in your browser settings and try again.';if(error&&['NotFoundError','DevicesNotFoundError'].includes(error.name))return 'No camera was found on this device. Please connect a camera and try again.';return 'We could not access the camera. Please check your device and browser permissions, then try again.'}const guardianConsent=document.getElementById('guardianConsent'),startCamera=document.getElementById('startCamera'),cameraError=document.getElementById('cameraError');guardianConsent.onchange=()=>startCamera.disabled=!guardianConsent.checked;startCamera.onclick=async()=>{if(!guardianConsent.checked)return;cameraError.hidden=true;captureVerification.disabled=true;if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){cameraError.textContent=cameraMessage();cameraError.hidden=false;setGuardianStage('guardianCamera');return}try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});document.getElementById('cameraPreview').srcObject=cameraStream;captureVerification.disabled=false;setGuardianStage('guardianCamera')}catch(error){cameraError.textContent=cameraMessage(error);cameraError.hidden=false;setGuardianStage('guardianCamera')}};document.getElementById('cancelCamera').onclick=()=>{stopCamera();setGuardianStage('guardianIntro')};captureVerification.onclick=()=>{if(!cameraStream)return;stopCamera();setGuardianStage('guardianProcessing');setTimeout(()=>setGuardianStage('guardianComplete'),2400)};document.getElementById('finishVerification').onclick=()=>{stopCamera();guardianConsent.checked=false;startCamera.disabled=true;setGuardianStage('guardianIntro');showToast('Verification flow finished.');};
     // Front-end assistant: responses are intentionally local and can be replaced by an authenticated AI API later.
@@ -122,6 +328,67 @@
     function startPaymentLoading(pageId,loaderId,contentId,waitId){go(pageId);const loader=document.getElementById(loaderId),content=document.getElementById(contentId);if(loader.classList.contains('done')||loader.dataset.loading)return;loader.dataset.loading='true';let left=30,wait=document.getElementById(waitId),interval=setInterval(()=>{left--;wait.textContent=left;if(left<=0){clearInterval(interval);loader.classList.add('done');content.classList.add('show');showToast('Payment information is ready.')}} ,1000)} document.getElementById('medicalPayBtn').onclick=()=>startPaymentLoading('medical-payment','medicalLoader','medicalContent','medicalWait');document.getElementById('hostelPayBtn').onclick=()=>startPaymentLoading('hostel-payment','hostelLoader','hostelContent','hostelWait');document.querySelector('[data-go="hostel-payment"]').addEventListener('click',e=>{e.preventDefault();startPaymentLoading('hostel-payment','hostelLoader','hostelContent','hostelWait')});document.getElementById('medicalPaymentMade').onclick=()=>showToast('Thank you.Receipt has been emailed or payment verified. Please check with the Medical Laboratory for clearance requirements.');document.getElementById('hostelPaymentMade').onclick=()=>showToast('Thank you. This is a prototype: no receipt has been emailed or payment verified. Please confirm with the school bursary.');
     const days=[['Monday',[['8:00 – 10:00 AM','CPE 201 · Circuit Theory I','Lecture'],['10:30 AM – 12:30 PM','MTH 201 · Differential Equations','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:00 – 6:00 PM','CPE 203 · Digital Electronics','Lecture']]],['Tuesday',[['9:00 – 11:00 AM','EEE 201 · Electrical Engineering Fundamentals','Lecture'],['11:30 AM – 1:30 PM','CPE 205 · Programming Methodology','Practical'],['2:00 – 4:00 PM','BREAK','Break'],['5:00 – 7:00 PM','Independent Study Period','Study']]],['Wednesday',[['8:00 – 10:00 AM','CPE 207 · Computer Architecture','Lecture'],['10:30 AM – 12:30 PM','PHY 201 · Electromagnetism','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:30 – 6:30 PM','CPE 203 · Digital Electronics Lab','Practical']]],['Thursday',[['9:00 – 11:00 AM','GST 211 · Philosophy, Logic & Human Existence','Lecture'],['11:30 AM – 1:30 PM','CPE 205 · Programming Methodology','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:30 – 6:00 PM','Departmental Tutorial / Study','Study']]],['Friday',[['8:00 – 10:00 AM','MTH 201 · Differential Equations','Tutorial'],['10:30 AM – 12:30 PM','CPE 201 · Circuit Theory I','Tutorial'],['2:00 – 4:00 PM','BREAK','Break'],['4:00 – 6:00 PM','CPE 207 · Computer Architecture','Lecture']]]];
     document.getElementById('timetableList').innerHTML=days.map(([day,slots])=>`<div class="day"><h3>${day}</h3><div class="slots">${slots.map(([time,name,type])=>`<div class="slot ${type==='Break'?'break':type==='Study'?'study':''}"><span class="time">${time}</span><span>${name}</span><span class="badge">${type}</span></div>`).join('')}</div></div>`).join('');
+    // Notification Centre
+const notificationBell = document.getElementById('notificationBell');
+const notificationPanel = document.getElementById('notificationPanel');
+const notificationBadge = document.getElementById('notificationBadge');
+const notificationCountText = document.getElementById('notificationCountText');
+const markAllRead = document.getElementById('markAllRead');
+
+function updateNotificationCount() {
+  const unreadCount = document.querySelectorAll('.notification-item.unread').length;
+
+  notificationCountText.textContent =
+    unreadCount === 0
+      ? 'You are all caught up'
+      : `${unreadCount} unread notification${unreadCount === 1 ? '' : 's'}`;
+
+  notificationBadge.textContent = unreadCount;
+  notificationBadge.style.display = unreadCount === 0 ? 'none' : 'grid';
+}
+
+notificationBell.addEventListener('click', () => {
+  const isOpen = notificationPanel.classList.toggle('open');
+
+  notificationBell.setAttribute('aria-expanded', isOpen);
+  notificationPanel.setAttribute('aria-hidden', !isOpen);
+});
+
+document.querySelectorAll('.notification-item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.remove('unread');
+    updateNotificationCount();
+
+    // If the notification links to an existing portal page, navigate there.
+    if (item.dataset.go) {
+      notificationPanel.classList.remove('open');
+      notificationBell.setAttribute('aria-expanded', 'false');
+      go(item.dataset.go);
+    }
+  });
+});
+
+markAllRead.addEventListener('click', () => {
+  document.querySelectorAll('.notification-item.unread').forEach(item => {
+    item.classList.remove('unread');
+  });
+
+  updateNotificationCount();
+  showToast('All notifications have been marked as read.');
+});
+
+document.addEventListener('click', event => {
+  if (
+    !notificationPanel.contains(event.target) &&
+    !notificationBell.contains(event.target)
+  ) {
+    notificationPanel.classList.remove('open');
+    notificationBell.setAttribute('aria-expanded', 'false');
+    notificationPanel.setAttribute('aria-hidden', 'true');
+  }
+});
+
+updateNotificationCount();
   </script>
 </body>
 </html>
