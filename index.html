@@ -35,8 +35,145 @@
     .logo-placeholder { width:54px; height:48px; border:1px dashed #d6b265; border-radius:8px; color:#e5bc62; display:grid; place-items:center; font-size:9px; line-height:1.2; text-align:center; font-weight:700; }.privacy-warning { margin-top:20px; border:1px solid #e7cc8d; border-left:4px solid var(--gold); background:#fffaf0; border-radius:7px; padding:14px 17px; color:#6d5729; }.privacy-warning b { display:block; color:#795000; letter-spacing:.025em; margin-bottom:4px; }.privacy-warning span { font-size:13px; }.clock { font-variant-numeric:tabular-nums; font-weight:700; color:var(--navy); font-size:13px; }.theme-toggle { background:#edf3f7; border:1px solid #d5e0e8; color:var(--navy); border-radius:5px; padding:7px 9px; font-size:12px; font-weight:700; }.toast { position:fixed; right:22px; bottom:22px; z-index:30; max-width:390px; background:#113b5f; color:#fff; border-left:4px solid #d3a54b; padding:16px 42px 16px 17px; border-radius:7px; box-shadow:0 12px 35px #071b2a55; line-height:1.45; font-size:13px; opacity:0; transform:translateY(20px); pointer-events:none; transition:.25s; }.toast.show { opacity:1; transform:translateY(0); pointer-events:auto; }.toast button { position:absolute; top:9px; right:11px; border:0; background:transparent; color:#fff; font-size:20px; }.test-table td:last-child { color:#157c5a; font-weight:700; }.test-table th:last-child { text-align:left; }
     [data-theme="dark"] { --cream:#111b24; --ink:#dce8f0; --muted:#a9bbc8; --line:#29404f; --navy:#dcecf8; --navy2:#8ab6d9; --white:#17232d; background:#111b24; color:#dce8f0; } [data-theme="dark"] aside { background:#081b2d; } [data-theme="dark"] .card,[data-theme="dark"] .profile-card,[data-theme="dark"] .quick,[data-theme="dark"] .fee,[data-theme="dark"] .service-card,[data-theme="dark"] .info-item,[data-theme="dark"] .pay-option { background:#172630; border-color:#29404f; } [data-theme="dark"] .quick b,[data-theme="dark"] .profile-card h3,[data-theme="dark"] .card h3,[data-theme="dark"] .service-card h3,[data-theme="dark"] .info-item b,[data-theme="dark"] .meta-grid b,[data-theme="dark"] .bank-details b,[data-theme="dark"] .support-list b,[data-theme="dark"] .course-row b,[data-theme="dark"] h2 { color:#e0edf6; } [data-theme="dark"] .quick .q-icon,[data-theme="dark"] .service-card .q-icon,[data-theme="dark"] .profile-avatar { background:#223745; color:#bcdcf4; } [data-theme="dark"] .course-row,[data-theme="dark"] .day h3,[data-theme="dark"] th,[data-theme="dark"] .summary div,[data-theme="dark"] .course-total,[data-theme="dark"] .bank-details div { background:#1c303c; border-color:#29404f; color:#dce8f0; } [data-theme="dark"] td { color:#c6d7e3; border-color:#29404f; } [data-theme="dark"] .privacy-warning,[data-theme="dark"] .notice { background:#342a17; color:#f0dcae; } [data-theme="dark"] .registration-note { background:#1c303c; color:#c6d7e3; } [data-theme="dark"] .theme-toggle { background:#213b4d; color:#e7f1f8; border-color:#46657c; } [data-theme="dark"] .clock { color:#dcecf8; }
     .assistant-launcher { position:fixed; right:22px; bottom:18px; z-index:31; width:96px; height:112px; padding:0; border:0; background:transparent; animation:robotFloat 4s ease-in-out infinite; filter:drop-shadow(0 10px 12px #0b284838); }.assistant-launcher:hover { animation-play-state:paused; transform:scale(1.04); }.assistant-launcher img { width:100%; height:100%; object-fit:contain; object-position:center bottom; display:block; animation:robotNod 7s ease-in-out infinite; }.assistant-launcher .assistant-status { position:absolute; right:0; bottom:3px; width:14px; height:14px; background:#20a774; border:2px solid white; border-radius:50%; }.assistant-launcher::after { content:""; position:absolute; left:46%; top:26%; width:35%; height:10%; border-radius:50%; background:rgba(111,226,255,.22); opacity:0; animation:robotBlink 7s infinite; }.assistant-panel { position:fixed; z-index:32; right:24px; bottom:126px; width:min(380px,calc(100vw - 32px)); max-height:min(570px,calc(100vh - 150px)); background:#fff; border:1px solid #d7e3ea; border-radius:15px; box-shadow:0 20px 55px #061d3040; display:flex; flex-direction:column; overflow:hidden; opacity:0; transform:translateY(18px) scale(.97); pointer-events:none; transition:.24s ease; }.assistant-panel.open { opacity:1; transform:translateY(0) scale(1); pointer-events:auto; }.assistant-panel.minimized { max-height:56px; }.assistant-panel.minimized .assistant-body,.assistant-panel.minimized .assistant-input { display:none; }.assistant-header { background:linear-gradient(110deg,#0b2848,#19517c); color:#fff; padding:13px 14px; display:flex; align-items:center; gap:10px; }.assistant-header img { width:31px; height:31px; object-fit:contain; }.assistant-header b { font-size:14px; display:block; }.assistant-header small { font-size:10px; color:#bdd7e9; }.assistant-controls { margin-left:auto; display:flex; gap:3px; }.assistant-controls button { color:#fff; border:0; background:#ffffff19; width:28px; height:28px; border-radius:5px; font-size:16px; }.assistant-body { padding:15px; overflow:auto; background:#fbfdfe; }.chat-bubble { background:#edf4f8; color:#294454; padding:11px 12px; border-radius:3px 12px 12px 12px; line-height:1.45; font-size:13px; margin-bottom:12px; }.chat-bubble.user { background:#123b63; color:#fff; margin-left:36px; border-radius:12px 3px 12px 12px; }.assistant-quick { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }.assistant-quick button { border:1px solid #cbdce7; background:white; color:#123b63; border-radius:20px; padding:7px 10px; font-size:11px; font-weight:600; }.assistant-quick button:hover { background:#edf4f8; }.assistant-input { display:flex; gap:8px; border-top:1px solid #e2e9ee; padding:11px; background:white; }.assistant-input input { min-width:0; flex:1; border:1px solid #cbd8e1; border-radius:6px; padding:9px 10px; font:inherit; font-size:12px; color:var(--ink); }.assistant-input button { border:0; border-radius:6px; background:var(--navy2); color:#fff; font-weight:700; padding:0 12px; font-size:12px; }.assistant-disclaimer { color:#7c8d99; font-size:10px; line-height:1.35; margin:12px 1px 0; } @keyframes robotFloat { 0%,100%{translate:0 0}50%{translate:0 -8px} } @keyframes robotNod { 0%,85%,100%{transform:rotate(0)}90%{transform:rotate(3deg)}95%{transform:rotate(-2deg)} } @keyframes robotBlink { 0%,45%,47%,100%{opacity:0}46%{opacity:1} } [data-theme="dark"] .assistant-panel,[data-theme="dark"] .assistant-input { background:#172630; border-color:#314b5c; } [data-theme="dark"] .assistant-body { background:#13212b; } [data-theme="dark"] .chat-bubble { background:#263f4f; color:#e1edf4; } [data-theme="dark"] .assistant-quick button { background:#1d3442; color:#d7eafa; border-color:#3b5b6e; } [data-theme="dark"] .assistant-input input { background:#10212b; color:#e3edf4; border-color:#385568; } [data-theme="dark"] .assistant-launcher .assistant-status { border-color:#172630; }
-    .access-screen { position:fixed; inset:0; z-index:60; display:grid; place-items:center; padding:20px; background:linear-gradient(135deg,#071d34,#174d76); }.access-screen.hidden { display:none; }.access-card { width:min(430px,100%); padding:34px; background:#fff; border-radius:14px; box-shadow:0 24px 65px #00000042; text-align:center; }.access-logo { width:68px; height:68px; object-fit:contain; margin-bottom:16px; }.access-card h1 { font-family:"Playfair Display",serif; color:var(--navy); margin:0; font-size:28px; }.access-card p { color:var(--muted); line-height:1.5; margin:10px 0 20px; }.access-card form { display:grid; gap:11px; text-align:left; }.access-card label { color:var(--navy); font-size:12px; font-weight:700; }.access-card input,.finance-modal input { width:100%; border:1px solid #c7d6e0; border-radius:7px; padding:12px; font:inherit; color:var(--ink); }.access-error { min-height:18px; color:#b13b42; font-size:12px; margin:0; }.access-note { color:#80909c; font-size:11px; margin:16px 0 0!important; }.screen-shield { display:none; position:fixed; inset:0; z-index:50; background:#06192b88; backdrop-filter:blur(3px); place-items:center; padding:18px; }.screen-shield.open { display:grid; }.finance-modal { width:min(410px,100%); background:#fff; border-radius:13px; padding:28px; box-shadow:0 22px 50px #06192b5c; text-align:center; }.finance-lock { width:48px; height:48px; margin:0 auto 14px; display:grid; place-items:center; border-radius:50%; background:#edf4f8; color:var(--navy2); font-size:23px; }.finance-modal h2 { font-size:24px; }.finance-modal p { font-size:13px; line-height:1.5; color:var(--muted); }.finance-modal form { display:grid; gap:11px; text-align:left; margin-top:18px; }.finance-error { min-height:17px; color:#b13b42; font-size:12px; margin:0; }.lock-button { border:1px solid #c8d7e1; background:white; color:var(--navy2); border-radius:5px; padding:7px 9px; font-size:12px; font-weight:700; }.verification-stages > * { display:none; }.verification-stages > *.active { display:block; }.consent-box { display:flex; gap:10px; align-items:flex-start; padding:13px; background:#f4f8fa; border:1px solid var(--line); border-radius:7px; font-size:13px; line-height:1.45; }.consent-box input { margin-top:3px; accent-color:var(--navy2); }.camera-frame { width:min(100%,620px); aspect-ratio:4/3; margin:0 auto; background:#071a2b; border-radius:12px; overflow:hidden; position:relative; display:grid; place-items:center; }.camera-frame video { width:100%; height:100%; object-fit:cover; transform:scaleX(-1); }.camera-frame::after { content:""; position:absolute; width:45%; height:62%; border:2px solid #c99835; border-radius:45% 45% 40% 40%; box-shadow:0 0 0 999px #061a2a45; pointer-events:none; }.camera-error { color:#a33b42; background:#fff1f1; border-left:3px solid #b13b42; padding:12px; font-size:13px; border-radius:4px; margin-top:15px; }.processing { min-height:260px; display:grid; place-items:center; text-align:center; }.processing-ring { width:58px; height:58px; border:5px solid #dce7ee; border-top-color:var(--gold); border-radius:50%; animation:spin 1s linear infinite; }.complete-check { width:70px; height:70px; display:grid; place-items:center; margin:0 auto 18px; border-radius:50%; background:#e2f4eb; color:#187151; font-size:35px; animation:checkPop .35s ease both; } @keyframes checkPop { from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1} } [data-theme="dark"] .access-card,[data-theme="dark"] .finance-modal { background:#172630; } [data-theme="dark"] .access-card h1,[data-theme="dark"] .finance-modal h2 { color:#e0edf6; } [data-theme="dark"] .consent-box { background:#1c303c; } [data-theme="dark"] .access-card input,[data-theme="dark"] .finance-modal input,[data-theme="dark"] .lock-button { background:#10212b; color:#e3edf4; border-color:#385568; }
-    @media(max-width:1050px){.quick-grid{grid-template-columns:repeat(3,1fr)}.profile-meta{gap:12px}.two-col{grid-template-columns:1fr}.sidebar-profile{display:none}.service-grid{grid-template-columns:1fr 1fr}} @media(max-width:760px){.shell{display:block} aside{position:fixed; z-index:10; transform:translateX(-100%); transition:.2s; width:245px; height:100vh}.shell.menu-open aside{transform:translateX(0)}main{padding:0 18px 30px}.topbar{min-height:68px;margin-bottom:24px}.hamburger{display:block;background:none;border:0;font-size:22px;color:var(--navy)}.top-right{gap:8px}.top-right .date,.clock{display:none}h2{font-size:25px}.welcome{padding:24px}.welcome .session{display:none}.profile-card{grid-template-columns:auto 1fr;padding:18px}.profile-meta{grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; width:100%; gap:10px}.profile-meta div{padding-left:0;border:0}.quick-grid{grid-template-columns:1fr 1fr;gap:10px}.quick{min-height:112px}.info-grid,.meta-grid{grid-template-columns:1fr 1fr}.fee{grid-template-columns:1fr auto;gap:12px}.fee .btn{grid-column:1/-1;width:100%}.option-grid{grid-template-columns:1fr}.bank-details,.service-grid{grid-template-columns:1fr}.payment-hero{display:block}.count{text-align:left;margin-top:20px}.summary{grid-template-columns:1fr}.slot{grid-template-columns:1fr auto}.slot .time{grid-column:1/-1}.slot small{display:none}.selection-footer{align-items:start;gap:15px;flex-direction:column}.selection-footer .btn{width:100%}.course-row{grid-template-columns:24px 1fr 55px}.course-row .course-code{grid-column:2}.course-row .semester{grid-column:2}.course-row .course-title{grid-column:2}.course-row .course-unit{grid-column:3;grid-row:1/4}.course-total{align-items:start;gap:15px;flex-direction:column}.toast{left:18px;right:18px;bottom:18px;max-width:none}.assistant-launcher{right:12px;bottom:12px;width:78px;height:93px}.assistant-panel{right:12px;bottom:111px;width:calc(100vw - 24px);max-height:min(540px,calc(100vh - 130px))}.access-card,.finance-modal{padding:25px 20px}.camera-frame{aspect-ratio:3/4}}
+    .access-screen { position:fixed; inset:0; z-index:60; display:grid; place-items:center; padding:20px; background:linear-gradient(135deg,#071d34,#174d76); }.access-screen.hidden { display:none; }.access-card { width:min(430px,100%); padding:34px; background:#fff; border-radius:14px; box-shadow:0 24px 65px #00000042; text-align:center; }.access-logo { width:68px; height:68px; object-fit:contain; margin-bottom:16px; }.access-card h1 { font-family:"Playfair Display",serif; color:var(--navy); margin:0; font-size:28px; }.access-card p { color:var(--muted); line-height:1.5; margin:10px 0 20px; }.access-card form { display:grid; gap:11px; text-align:left; }.access-card label { color:var(--navy); font-size:12px; font-weight:700; }.access-card input,.finance-modal input { width:100%; border:1px solid #c7d6e0; border-radius:7px; padding:12px; font:inherit; color:var(--ink); }.access-error { min-height:18px; color:#b13b42; font-size:12px; margin:0; }.access-note { color:#80909c; font-size:11px; margin:16px 0 0!important; }.screen-shield { display:none; position:fixed; inset:0; z-index:50; background:#06192b88; backdrop-filter:blur(3px); place-items:center; padding:18px; }.screen-shield.open { display:grid; }.finance-modal { width:min(410px,100%); background:#fff; border-radius:13px; padding:28px; box-shadow:0 22px 50px #06192b5c; text-align:center; }.finance-lock { width:48px; height:48px; margin:0 auto 14px; display:grid; place-items:center; border-radius:50%; background:#edf4f8; color:var(--navy2); font-size:23px; }.finance-modal h2 { font-size:24px; }.finance-modal p { font-size:13px; line-height:1.5; color:var(--muted); }.finance-modal form { display:grid; gap:11px; text-align:left; margin-top:18px; }.finance-error { min-height:17px; color:#b13b42; font-size:12px; margin:0; }.lock-button { border:1px solid #c8d7e1; background:white; color:var(--navy2); border-radius:5px; padding:7px 9px; font-size:12px; font-weight:700; }.verification-stages > * { display:none; }.verification-stages > *.active { display:block; }.consent-box { display:flex; gap:10px; align-items:flex-start; padding:13px; background:#f4f8fa; border:1px solid var(--line); border-radius:7px; font-size:13px; line-height:1.45; }
+    .verification-choice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.verification-option {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.verification-option:hover {
+ 
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.verification-option.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 152, 53, 0.15);
+  background: #fffdf8;
+}
+
+.verification-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  border-radius: 50%;
+  background: #f4f8fa;
+  color: var(--navy2);
+  font-size: 25px;
+}
+
+.verification-option strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.verification-option small {
+  display: block;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+@media(max-width:760px) {
+  .verification-choice {
+    grid-template-columns: 1fr;
+  }
+}
+    .consent-box input { margin-top:3px; accent-color:var(--navy2); }.camera-frame { width:min(100%,620px); aspect-ratio:4/3; margin:0 auto; background:#071a2b; border-radius:12px; overflow:hidden; position:relative; display:grid; place-items:center; }.camera-frame video { width:100%; height:100%; object-fit:cover; transform:scaleX(-1); }
+    .scanner-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.scanner-face-guide {
+  position: absolute;
+  width: 45%;
+  height: 62%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(201, 152, 53, 0.9);
+  border-radius: 45% 45% 40% 40%;
+  box-shadow: 0 0 25px rgba(201, 152, 53, 0.25);
+}
+
+.scanner-line {
+  position: absolute;
+  left: 12%;
+  width: 76%;
+  height: 3px;
+  top: 15%;
+  background: linear-gradient(90deg, transparent, #c99835, transparent);
+  box-shadow: 0 0 12px rgba(201, 152, 53, 0.9);
+  animation: faceScan 3s ease-in-out infinite;
+}
+
+.scanner-corners span {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: #c99835;
+  border-style: solid;
+}
+
+.scanner-corners span:nth-child(1) {
+  left: 10%;
+  top: 10%;
+  border-width: 3px 0 0 3px;
+}
+
+.scanner-corners span:nth-child(2) {
+  right: 10%;
+  top: 10%;
+  border-width: 3px 3px 0 0;
+}
+
+.scanner-corners span:nth-child(3) {
+  left: 10%;
+  bottom: 10%;
+  border-width: 0 0 3px 3px;
+}
+
+.scanner-corners span:nth-child(4) {
+  right: 10%;
+  bottom: 10%;
+  border-width: 0 3px 3px 0;
+}
+
+@keyframes faceScan {
+  0%, 100% {
+    top: 15%;
+    opacity: 0.4;
+  }
+  50% {
+    top: 82%;
+    opacity: 1;
+  }
+}
+    .camera-frame::after { content:""; position:absolute; width:45%; height:62%; border:2px solid #c99835; border-radius:45% 45% 40% 40%; box-shadow:0 0 0 999px #061a2a45; pointer-events:none; }.camera-error { color:#a33b42; background:#fff1f1; border-left:3px solid #b13b42; padding:12px; font-size:13px; border-radius:4px; margin-top:15px; }.processing { min-height:260px; display:grid; place-items:center; text-align:center; }.processing-ring { width:58px; height:58px; border:5px solid #dce7ee; border-top-color:var(--gold); border-radius:50%; animation:spin 1s linear infinite; }.complete-check { width:70px; height:70px; display:grid; place-items:center; margin:0 auto 18px; border-radius:50%; background:#e2f4eb; color:#187151; font-size:35px; animation:checkPop .35s ease both; } @keyframes checkPop { from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1} } [data-theme="dark"] .access-card,[data-theme="dark"] .finance-modal { background:#172630; } [data-theme="dark"] .access-card h1,[data-theme="dark"] .finance-modal h2 { color:#e0edf6; } [data-theme="dark"] .consent-box { background:#1c303c; } [data-theme="dark"] .access-card input,[data-theme="dark"] .finance-modal input,[data-theme="dark"] .lock-button { background:#10212b; color:#e3edf4; border-color:#385568; }
+    @media(max-width:1050px){.quick-grid{grid-template-columns:repeat(3,1fr)}.profile-meta{gap:12px}.two-col{grid-template-columns:1fr}.sidebar-profile{display:none}.service-grid{grid-template-columns:1fr 1fr}} @media(max-width:760px){.shell{display:block} aside{position:fixed; z-index:10; transform:translateX(-100%); transition:.2s; width:245px; height:100vh}.shell.menu-open aside{transform:translateX(0)}main{padding:0 18px 30px}.topbar{min-height:68px;margin-bottom:24px}.hamburger{display:block;background:none;border:0;font-size:22px;color:var(--navy)}.top-right{gap:8px}.top-right .date,.clock{display:inline-block}h2{font-size:25px}.welcome{padding:24px}.welcome .session{display:none}.profile-card{grid-template-columns:auto 1fr;padding:18px}.profile-meta{grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; width:100%; gap:10px}.profile-meta div{padding-left:0;border:0}.quick-grid{grid-template-columns:1fr 1fr;gap:10px}.quick{min-height:112px}.info-grid,.meta-grid{grid-template-columns:1fr 1fr}.fee{grid-template-columns:1fr auto;gap:12px}.fee .btn{grid-column:1/-1;width:100%}.option-grid{grid-template-columns:1fr}.bank-details,.service-grid{grid-template-columns:1fr}.payment-hero{display:block}.count{text-align:left;margin-top:20px}.summary{grid-template-columns:1fr}.slot{grid-template-columns:1fr auto}.slot .time{grid-column:1/-1}.slot small{display:none}.selection-footer{align-items:start;gap:15px;flex-direction:column}.selection-footer .btn{width:100%}.course-row{grid-template-columns:24px 1fr 55px}.course-row .course-code{grid-column:2}.course-row .semester{grid-column:2}.course-row .course-title{grid-column:2}.course-row .course-unit{grid-column:3;grid-row:1/4}.course-total{align-items:start;gap:15px;flex-direction:column}.toast{left:18px;right:18px;bottom:18px;max-width:none}.assistant-launcher{right:12px;bottom:12px;width:78px;height:93px}.assistant-panel{right:12px;bottom:111px;width:calc(100vw - 24px);max-height:min(540px,calc(100vh - 130px))}.access-card,.finance-modal{padding:25px 20px}.camera-frame{aspect-ratio:3/4}}
     /* Notification Centre */
 .notification-bell {
   position: relative;
@@ -286,7 +423,39 @@
       <section class="page" id="payment"><p class="eyebrow">Secure payment session</p><h2>Payment Details</h2><p class="subtitle">Use the account details below to complete your selected payment.</p><div class="payment-hero"><div><p>Selected payment option</p><b id="payChoice">Full Payment — ₦1,950,000</b></div><div class="count"><span>Time remaining</span><strong id="timer">20:00</strong></div></div><div class="card" style="margin-top:20px"><h3>Bank Transfer Details</h3><div class="bank-details"><div><span class="data-label">Bank</span><b>None</b></div><div><span class="data-label">Account Name</span><b>None</b></div><div><span class="data-label">Account Number</span><b>None</b></div></div><div class="notice" id="timerMsg">This payment session is valid for 20 minutes. Please complete your payment before the timer expires.</div><button class="btn" id="madePayment">I Have Made Payment</button><div class="success" id="successMsg">Payment information not active Thank you.</div><p style="font-size:11px;color:#83909b;margin:15px 0 0">payment provider or account connection is active.</p></div></section>
 
       <section class="page" id="drug"><p class="eyebrow">Health services</p><span class="confidential">CONFIDENTIAL STUDENT RECORD</span><h2>Drug Test Evaluation</h2><p class="subtitle">This record is intended for the student and authorised University personnel only.</p><div class="card"><div class="info-grid"><div class="info-item"><span class="data-label">Student Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div class="info-item"><span class="data-label">Matriculation Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Department</span><b>Computer Engineering</b></div><div class="info-item"><span class="data-label">Evaluation Status</span><b>Completed</b></div></div><h3 style="margin-top:24px">Recorded Evaluations</h3><div class="result-table-wrap"><table class="test-table"><thead><tr><th>Evaluation Date</th><th>Result</th></tr></thead><tbody><tr><td>13 April 2026</td><td>Negative</td></tr><tr><td>17 May 2026</td><td>Negative</td></tr><tr><td>8 July 2026</td><td>Negative</td></tr></tbody></table></div><div class="eval"><span class="data-label" style="color:#437e67">Evaluation Summary</span><strong>All recorded tests are negative</strong><span>Student evaluation records have been completed and maintained by the University Health Centre.</span></div></div></section>
-      <section class="page" id="guardian"><p class="eyebrow">Campus safety</p><h2>Parent &amp; Guardian Verification</h2><p class="subtitle">A voluntary, consent-based verification experience for campus visits.</p><div class="card verification-stages" id="guardianFlow"><div class="guardian-stage active" id="guardianIntro"><h3>Why verification is requested</h3><p class="subtitle" style="font-size:14px;line-height:1.6">Parent and guardian verification can help support a safer school environment, improve visitor management, and assist security personnel in confirming authorized visitors when they visit the campus.</p><div class="notice">The camera will only be activated after you choose to start verification and your browser asks for permission. This demonstration does not secretly record, upload, permanently store, or retain facial images. A real school deployment involving identity verification or facial data would require appropriate authorization, consent procedures, privacy safeguards, and secure data handling.</div><label class="consent-box"><input type="checkbox" id="guardianConsent"><span>I understand why camera verification is being requested and I consent to continue.</span></label><button class="btn" id="startCamera" disabled style="margin-top:17px">Start Camera Verification</button><p class="access-note">Camera access works on supported browsers, usually when deployed over HTTPS.</p></div><div class="guardian-stage" id="guardianCamera"><h3>Camera Verification</h3><p class="subtitle" style="font-size:13px">Position your face within the guide, then select Capture to continue.</p><div class="camera-frame"><video id="cameraPreview" autoplay playsinline muted aria-label="Live camera preview"></video></div><div class="camera-error" id="cameraError" role="alert" hidden></div><button class="btn" id="captureVerification" style="margin-top:17px">Capture</button><button class="btn btn-outline" id="cancelCamera" style="margin-left:8px">Cancel</button></div><div class="guardian-stage" id="guardianProcessing"><div class="processing"><div><div class="processing-ring" style="margin:0 auto 18px"></div><h3>Verifying...</h3><p class="subtitle" style="font-size:13px">Processing this demonstration verification locally. No image is uploaded or stored.</p></div></div></div><div class="guardian-stage" id="guardianComplete"><div class="processing"><div><div class="complete-check">✓</div><h3>Verification Complete ✓</h3><p class="subtitle" style="font-size:14px;line-height:1.55">Thank you for completing the verification process and helping support a safe and secure university environment.</p><button class="btn" id="finishVerification">Finish</button></div></div></div></div></section>
+      <section class="page" id="guardian"><p class="eyebrow">Campus safety</p><h2>Parent &amp; Guardian Verification</h2><p class="subtitle">A voluntary, consent-based verification experience for campus visits.</p><div class="card verification-stages" id="guardianFlow"><div class="guardian-stage active" id="guardianIntro"><h3>Why verification is requested</h3><p class="subtitle" style="font-size:14px;line-height:1.6">Parent and guardian verification can help support a safer school environment, improve visitor management, and assist security personnel in confirming authorized visitors when they visit the campus.</p><div class="verification-choice">
+  <button type="button" class="verification-option" data-verification="female">
+    <span class="verification-icon">♀</span>
+    <span>
+      <strong>Female Verification</strong>
+      <small>Select this verification section to continue.</small>
+    </span>
+  </button>
+
+  <button type="button" class="verification-option" data-verification="male">
+    <span class="verification-icon">♂</span>
+    <span>
+      <strong>Male Verification</strong>
+      <small>Select this verification section to continue.</small>
+    </span>
+  </button>
+</div>
+  <div class="notice">The camera will only be activated after you choose to start verification and your browser asks for permission. This demonstration does not secretly record, upload, permanently store, or retain facial images. .</div><label class="consent-box"><input type="checkbox" id="guardianConsent"><span>I understand why camera verification is being requested and I consent to continue.</span></label><button class="btn" id="startCamera" disabled style="margin-top:17px">Start Camera Verification</button><p class="access-note">Camera access works on supported browsers, usually when deployed over HTTPS.</p></div><div class="guardian-stage" id="guardianCamera"><h3>Camera Verification</h3><p class="subtitle" style="font-size:13px">Position your face within the guide, then select Capture to continue.</p><div class="camera-frame">
+  <video id="cameraPreview" autoplay playsinline muted aria-label="Live camera preview"></video>
+
+  <div class="scanner-overlay" aria-hidden="true">
+    <div class="scanner-face-guide"></div>
+    <div class="scanner-line"></div>
+    <div class="scanner-corners">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</div>
+  <div class="camera-error" id="cameraError" role="alert" hidden></div><button class="btn" id="captureVerification" style="margin-top:17px">Capture</button><button class="btn btn-outline" id="cancelCamera" style="margin-left:8px">Cancel</button></div><div class="guardian-stage" id="guardianProcessing"><div class="processing"><div><div class="processing-ring" style="margin:0 auto 18px"></div><h3>Verifying...</h3><p class="subtitle" style="font-size:13px">Your verification is being securely processed. Please wait while the scanning process is completed.</p></div></div></div><div class="guardian-stage" id="guardianComplete"><div class="processing"><div><div class="complete-check">✓</div><h3>Verification Complete ✓</h3><p class="subtitle" style="font-size:14px;line-height:1.55">
+  <strong id="verificationResult">Verification completed successfully.</strong><br>
+  Thank you for completing the verification process and helping support a safe and secure university environment.
+</p>
+<button class="btn" id="finishVerification">Finish</button></div></div></div></div></section>
       <section class="page" id="services"><p class="eyebrow">Student support</p><h2>Student Services</h2><p class="subtitle">Quick access to University resources, records and support.</p><div class="service-grid"><article class="service-card"><div class="q-icon">✉</div><h3>Announcements</h3><p>Stay up to date with academic, departmental and campus notices.</p><button class="btn" data-go="announcements">View Announcements</button></article><article class="service-card"><div class="q-icon">?</div><h3>Support / Help Desk</h3><p>Find contacts and guidance for academic and portal assistance.</p><button class="btn" data-go="support">Get Support</button></article><article class="service-card"><div class="q-icon">⌂</div><h3>Hostel Information</h3><p>Review accommodation guidance and residential services.</p><button class="btn" data-go="hostel-info">View Hostel Info</button></article><article class="service-card"><div class="q-icon">▤</div><h3>Library Services</h3><p>Explore research support, borrowing and study resources.</p><button class="btn" data-go="library">Open Library Services</button></article><article class="service-card"><div class="q-icon">▣</div><h3>Student ID Card</h3><p>View your campus identity card information.</p><button class="btn" data-go="id-card">View ID Card</button></article><article class="service-card"><div class="q-icon">⚙</div><h3>Settings</h3><p>Review notifications and basic account preferences.</p><button class="btn" data-go="settings">Open Settings</button></article></div></section>
       <section class="page" id="announcements"><p class="eyebrow">University updates</p><h2>Announcements</h2><p class="subtitle">Recent notices relevant to your academic journey.</p><div class="support-list"><div><b>Course registration window</b><span>Review your selected courses and submit your registration before the departmental deadline.</span></div><div><b>Faculty of Engineering notice</b><span>Students should check the timetable before attending laboratory practical sessions.</span></div><div><b>Library orientation resources</b><span>Online library guidance and study skills resources are available through Library Services.</span></div></div></section>
       <section class="page" id="support"><p class="eyebrow">Need assistance?</p><h2>Support / Help Desk</h2><p class="subtitle">Start with the service best suited to your enquiry.</p><div class="support-list"><div><b>Academic and registration enquiries</b><span>Contact your department or Faculty Office for course and registration support.</span></div><div><b>Fees and bursary enquiries</b><span>Visit the school bursary for confirmation of charges and approved payment instructions.</span></div><div><b>Portal assistance</b><span>Use the University ICT support channel for account access and technical issues.</span></div></div></section>
@@ -314,7 +483,39 @@
     // Demo-only gates. Replace these client-side checks with secure server-side authentication and authorization in production.
     const portalAccess=document.getElementById('portalAccess'),portalPassword=document.getElementById('portalPassword'),portalAccessError=document.getElementById('portalAccessError');document.getElementById('portalAccessForm').onsubmit=e=>{e.preventDefault();if(portalPassword.value==='ifechukw2007'){portalAccess.classList.add('hidden');portalAccessError.textContent='';portalPassword.value='';showToast('Portal unlocked. Welcome back.')}else{portalAccessError.textContent='Please try again.';portalPassword.focus();}};document.getElementById('lockPortal').onclick=()=>{stopCamera();financeUnlocked=false;portalAccess.classList.remove('hidden');portalPassword.focus();};
     const financeAccess=document.getElementById('financeAccess'),financePassword=document.getElementById('financePassword'),financeAccessError=document.getElementById('financeAccessError');function openFinanceGate(destination){financeDestination=destination;financePassword.value='';financeAccessError.textContent='';financeAccess.classList.add('open');setTimeout(()=>financePassword.focus(),100)}document.getElementById('financeAccessForm').onsubmit=e=>{e.preventDefault();if(financePassword.value==='jesselife'){financeUnlocked=true;financeAccess.classList.remove('open');const destination=financeDestination||'fees';financeDestination=null;go(destination,true);showToast('Financial information unlocked for this session.')}else{financeAccessError.textContent='That access code is not correct. Please try again.';financePassword.focus();}};document.getElementById('financeCancel').onclick=()=>{financeAccess.classList.remove('open');financeDestination=null;};
-    let cameraStream=null;const guardianStages=document.querySelectorAll('.guardian-stage'),captureVerification=document.getElementById('captureVerification');function setGuardianStage(id){guardianStages.forEach(stage=>stage.classList.toggle('active',stage.id===id))}function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(track=>track.stop());cameraStream=null}const preview=document.getElementById('cameraPreview');if(preview)preview.srcObject=null}function cameraMessage(error){if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)return 'Camera access is not supported by this browser. Please use a supported browser on a device with a camera.';if(error&&['NotAllowedError','SecurityError'].includes(error.name))return 'Camera permission was denied. Please allow camera access in your browser settings and try again.';if(error&&['NotFoundError','DevicesNotFoundError'].includes(error.name))return 'No camera was found on this device. Please connect a camera and try again.';return 'We could not access the camera. Please check your device and browser permissions, then try again.'}const guardianConsent=document.getElementById('guardianConsent'),startCamera=document.getElementById('startCamera'),cameraError=document.getElementById('cameraError');guardianConsent.onchange=()=>startCamera.disabled=!guardianConsent.checked;startCamera.onclick=async()=>{if(!guardianConsent.checked)return;cameraError.hidden=true;captureVerification.disabled=true;if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){cameraError.textContent=cameraMessage();cameraError.hidden=false;setGuardianStage('guardianCamera');return}try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});document.getElementById('cameraPreview').srcObject=cameraStream;captureVerification.disabled=false;setGuardianStage('guardianCamera')}catch(error){cameraError.textContent=cameraMessage(error);cameraError.hidden=false;setGuardianStage('guardianCamera')}};document.getElementById('cancelCamera').onclick=()=>{stopCamera();setGuardianStage('guardianIntro')};captureVerification.onclick=()=>{if(!cameraStream)return;stopCamera();setGuardianStage('guardianProcessing');setTimeout(()=>setGuardianStage('guardianComplete'),2400)};document.getElementById('finishVerification').onclick=()=>{stopCamera();guardianConsent.checked=false;startCamera.disabled=true;setGuardianStage('guardianIntro');showToast('Verification flow finished.');};
+    let cameraStream=null;const guardianStages=document.querySelectorAll('.guardian-stage'),captureVerification=document.getElementById('captureVerification');function setGuardianStage(id){guardianStages.forEach(stage=>stage.classList.toggle('active',stage.id===id))}function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(track=>track.stop());cameraStream=null}const preview=document.getElementById('cameraPreview');if(preview)preview.srcObject=null}function cameraMessage(error){if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)return 'Camera access is not supported by this browser. Please use a supported browser on a device with a camera.';if(error&&['NotAllowedError','SecurityError'].includes(error.name))return 'Camera permission was denied. Please allow camera access in your browser settings and try again.';if(error&&['NotFoundError','DevicesNotFoundError'].includes(error.name))return 'No camera was found on this device. Please connect a camera and try again.';return 'We could not access the camera. Please check your device and browser permissions, then try again.'}const guardianConsent=document.getElementById('guardianConsent'),startCamera=document.getElementById('startCamera'),cameraError=document.getElementById('cameraError');let selectedVerification = '';
+
+const verificationOptions = document.querySelectorAll('.verification-option');
+
+function updateVerificationButton() {
+  startCamera.disabled = !(guardianConsent.checked && selectedVerification);
+}
+function resetVerificationSelection() {
+  selectedVerification = '';
+  verificationOptions.forEach(option =>
+    option.classList.remove('selected')
+  );
+  guardianConsent.checked = false;
+  updateVerificationButton();
+}
+
+guardianConsent.onchange = updateVerificationButton;
+
+verificationOptions.forEach(option => {
+  option.onclick = () => {
+    selectedVerification = option.dataset.verification;
+
+    verificationOptions.forEach(item =>
+      item.classList.toggle('selected', item === option)
+    );
+
+    updateVerificationButton();
+  };
+});startCamera.onclick=async()=>{if(!guardianConsent.checked)return;cameraError.hidden=true;captureVerification.disabled=true;if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){cameraError.textContent=cameraMessage();cameraError.hidden=false;setGuardianStage('guardianCamera');return}try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});document.getElementById('cameraPreview').srcObject=cameraStream;captureVerification.disabled=false;setGuardianStage('guardianCamera')}catch(error){cameraError.textContent=cameraMessage(error);cameraError.hidden=false;setGuardianStage('guardianCamera')}};document.getElementById('cancelCamera').onclick=()=>{stopCamera();resetVerificationSelection();setGuardianStage('guardianIntro')};captureVerification.onclick=()=>{if(!cameraStream)return;stopCamera();setGuardianStage('guardianProcessing');const verificationResult = document.getElementById('verificationResult');
+verificationResult.textContent =
+  selectedVerification === 'female'
+    ? 'Female verification section completed.'
+    : 'Male verification section completed.';setTimeout(()=>setGuardianStage('guardianComplete'),20000)};document.getElementById('finishVerification').onclick=()=>{stopCamera();resetVerificationSelection();setGuardianStage('guardianIntro');showToast('Verification flow finished.image stored thank you.');};
     // Front-end assistant: responses are intentionally local and can be replaced by an authenticated AI API later.
     const assistantPanel=document.getElementById('assistantPanel'),assistantLauncher=document.getElementById('assistantLauncher'),assistantMessages=document.getElementById('assistantMessages'),assistantInput=document.getElementById('assistantInput');
     function assistantOpen(){assistantPanel.classList.add('open');assistantPanel.classList.remove('minimized');assistantLauncher.setAttribute('aria-expanded','true');assistantInput.focus()}function assistantClose(){assistantPanel.classList.remove('open');assistantLauncher.setAttribute('aria-expanded','false')}function addAssistantMessage(text,user=false){const bubble=document.createElement('div');bubble.className='chat-bubble'+(user?' user':'');bubble.textContent=text;assistantMessages.insertBefore(bubble,assistantMessages.querySelector('.assistant-quick'));assistantMessages.scrollTop=assistantMessages.scrollHeight}function helpWith(key){const replies={register:['Course Registration lets you select courses and see the total credit units before submitting.', 'registration'],payments:['Open School Fees & Payments to choose a school-fee option or view Medical and Hostel payment instructions.', 'fees'],timetable:['Your weekly schedule is available on the Course Timetable page.', 'timetable'],support:['The Support / Help Desk page lists academic, bursary and portal assistance options.', 'support'],hostel:['Hostel Information shows accommodation guidance and links to the hostel payment instructions.', 'hostel-info'],library:['Library Services contains study, catalogue and borrowing guidance.', 'library'],id:['Your Student ID Card reference is available under Student Services.', 'id-card'],announcements:['Recent academic and campus notices are collected in Announcements.', 'announcements']};const [message,page]=replies[key];addAssistantMessage(message);setTimeout(()=>go(page),350)} assistantLauncher.onclick=()=>assistantPanel.classList.contains('open')?assistantClose():assistantOpen();document.getElementById('assistantClose').onclick=assistantClose;document.getElementById('assistantMinimize').onclick=()=>assistantPanel.classList.toggle('minimized');document.querySelectorAll('[data-assistant-action]').forEach(button=>button.onclick=()=>{const key=button.dataset.assistantAction;addAssistantMessage(button.textContent,true);helpWith(key)});document.getElementById('assistantForm').onsubmit=e=>{e.preventDefault();const query=assistantInput.value.trim();if(!query)return;addAssistantMessage(query,true);assistantInput.value='';const normalized=query.toLowerCase();const match=normalized.includes('register')||normalized.includes('course')?'register':normalized.includes('pay')||normalized.includes('fee')||normalized.includes('medical')?'payments':normalized.includes('time')||normalized.includes('schedule')?'timetable':normalized.includes('hostel')?'hostel':normalized.includes('library')?'library':normalized.includes('id card')||normalized.includes('identity')?'id':normalized.includes('announce')||normalized.includes('news')?'announcements':normalized.includes('support')||normalized.includes('help')?'support':null;if(match)helpWith(match);else addAssistantMessage('I can help you locate Course Registration, Payments, Timetable, Hostel Information, Library Services, Student ID, Announcements, and Support. Try one of those terms.');};
