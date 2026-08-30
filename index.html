@@ -466,7 +466,11 @@
       <footer class="page-footer">For more information, contact: <a href="mailto:infoadmissionelizadeuniversity@gmail.com">infoadmissionelizadeuniversity@gmail.com</a></footer>
     </main>
   </div>
-  <section class="access-screen" id="portalAccess" aria-label="Student portal access"><div class="access-card"><img class="access-logo" src="images/elizade-logo.png" alt="Elizade University logo"><h1>Student Portal Access</h1><p>Please enter your access password to continue.</p><form id="portalAccessForm"><label for="portalPassword">Access password</label><input id="portalPassword" type="password" autocomplete="current-password" required><p class="access-error" id="portalAccessError" role="alert"></p><button class="btn" type="submit">Continue</button></form><p class="access-note">Demonstration-only front-end access gate. Production access control must be implemented on a secure server.</p></div></section>
+  <section class="access-screen" id="portalAccess" aria-label="Student portal access"><div class="access-card"><img class="access-logo" src="images/elizade-logo.png" alt="Elizade University logo"><h1>Student Portal Access</h1><p>Please enter your username and password to continue.</p><form id="portalAccessForm"><label for="portalUsername">Username</label>
+<input id="portalUsername" type="text" autocomplete="username" required>
+
+<label for="portalPassword">Password</label>
+<input id="portalPassword" type="password" autocomplete="current-password" required><p class="access-error" id="portalAccessError" role="alert"></p><button class="btn" type="submit">Continue</button></form><p class="access-note">Demonstration-only front-end access gate. Production access control must be implemented on a secure server.</p></div></section>
   <section class="screen-shield" id="financeAccess" aria-label="Confidential financial information access"><div class="finance-modal"><div class="finance-lock" aria-hidden="true">⌑</div><h2>Financial Information Locked</h2><p>This section contains confidential school fees, payment and levy information. Enter the payment access code to continue.</p><form id="financeAccessForm"><label for="financePassword">Payment access code</label><input id="financePassword" type="password" autocomplete="current-password" required><p class="finance-error" id="financeAccessError" role="alert"></p><button class="btn" type="submit">Continue</button><button class="btn btn-outline" type="button" id="financeCancel">Cancel</button></form><p class="access-note">Demonstration-only front-end gate. Production financial access requires server-side authorization.</p></div></section>
   <div class="toast" id="toast" role="status" aria-live="polite"><button id="toastClose" aria-label="Close notification">×</button><span id="toastText"></span></div>
   <button class="assistant-launcher" id="assistantLauncher" aria-label="Open virtual assistant" aria-expanded="false"><img src="images/portal-assistant-robot.png" alt="Friendly virtual assistant robot"><span class="assistant-status" aria-hidden="true"></span></button>
@@ -481,7 +485,39 @@
     const go=(id,bypassFinance=false)=>{if(financePages.includes(id)&&!financeUnlocked&&!bypassFinance){openFinanceGate(id);return}if(id!=='guardian')stopCamera();document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav-link').forEach(x=>x.classList.toggle('active',x.dataset.page===id));document.getElementById('crumb').textContent='Student Portal / '+titles[id];document.getElementById('shell').classList.remove('menu-open');window.scrollTo({top:0,behavior:'smooth'});if(id==='payment')startTimer();};
     document.querySelectorAll('[data-go]').forEach(x=>x.addEventListener('click',e=>{e.preventDefault();go(x.dataset.go)})); document.querySelectorAll('.nav-link').forEach(x=>x.addEventListener('click',()=>go(x.dataset.page))); document.getElementById('menuBtn').onclick=()=>document.getElementById('shell').classList.toggle('menu-open');
     // Demo-only gates. Replace these client-side checks with secure server-side authentication and authorization in production.
-    const portalAccess=document.getElementById('portalAccess'),portalPassword=document.getElementById('portalPassword'),portalAccessError=document.getElementById('portalAccessError');document.getElementById('portalAccessForm').onsubmit=e=>{e.preventDefault();if(portalPassword.value==='ifechukw2007'){portalAccess.classList.add('hidden');portalAccessError.textContent='';portalPassword.value='';showToast('Portal unlocked. Welcome back.')}else{portalAccessError.textContent='Please try again.';portalPassword.focus();}};document.getElementById('lockPortal').onclick=()=>{stopCamera();financeUnlocked=false;portalAccess.classList.remove('hidden');portalPassword.focus();};
+    const portalAccess=document.getElementById('portalAccess'),
+portalUsername=document.getElementById('portalUsername'),
+portalPassword=document.getElementById('portalPassword'),
+portalAccessError=document.getElementById('portalAccessError');
+
+document.getElementById('portalAccessForm').onsubmit=e=>{
+  e.preventDefault();
+
+  if(
+    portalUsername.value.trim()==='Ifechukwu Abumchukwu' &&
+    portalPassword.value==='ifechukw2007'
+  ){
+    portalAccess.classList.add('hidden');
+    portalAccessError.textContent='';
+    portalUsername.value='';
+    portalPassword.value='';
+    showToast('Portal unlocked. Welcome back.');
+  }else{
+    portalAccessError.textContent='Incorrect username or password. Please try again.';
+    portalPassword.value='';
+    portalPassword.focus();
+  }
+};
+
+document.getElementById('lockPortal').onclick=()=>{
+  stopCamera();
+  financeUnlocked=false;
+  portalAccess.classList.remove('hidden');
+  portalUsername.value='';
+  portalPassword.value='';
+  portalAccessError.textContent='';
+  portalUsername.focus();
+};
     const financeAccess=document.getElementById('financeAccess'),financePassword=document.getElementById('financePassword'),financeAccessError=document.getElementById('financeAccessError');function openFinanceGate(destination){financeDestination=destination;financePassword.value='';financeAccessError.textContent='';financeAccess.classList.add('open');setTimeout(()=>financePassword.focus(),100)}document.getElementById('financeAccessForm').onsubmit=e=>{e.preventDefault();if(financePassword.value==='jesselife'){financeUnlocked=true;financeAccess.classList.remove('open');const destination=financeDestination||'fees';financeDestination=null;go(destination,true);showToast('Financial information unlocked for this session.')}else{financeAccessError.textContent='That access code is not correct. Please try again.';financePassword.focus();}};document.getElementById('financeCancel').onclick=()=>{financeAccess.classList.remove('open');financeDestination=null;};
     let cameraStream=null;const guardianStages=document.querySelectorAll('.guardian-stage'),captureVerification=document.getElementById('captureVerification');function setGuardianStage(id){guardianStages.forEach(stage=>stage.classList.toggle('active',stage.id===id))}function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(track=>track.stop());cameraStream=null}const preview=document.getElementById('cameraPreview');if(preview)preview.srcObject=null}function cameraMessage(error){if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)return 'Camera access is not supported by this browser. Please use a supported browser on a device with a camera.';if(error&&['NotAllowedError','SecurityError'].includes(error.name))return 'Camera permission was denied. Please allow camera access in your browser settings and try again.';if(error&&['NotFoundError','DevicesNotFoundError'].includes(error.name))return 'No camera was found on this device. Please connect a camera and try again.';return 'We could not access the camera. Please check your device and browser permissions, then try again.'}const guardianConsent=document.getElementById('guardianConsent'),startCamera=document.getElementById('startCamera'),cameraError=document.getElementById('cameraError');let selectedVerification = '';
 
