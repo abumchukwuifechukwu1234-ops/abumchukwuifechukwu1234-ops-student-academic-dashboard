@@ -1,14 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Students Academic Dashboard | Elizade University</title>
-  <link rel="icon" type="image/png" href="images/elizade_logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Students Academic Dashboard | Elizade University</title>
+<link href="images/elizade_logo.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<style>
     :root { --navy:#0b2848; --navy2:#123b63; --gold:#c99835; --cream:#f6f7f8; --ink:#18212c; --muted:#6b7785; --line:#e3e8ed; --white:#fff; --green:#157c5a; --amber:#b77610; --red:#b13b42; }
     * { box-sizing:border-box } body { margin:0; color:var(--ink); font-family:"DM Sans",sans-serif; background:var(--cream); font-size:15px; }
     button { font:inherit; cursor:pointer } .shell { min-height:100vh; display:grid; grid-template-columns:260px minmax(0,1fr); }
@@ -339,294 +340,665 @@
     right: 12px;
   }
 }
-  </style>
+  
+/* Single-file portal additions */
+.finance-banner{display:flex;justify-content:space-between;gap:18px;align-items:center;background:#edf4f8;border:1px solid #d5e2ea;border-radius:9px;padding:17px 19px;margin-bottom:18px}
+.finance-banner strong{display:block;color:var(--navy);margin-top:5px;line-height:1.45}.payment-required{color:#8b5d08;background:#fff0cd}
+.fee-total-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.fee-total-grid>div{background:#f7fafb;border:1px solid var(--line);padding:18px;border-radius:8px}.fee-total-grid strong{display:block;color:var(--navy);font-size:22px;margin-top:6px}
+.result-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:18px 0 20px}.semester-switcher,.segmented{display:flex;flex-wrap:wrap;gap:6px;padding:4px;background:#eef3f6;border-radius:8px}
+.semester-tab,.segment{border:0;background:transparent;color:var(--muted);padding:9px 13px;border-radius:6px;font-weight:700;font-size:12px}.semester-tab.active,.segment.active{background:white;color:var(--navy);box-shadow:0 2px 8px #0b284814}.result-actions{display:flex;gap:8px}.semester-view{display:none}.semester-view.active{display:block}
+.result-university-header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--line)}.result-document-kicker{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:800}.result-university-header h3{margin:7px 0 4px;color:var(--navy);font-size:20px}.result-university-header p{margin:0;color:var(--muted);font-size:12px}
+.second-result-table th:nth-child(1),.second-result-table td:nth-child(1),.second-result-table th:nth-child(3),.second-result-table td:nth-child(3),.second-result-table th:nth-child(4),.second-result-table td:nth-child(4),.second-result-table th:nth-child(6),.second-result-table td:nth-child(6),.second-result-table th:nth-child(7),.second-result-table td:nth-child(7){text-align:center}.second-result-summary{grid-template-columns:repeat(5,1fr)}
+.fee-structure-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.approval-badge{display:inline-flex;max-width:360px;padding:8px 10px;border:1px solid #e1c87f;background:#fff9e9;color:#7a5c1c;border-radius:5px;font-size:10px;font-weight:800;letter-spacing:.06em;line-height:1.4}
+.fee-structure-controls{display:grid;grid-template-columns:auto auto minmax(240px,1fr);gap:18px;align-items:end;margin:20px 0}.control-block{display:grid;gap:8px}.fee-search{width:100%;border:1px solid #c9d7df;border-radius:7px;padding:11px 12px;font:inherit;background:#fff;color:var(--ink)}.fee-table-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:15px}
+.fee-structure-table{min-width:720px}.fee-structure-table th:last-child,.fee-structure-table td:last-child{text-align:right}.fee-structure-table td:last-child{font-weight:800;color:var(--navy2)}.empty-state{text-align:center;padding:26px;color:var(--muted)}
+.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.fee-notes{margin:0;padding-left:20px;color:#4a5966;line-height:1.6;font-size:13px}.fee-notes li+li{margin-top:9px}.fee-general-notice{margin-top:18px}.fee-general-notice p{color:var(--muted);font-size:13px;line-height:1.55}.print-note{font-size:11px!important}
+.payment-inclusion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.payment-inclusion-grid>div{background:#f7fafb;border:1px solid var(--line);padding:14px;border-radius:7px}.payment-inclusion-grid strong{display:block;color:var(--navy);margin-top:5px}
+.payment-summary-head{display:flex;justify-content:space-between;gap:20px;padding-bottom:18px;border-bottom:1px solid var(--line)}.payment-summary-head>div{display:grid;gap:5px}.payment-summary-head strong{color:var(--navy);font-size:19px}.summary-total{text-align:right}.summary-total strong{font-size:27px}
+.payment-summary-list{display:grid;gap:0;margin-top:6px}.payment-summary-list>div{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:13px}.payment-summary-list strong{color:var(--navy)}.payment-summary-list .grand{padding-top:18px;border-bottom:0;font-size:15px}.payment-summary-list .grand strong{font-size:24px;color:#157c5a}
+.generation-box{min-height:420px}.confirmation-loading{min-height:320px}.confirmation-result{text-align:center;padding:35px 10px 15px}.confirmation-result h3{margin:12px 0 8px;color:var(--navy)}.confirmation-details{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;margin:22px 0}.confirmation-details>div{background:#f7fafb;padding:14px;border:1px solid var(--line);border-radius:7px}.confirmation-details b{display:block;color:var(--navy);margin-top:5px}
+.payment-ref{display:block;margin-top:7px;color:#c8d7e2;font-size:11px;letter-spacing:.03em}.payment-status-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.session-active{color:#176c4d;background:#e6f5ed}.payment-detail-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.demo-note{font-size:11px;color:#86939e;line-height:1.45;margin:14px 0 0}
+@media(max-width:900px){.fee-structure-controls{grid-template-columns:1fr 1fr}.fee-search-block{grid-column:1/-1}.second-result-summary{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.result-toolbar,.fee-structure-heading,.fee-table-head,.finance-banner,.payment-summary-head,.payment-status-row{flex-direction:column;align-items:stretch}.result-actions{width:100%}.result-actions .btn{flex:1}.fee-structure-controls{grid-template-columns:1fr}.approval-badge{max-width:none}.notes-grid{grid-template-columns:1fr}.fee-total-grid{grid-template-columns:1fr}.payment-inclusion-grid{grid-template-columns:1fr}.summary-total{text-align:left}.confirmation-details{grid-template-columns:1fr}.payment-detail-actions .btn{width:100%}}
+@media print{
+ body.print-result main{padding:0;max-width:none} body.print-result .access-screen,body.print-result .screen-shield,body.print-result aside,body.print-result .topbar,body.print-result .notification-panel,body.print-result .assistant-launcher,body.print-result .assistant-panel,body.print-result .result-toolbar,body.print-result .page:not(#results){display:none!important}
+ body.print-result #results{display:block!important} body.print-result .semester-view:not(.active){display:none!important} body.print-result .card{border:0;box-shadow:none} body.print-result .page-footer{display:none!important}
+ body.print-fees main{padding:0;max-width:none} body.print-fees .access-screen,body.print-fees .screen-shield,body.print-fees aside,body.print-fees .topbar,body.print-fees .notification-panel,body.print-fees .assistant-launcher,body.print-fees .assistant-panel,body.print-fees .page:not(#fees-2026-2027){display:none!important}
+ body.print-fees #fees-2026-2027{display:block!important} body.print-fees .fee-structure-controls,body.print-fees #printFeeStructure,body.print-fees .print-note{display:none!important} body.print-fees .card{border:1px solid #ddd;box-shadow:none}
+}
+[data-theme="dark"] .finance-banner,[data-theme="dark"] .fee-total-grid>div,[data-theme="dark"] .payment-inclusion-grid>div,[data-theme="dark"] .payment-summary-list>div,[data-theme="dark"] .confirmation-details>div{background:#1c303c;border-color:#29404f}
+[data-theme="dark"] .semester-switcher,[data-theme="dark"] .segmented{background:#203640}[data-theme="dark"] .semester-tab.active,[data-theme="dark"] .segment.active{background:#172630;color:#e0edf6}[data-theme="dark"] .fee-search{background:#10212b;color:#e3edf4;border-color:#385568}[data-theme="dark"] .fee-notes{color:#c6d7e3}[data-theme="dark"] .approval-badge{background:#342a17;color:#f0dcae;border-color:#715c2f}
+
+.fee-document-header{margin-bottom:2px}.fee-university-title{margin:0;color:var(--navy);font-size:12px;font-weight:800;letter-spacing:.08em}.fee-session-title{margin:5px 0 0;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.1em}
+@media(max-width:760px){.fee-document-header{margin-bottom:8px}.fee-university-title{font-size:11px}.fee-session-title{font-size:10px}.fee-structure-heading{flex-direction:column}.approval-badge{max-width:none}.fee-structure-controls{grid-template-columns:1fr}.fee-table-head{flex-direction:column}.fee-table-head .btn{width:100%}.notes-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <div class="shell" id="shell">
-    <aside>
-      <div class="brand"><div class="brand-logo"><img src="images/elizade-logo.png" alt="Elizade University logo"></div><div><h1>ELIZADE UNIVERSITY</h1><p>Student Academic Portal</p></div></div>
-      <nav>
-        <button class="nav-link active" data-page="dashboard"><span class="nav-icon">⌂</span>Dashboard</button>
-        <button class="nav-link" data-page="profile"><span class="nav-icon">◉</span>My Profile</button>
-        <button class="nav-link" data-page="results"><span class="nav-icon">▤</span>Academic Results</button>
-        <button class="nav-link" data-page="timetable"><span class="nav-icon">▦</span>Course Timetable</button>
-        <button class="nav-link" data-page="registration"><span class="nav-icon">☑</span>Course Registration</button>
-        <button class="nav-link" data-page="fees"><span class="nav-icon">₦</span>School Fees & Payments</button>
-        <button class="nav-link" data-page="drug"><span class="nav-icon">▣</span>Drug Test Evaluation</button>
-        <button class="nav-link" data-page="guardian"><span class="nav-icon">◉</span>Parent Verification</button>
-        <button class="nav-link" data-page="services"><span class="nav-icon">⋮</span>Student Services</button>
-      </nav>
-      <div class="sidebar-profile"><div class="avatar">IJ</div><div><b>Ifechukwu Jesse</b><span>EU250-303-4990</span></div></div>
-    </aside>
-    <main>
-      <header class="topbar"><div><button class="hamburger" id="menuBtn">☰</button><span class="crumb" id="crumb">Student Portal / Dashboard</span></div><div class="top-right"><span class="date" id="currentDate"></span><span class="clock" id="liveClock"></span><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐ Dark</button><button class="lock-button" id="lockPortal">Lock Portal</button><button class="notification-bell" id="notificationBell" aria-label="Open notifications" aria-expanded="false">
+<div class="shell" id="shell">
+<aside>
+<div class="brand"><div class="brand-logo"><img alt="Elizade University logo" src="images/elizade-logo.png"/></div><div><h1>ELIZADE UNIVERSITY</h1><p>Student Academic Portal</p></div></div>
+<nav>
+<button class="nav-link active" data-page="dashboard"><span class="nav-icon">⌂</span>Dashboard</button>
+<button class="nav-link" data-page="profile"><span class="nav-icon">◉</span>My Profile</button>
+<button class="nav-link" data-page="results"><span class="nav-icon">▤</span>Academic Results</button>
+<button class="nav-link" data-page="timetable"><span class="nav-icon">▦</span>Course Timetable</button>
+<button class="nav-link" data-page="registration"><span class="nav-icon">☑</span>Course Registration</button>
+<button class="nav-link" data-page="fees"><span class="nav-icon">₦</span>School Fees &amp; Payments</button><button class="nav-link" data-page="fees-2026-2027" type="button"><span class="nav-icon">₦</span>2026/2027 Fees</button>
+<button class="nav-link" data-page="drug"><span class="nav-icon">▣</span>Drug Test Evaluation</button>
+<button class="nav-link" data-page="guardian"><span class="nav-icon">◉</span>Parent Verification</button>
+<button class="nav-link" data-page="services"><span class="nav-icon">⋮</span>Student Services</button>
+</nav>
+<div class="sidebar-profile"><div class="avatar">IJ</div><div><b>Ifechukwu Jesse</b><span>EU250-303-4990</span></div></div>
+</aside>
+<main>
+<header class="topbar"><div><button class="hamburger" id="menuBtn">☰</button><span class="crumb" id="crumb">Student Portal / Dashboard</span></div><div class="top-right"><span class="date" id="currentDate"></span><span class="clock" id="liveClock"></span><button aria-label="Toggle dark mode" class="theme-toggle" id="themeToggle">◐ Dark</button><button class="lock-button" id="lockPortal">Lock Portal</button><button aria-expanded="false" aria-label="Open notifications" class="notification-bell" id="notificationBell">
   🔔
   <span class="notification-badge" id="notificationBadge">3</span>
 </button><div class="avatar">IJ</div></div></header>
-<div class="notification-panel" id="notificationPanel" aria-hidden="true">
-  <div class="notification-header">
-    <div>
-      <b>Notifications</b>
-      <small id="notificationCountText">3 unread notifications</small>
-    </div>
-    <button id="markAllRead" class="mark-read-btn">Mark all as read</button>
-  </div>
-
-  <div class="notification-list" id="notificationList">
-    <button class="notification-item unread">
-      <span class="notification-icon">📚</span>
-      <span>
-        <strong>Course Registration</strong>
-        <small>Please review and complete your course registration before the deadline.</small>
-        <time>Today</time>
-      </span>
-    </button>
-
-    <button class="notification-item unread" data-go="fees">
-      <span class="notification-icon">💳</span>
-      <span>
-        <strong>Payment Reminder</strong>
-        <small>You have payment information and levies that may require your attention.</small>
-        <time>Today</time>
-      </span>
-    </button>
-
-    <button class="notification-item unread" data-go="announcements">
-      <span class="notification-icon">📢</span>
-      <span>
-        <strong>New Announcement</strong>
-        <small>Check the Announcements section for the latest student information.</small>
-        <time>Recently</time>
-      </span>
-    </button>
-  </div>
-</div> 
-
-      <section class="page active" id="dashboard"><p class="eyebrow">Student portal</p><div class="welcome"><div><h2>Welcome back, Ifechukwu.</h2><p>Here is an overview of your academic journey at Elizade University.</p></div><div class="session">Current Session<b>2025 / 2026</b></div></div><div class="privacy-warning"><b>DO NOT SHARE YOUR STUDENT LINK WITH ANYBODY</b><span>Your dashboard link may contain private academic and financial information. Keep it confidential and sign out on shared devices.</span></div><div class="profile-card"><div class="profile-avatar">IJ</div><div><h3>Ifechukwu Abumchukwu Jesse</h3><p>Computer Engineering · Faculty of Engineering</p></div><div class="profile-meta"><div><span>Matric Number</span><b>EU250-303-4990</b></div><div><span>Academic Level</span><b>200 Level</b></div><div><span>Age</span><b>19 Years</b></div></div></div><div class="section-title"><h3>Quick Access</h3><a href="#" data-go="profile">View profile →</a></div><div class="quick-grid"><button class="quick" data-go="profile"><span class="q-icon">◉</span><b>My Profile</b><small>Personal details</small></button><button class="quick" data-go="results"><span class="q-icon">▤</span><b>Academic Results</b><small>View semester grades</small></button><button class="quick" data-go="timetable"><span class="q-icon">▦</span><b>Course Timetable</b><small>Weekly schedule</small></button><button class="quick" data-go="registration"><span class="q-icon">☑</span><b>Course Registration</b><small>Select current courses</small></button><button class="quick" data-go="fees"><span class="q-icon">₦</span><b>School Fees</b><small>Payments & levies</small></button><button class="quick" data-go="drug"><span class="q-icon">▣</span><b>Drug Test</b><small>Evaluation record</small></button><button class="quick" data-go="services"><span class="q-icon">⋮</span><b>Student Services</b><small>Help and resources</small></button></div></section>
-
-      <section class="page" id="profile"><p class="eyebrow">Student record</p><h2>My Profile</h2><p class="subtitle">Your currently registered academic and personal information.</p><div class="two-col"><div class="card"><h3>Student Information</h3><div class="info-grid"><div class="info-item"><span class="data-label">Full Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div class="info-item"><span class="data-label">Age</span><b>19 Years</b></div><div class="info-item"><span class="data-label">Matriculation Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Department</span><b>Computer Engineering</b></div><div class="info-item"><span class="data-label">Faculty</span><b>Engineering</b></div><div class="info-item"><span class="data-label">Current Level</span><b>200 Level</b></div></div></div><div class="card"><h3>Academic Status</h3><span class="status paid">ACTIVE STUDENT</span><p class="subtitle" style="font-size:13px;margin:16px 0 0">You are currently enrolled for the 2025/2026 academic session.</p></div></div></section>
-
-      <section class="page" id="results"><p class="eyebrow">Academic record</p><h2>Academic Results</h2><p class="subtitle">2025/2026 Academic Session · First Semester</p><div class="card"><div class="meta-grid"><div><span class="data-label">Student Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div><span class="data-label">Matric Number</span><b>EU250303-4990</b></div><div><span class="data-label">Department</span><b>Computer Engineering</b></div><div><span class="data-label">Level</span><b>100 Level</b></div><div><span class="data-label">Session</span><b>2025/2026</b></div><div><span class="data-label">Semester</span><b>First Semester</b></div></div></div><div class="card" style="margin-top:20px"><h3>Semester Results</h3><div class="result-table-wrap"><table><thead><tr><th>Course Code</th><th>Course Title</th><th>Units</th><th>Grade</th><th>Grade Point</th></tr></thead><tbody><tr><td>EU-GET103</td><td>Introduction to Computer Technology</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr><tr><td>EU-GEN109</td><td>Use of Library, Study Skills and ICT</td><td>1</td><td><span class="grade">A</span></td><td>5</td></tr><tr><td>MTH101</td><td>Elementary Mathematics I</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr><tr><td>PHY107</td><td>General Practical Physics I</td><td>1</td><td><span class="grade">A</span></td><td>5</td></tr><tr><td>GST111</td><td>Communication in English</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr><tr><td>EU-CHM101</td><td>General Chemistry I</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr><tr><td>PHY101</td><td>General Physics I</td><td>2</td><td><span class="grade">B</span></td><td>8</td></tr><tr><td>EU-MTH103</td><td>Elementary Mathematics III</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr><tr><td>GET101</td><td>Engineer in Society</td><td>1</td><td><span class="grade">A</span></td><td>5</td></tr><tr><td>EU-CHM107</td><td>General Chemistry Practical I</td><td>1</td><td><span class="grade">A</span></td><td>5</td></tr><tr><td>PHY103</td><td>General Physics III</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr></tbody></table></div><div class="summary"><div><span class="data-label">Total Units</span><strong>18</strong></div><div><span class="data-label">Total Grade Points</span><strong>88</strong></div><div><span class="data-label">GPA</span><strong>4.89</strong></div></div></div></section>
-
-      <section class="page" id="timetable"><p class="eyebrow">Weekly schedule</p><h2>Course Timetable</h2><p class="subtitle">200 Level · Computer Engineering · Academic activities, 8:00 AM – 7:00 PM.</p><div class="card" id="timetableList"></div></section>
-
-      <section class="page" id="registration"><p class="eyebrow">Academic registration</p><h2>Course Registration</h2><p class="subtitle">200 Level · Computer Engineering · 2025/2026 Academic Session</p><div class="card"><div class="meta-grid"><div><span class="data-label">Student</span><b>Ifechukwu Abumchukwu Jesse</b></div><div><span class="data-label">Matric Number</span><b>EU250-303-4990</b></div><div><span class="data-label">Department</span><b>Computer Engineering</b></div></div></div><div class="card" style="margin-top:20px"><h3>Select Courses</h3><div class="registration-note">This is an editable indicative course template based on subjects commonly found in 200-level Computer Engineering programmes in Nigeria. Course codes, titles, units and departmental requirements must be confirmed against the University’s approved course catalogue before final registration.</div><div class="course-list" id="courseList"><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 201</b><span class="course-title">Circuit Theory I</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 203</b><span class="course-title">Digital Electronics</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 205</b><span class="course-title">Programming Methodology</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">CPE 207</b><span class="course-title">Computer Architecture</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">EEE 201</b><span class="course-title">Electrical Engineering Fundamentals</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="3"><b class="course-code">MTH 201</b><span class="course-title">Differential Equations</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input type="checkbox" checked data-units="2"><b class="course-code">GST 211</b><span class="course-title">Philosophy, Logic and Human Existence</span><span class="semester">First semester</span><b class="course-unit">2 units</b></label></div><div class="course-total"><span>Selected credit units <strong id="selectedUnits">20</strong></span><button class="btn" id="registerCourses">Register Courses</button></div><div class="success" id="courseSuccess">Course registration received.An email will be sent for your course registration.</div></div></section>
-
-      <section class="page" id="fees"><p class="eyebrow">Finance</p><h2>School Fees & Payments</h2><p class="subtitle">Review your fee obligations and payment status for the current session.</p><div class="fee-list"><div class="fee"><div><h3>School Fees</h3><p>Full payment ₦1,950,000 · Half payment ₦975,000</p></div><span class="status unpaid">PAYMENT REQUIRED</span><button class="btn" data-go="selection">Pay School Fees</button></div><div class="fee"><div><h3>Medical Fee</h3><p>₦200,000 · Medical services and coverage</p></div><span class="status unpaid">UNPAID</span><button class="btn btn-outline" id="medicalPayBtn">View Payment Instructions</button></div><div class="fee"><div><h3>Academic Resource Fee & Laboratory Access and Practical Materials</h3><p>₦250,000 · Academic Resource Fee & Laboratory Access and Practical Materials</p><p style="margin-top:7px;color:#896820">Payment for the Academic Resource Fee & Laboratory Access and Practical Materials is to be made in cash at the school bursary.</p></div><span class="status unpaid">UNPAID</span><button class="btn btn-outline" onclick="showToast('Please make this payment in cash at the school bursary.')">Payment Notice</button></div><div class="fee"><div><h3>Hostel Maintenance and Residential Services</h3><p>₦150,000 · Hostel maintenance and residential services</p></div><span class="status unpaid">UNPAID</span><button class="btn" id="hostelPayBtn">Make Payment</button></div></div></section>
-
-      <section class="page" id="medical-payment"><p class="eyebrow">Medical fee</p><h2>Medical Payment Instructions</h2><p class="subtitle">Payment information is supplied for the Medical Fee of ₦200,000.</p><div class="card hostel-loader" id="medicalLoader"><div class="loader-box"><div><div class="loader"></div><h3>Please wait, payment information is being generated...</h3><p><span id="medicalWait">30</span> seconds remaining.</p></div></div></div><div class="card hostel-payment-content" id="medicalContent"><div class="payment-hero"><div><p>Medical Fee</p><b>₦200,000</b></div><span class="status unpaid">AWAITING VERIFICATION</span></div><h3 style="margin-top:23px">Payment Information</h3><div class="bank-details"><div><span class="data-label">Bank Name</span><b>None</b></div><div><span class="data-label">Account Name</span><b>None</b></div><div><span class="data-label">Account Number</span><b>None</b></div></div><div class="notice">Payment service not available</div><button class="btn" id="medicalPaymentMade">Payment Made? Click Yes</button><button class="btn btn-outline" data-go="fees" style="margin-left:8px">Return to Fees</button></div></section>
-
-      <section class="page" id="hostel-payment"><p class="eyebrow">Hostel levy</p><h2>Hostel Payment Instructions</h2><p class="subtitle">Preparing payment instructions from the school bursary.</p><div class="card hostel-loader" id="hostelLoader"><div class="loader-box"><div><div class="loader"></div><h3>Please wait, payment information is being generated...</h3><p><span id="hostelWait">30</span> seconds remaining.</p></div></div></div><div class="card hostel-payment-content" id="hostelContent"><div class="payment-hero"><div><p>Hostel Maintenance and Residential Services</p><b>₦150,000</b></div><span class="status unpaid">AWAITING VERIFICATION</span></div><h3 style="margin-top:23px">Payment Instructions</h3><div class="bank-details"><div><span class="data-label">Bank Name</span><b>None</b></div><div><span class="data-label">Account Name</span><b>None</b></div><div><span class="data-label">Account Number</span><b>None</b></div></div><div class="notice">ATM card payments are temporarily closed. Please use the payment instructions provided by the school.</div><p style="font-size:13px;color:var(--muted)">Payment pay not available .</p><button class="btn" id="hostelPaymentMade">Payment Made? Click Yes</button><button class="btn btn-outline" data-go="fees" style="margin-left:8px">Return to Fees</button></div></section>
-
-      <section class="page" id="selection"><p class="eyebrow">School fees</p><h2>Select Payment Option</h2><p class="subtitle">Choose how you would like to pay your school fees for this session.</p><div class="card"><div class="option-grid"><button class="pay-option selected" data-option="Full Payment" data-amount="₦1,950,000"><b>Full Payment</b><strong>₦1,950,000</strong><small>Settle the full school fees balance at once.</small></button><button class="pay-option" data-option="Half Payment" data-amount="₦975,000"><b>Half Payment</b><strong>₦975,000</strong><small>Make the first half payment instalment.</small></button></div><div class="selection-footer"><span>Selected: <b id="selectedText">Full Payment — ₦1,950,000</b></span><button class="btn" data-go="payment">Continue to Payment</button></div></div></section>
-
-      <section class="page" id="payment"><p class="eyebrow">Secure payment session</p><h2>Payment Details</h2><p class="subtitle">Use the account details below to complete your selected payment.</p><div class="payment-hero"><div><p>Selected payment option</p><b id="payChoice">Full Payment — ₦1,950,000</b></div><div class="count"><span>Time remaining</span><strong id="timer">20:00</strong></div></div><div class="card" style="margin-top:20px"><h3>Bank Transfer Details</h3><div class="bank-details"><div><span class="data-label">Bank</span><b>None</b></div><div><span class="data-label">Account Name</span><b>None</b></div><div><span class="data-label">Account Number</span><b>None</b></div></div><div class="notice" id="timerMsg">This payment session is valid for 20 minutes. Please complete your payment before the timer expires.</div><button class="btn" id="madePayment">I Have Made Payment</button><div class="success" id="successMsg">Payment information not active Thank you.</div><p style="font-size:11px;color:#83909b;margin:15px 0 0">payment provider or account connection is active.</p></div></section>
-
-      <section class="page" id="drug"><p class="eyebrow">Health services</p><span class="confidential">CONFIDENTIAL STUDENT RECORD</span><h2>Drug Test Evaluation</h2><p class="subtitle">This record is intended for the student and authorised University personnel only.</p><div class="card"><div class="info-grid"><div class="info-item"><span class="data-label">Student Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div class="info-item"><span class="data-label">Matriculation Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Department</span><b>Computer Engineering</b></div><div class="info-item"><span class="data-label">Evaluation Status</span><b>Completed</b></div></div><h3 style="margin-top:24px">Recorded Evaluations</h3><div class="result-table-wrap"><table class="test-table"><thead><tr><th>Evaluation Date</th><th>Result</th></tr></thead><tbody><tr><td>13 April 2026</td><td>Negative</td></tr><tr><td>17 May 2026</td><td>Negative</td></tr><tr><td>8 July 2026</td><td>Negative</td></tr></tbody></table></div><div class="eval"><span class="data-label" style="color:#437e67">Evaluation Summary</span><strong>All recorded tests are negative</strong><span>Student evaluation records have been completed and maintained by the University Health Centre.</span></div></div></section>
-      <section class="page" id="guardian"><p class="eyebrow">Campus safety</p><h2>Parent &amp; Guardian Verification</h2><p class="subtitle">A voluntary, consent-based verification experience for campus visits.</p><div class="card verification-stages" id="guardianFlow"><div class="guardian-stage active" id="guardianIntro"><h3>Why verification is requested</h3><p class="subtitle" style="font-size:14px;line-height:1.6">Parent and guardian verification can help support a safer school environment, improve visitor management, and assist security personnel in confirming authorized visitors when they visit the campus.</p><div class="verification-choice">
-  <button type="button" class="verification-option" data-verification="female">
-    <span class="verification-icon">♀</span>
-    <span>
-      <strong>Female Verification</strong>
-      <small>Select this verification section to continue.</small>
-    </span>
-  </button>
-
-  <button type="button" class="verification-option" data-verification="male">
-    <span class="verification-icon">♂</span>
-    <span>
-      <strong>Male Verification</strong>
-      <small>Select this verification section to continue.</small>
-    </span>
-  </button>
+<div aria-hidden="true" class="notification-panel" id="notificationPanel">
+<div class="notification-header">
+<div>
+<b>Notifications</b>
+<small id="notificationCountText">3 unread notifications</small>
 </div>
-  <div class="notice">The camera will only be activated after you choose to start verification and your browser asks for permission. This demonstration does not secretly record, upload, permanently store, or retain facial images. .</div><label class="consent-box"><input type="checkbox" id="guardianConsent"><span>I understand why camera verification is being requested and I consent to continue.</span></label><button class="btn" id="startCamera" disabled style="margin-top:17px">Start Camera Verification</button><p class="access-note">Camera access works on supported browsers, usually when deployed over HTTPS.</p></div><div class="guardian-stage" id="guardianCamera"><h3>Camera Verification</h3><p class="subtitle" style="font-size:13px">Position your face within the guide, then select Capture to continue.</p><div class="camera-frame">
-  <video id="cameraPreview" autoplay playsinline muted aria-label="Live camera preview"></video>
-
-  <div class="scanner-overlay" aria-hidden="true">
-    <div class="scanner-face-guide"></div>
-    <div class="scanner-line"></div>
-    <div class="scanner-corners">
-      <span></span><span></span><span></span><span></span>
-    </div>
-  </div>
+<button class="mark-read-btn" id="markAllRead">Mark all as read</button>
 </div>
-  <div class="camera-error" id="cameraError" role="alert" hidden></div><button class="btn" id="captureVerification" style="margin-top:17px">Capture</button><button class="btn btn-outline" id="cancelCamera" style="margin-left:8px">Cancel</button></div><div class="guardian-stage" id="guardianProcessing"><div class="processing"><div><div class="processing-ring" style="margin:0 auto 18px"></div><h3>Verifying...</h3><p class="subtitle" style="font-size:13px">Your verification is being securely processed. Please wait while the scanning process is completed.</p></div></div></div><div class="guardian-stage" id="guardianComplete"><div class="processing"><div><div class="complete-check">✓</div><h3>Verification Complete ✓</h3><p class="subtitle" style="font-size:14px;line-height:1.55">
-  <strong id="verificationResult">Verification completed successfully.</strong><br>
+<div class="notification-list" id="notificationList">
+<button class="notification-item unread">
+<span class="notification-icon">📚</span>
+<span>
+<strong>Course Registration</strong>
+<small>Please review and complete your course registration before the deadline.</small>
+<time>Today</time>
+</span>
+</button>
+<button class="notification-item unread" data-go="fees">
+<span class="notification-icon">💳</span>
+<span>
+<strong>Payment Reminder</strong>
+<small>You have payment information and levies that may require your attention.</small>
+<time>Today</time>
+</span>
+</button>
+<button class="notification-item unread" data-go="announcements">
+<span class="notification-icon">📢</span>
+<span>
+<strong>New Announcement</strong>
+<small>Check the Announcements section for the latest student information.</small>
+<time>Recently</time>
+</span>
+</button>
+</div>
+</div>
+<section class="page active" id="dashboard"><p class="eyebrow">Student portal</p><div class="welcome"><div><h2>Welcome back, Ifechukwu.</h2><p>Here is an overview of your academic journey at Elizade University.</p></div><div class="session">Current Session<b>2025 / 2026</b></div></div><div class="privacy-warning"><b>DO NOT SHARE YOUR STUDENT LINK WITH ANYBODY</b><span>Your dashboard link may contain private academic and financial information. Keep it confidential and sign out on shared devices.</span></div><div class="profile-card"><div class="profile-avatar">IJ</div><div><h3>Ifechukwu Abumchukwu Jesse</h3><p>Computer Engineering · Faculty of Engineering</p></div><div class="profile-meta"><div><span>Matric Number</span><b>EU250-303-4990</b></div><div><span>Academic Level</span><b>200 Level</b></div><div><span>Age</span><b>19 Years</b></div></div></div><div class="section-title"><h3>Quick Access</h3><a data-go="profile" href="#">View profile →</a></div><div class="quick-grid"><button class="quick" data-go="profile"><span class="q-icon">◉</span><b>My Profile</b><small>Personal details</small></button><button class="quick" data-go="results"><span class="q-icon">▤</span><b>Academic Results</b><small>View semester grades</small></button><button class="quick" data-go="timetable"><span class="q-icon">▦</span><b>Course Timetable</b><small>Weekly schedule</small></button><button class="quick" data-go="registration"><span class="q-icon">☑</span><b>Course Registration</b><small>Select current courses</small></button><button class="quick" data-go="fees"><span class="q-icon">₦</span><b>School Fees</b><small>Payments &amp; levies</small></button><button class="quick" data-go="drug"><span class="q-icon">▣</span><b>Drug Test</b><small>Evaluation record</small></button><button class="quick" data-go="services"><span class="q-icon">⋮</span><b>Student Services</b><small>Help and resources</small></button><button class="quick" data-go="fees-2026-2027" type="button"><span class="q-icon">₦</span><b>2026/2027 Fees Structure</b><small>Local &amp; international</small></button></div></section>
+<section class="page" id="profile"><p class="eyebrow">Student record</p><h2>My Profile</h2><p class="subtitle">Your currently registered academic and personal information.</p><div class="two-col"><div class="card"><h3>Student Information</h3><div class="info-grid"><div class="info-item"><span class="data-label">Full Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div class="info-item"><span class="data-label">Age</span><b>19 Years</b></div><div class="info-item"><span class="data-label">Matriculation Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Department</span><b>Computer Engineering</b></div><div class="info-item"><span class="data-label">Faculty</span><b>Engineering</b></div><div class="info-item"><span class="data-label">Current Level</span><b>200 Level</b></div></div></div><div class="card"><h3>Academic Status</h3><span class="status paid">ACTIVE STUDENT</span><p class="subtitle" style="font-size:13px;margin:16px 0 0">You are currently enrolled for the 2025/2026 academic session.</p></div></div></section>
+<section class="page" id="results"><p class="eyebrow">Academic record</p><h2>Academic Results</h2><p class="subtitle">2025/2026 Academic Session · Select a semester below to view the full result.</p><div class="result-toolbar">
+<div aria-label="Semester result" class="semester-switcher" role="tablist">
+<button aria-selected="true" class="semester-tab active" data-semester-target="firstSemesterResult" role="tab" type="button">First Semester</button>
+<button aria-selected="false" class="semester-tab" data-semester-target="secondSemesterResult" role="tab" type="button">Second Semester</button>
+</div>
+<div class="result-actions">
+<button class="btn btn-outline" id="printResult" type="button">Print First Semester Result</button>
+<button class="btn" id="downloadResult" type="button">Download First Semester Result</button>
+</div>
+</div><div aria-hidden="false" class="semester-view active" id="firstSemesterResult"><div class="card"><div class="meta-grid"><div><span class="data-label">Student Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div><span class="data-label">Matric Number</span><b>EU250303-4990</b></div><div><span class="data-label">Department</span><b>Computer Engineering</b></div><div><span class="data-label">Level</span><b>100 Level</b></div><div><span class="data-label">Session</span><b>2025/2026</b></div><div><span class="data-label">Semester</span><b>First Semester</b></div></div></div><div class="card" style="margin-top:20px"><h3>Semester Results</h3><div class="result-table-wrap"><table><thead><tr><th>Course Code</th><th>Course Title</th><th>Units</th><th>Grade</th><th>Grade Point</th></tr></thead><tbody><tr><td>EU-GET103</td><td>Introduction to Computer Technology</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr><tr><td>EU-GEN109</td><td>Use of Library, Study Skills and ICT</td><td>1</td><td><span class="grade">A</span></td><td>5</td></tr><tr><td>MTH101</td><td>Elementary Mathematics I</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr><tr><td>PHY107</td><td>General Practical Physics I</td><td>1</td><td><span class="grade">A</span></td><td>5</td></tr><tr><td>GST111</td><td>Communication in English</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr><tr><td>EU-CHM101</td><td>General Chemistry I</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr><tr><td>PHY101</td><td>General Physics I</td><td>2</td><td><span class="grade">B</span></td><td>8</td></tr><tr><td>EU-MTH103</td><td>Elementary Mathematics III</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr><tr><td>GET101</td><td>Engineer in Society</td><td>1</td><td><span class="grade">A</span></td><td>5</td></tr><tr><td>EU-CHM107</td><td>General Chemistry Practical I</td><td>1</td><td><span class="grade">A</span></td><td>5</td></tr><tr><td>PHY103</td><td>General Physics III</td><td>2</td><td><span class="grade">A</span></td><td>10</td></tr></tbody></table></div><div class="summary"><div><span class="data-label">Total Units</span><strong>18</strong></div><div><span class="data-label">Total Grade Points</span><strong>88</strong></div><div><span class="data-label">GPA</span><strong>4.89</strong></div></div></div></div><div aria-hidden="true" class="semester-view" id="secondSemesterResult">
+<div class="card result-document">
+<div class="result-university-header">
+<div>
+<span class="result-document-kicker">ELIZADE UNIVERSITY, ILARA-MOKIN</span>
+<h3>Second Semester Result</h3>
+<p>2025/2026 Academic Session · B. Eng. Computer Engineering</p>
+</div>
+<span class="confidential">STUDENT ACADEMIC RECORD</span>
+</div>
+<div class="meta-grid">
+<div><span class="data-label">Student Name</span><b>Abumchukwu Ifechukwu Jesse</b></div>
+<div><span class="data-label">Matric Number</span><b>EU250303-4990</b></div>
+<div><span class="data-label">Programme</span><b>B. Eng. Computer Engineering</b></div>
+<div><span class="data-label">Level</span><b>100 Level</b></div>
+<div><span class="data-label">Session</span><b>2025/2026</b></div>
+<div><span class="data-label">Semester</span><b>Second Semester</b></div>
+</div>
+</div>
+<div class="card result-document" style="margin-top:20px">
+<h3>Semester Results</h3>
+<div class="result-table-wrap">
+<table class="second-result-table">
+<thead><tr><th>S/N</th><th>Code</th><th>Score</th><th>Grade</th><th>Course Title</th><th>Units</th><th>Points</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>EU</td><td>89</td><td><span class="grade">A</span></td><td>General Physics IV</td><td>2</td><td>10</td></tr>
+<tr><td>2</td><td>EU</td><td>93</td><td><span class="grade">A</span></td><td>General Chemistry II</td><td>2</td><td>10</td></tr>
+<tr><td>3</td><td>GST112</td><td>88</td><td><span class="grade">A</span></td><td>Nigerian Peoples and Cultures</td><td>2</td><td>10</td></tr>
+<tr><td>4</td><td>MTH102</td><td>94</td><td><span class="grade">A</span></td><td>Elementary Mathematics II</td><td>2</td><td>10</td></tr>
+<tr><td>5</td><td>EU</td><td>85</td><td><span class="grade">A</span></td><td>Probability 1</td><td>3</td><td>15</td></tr>
+<tr><td>6</td><td>GET102</td><td>81</td><td><span class="grade">A</span></td><td>Engineering Graphics and Solid Modelling</td><td>2</td><td>10</td></tr>
+<tr><td>7</td><td>EU</td><td>80</td><td><span class="grade">A</span></td><td>General Chemistry Practical II</td><td>1</td><td>5</td></tr>
+<tr><td>8</td><td>EU</td><td>69</td><td><span class="grade">B</span></td><td>General Physics II</td><td>2</td><td>8</td></tr>
+<tr><td>9</td><td>PHY108</td><td>78</td><td><span class="grade">A</span></td><td>General Practical Physics II</td><td>5</td><td>3</td></tr>
+<tr><td>10</td><td>EU</td><td>88</td><td><span class="grade">A</span></td><td>Introduction to Computational Software</td><td>1</td><td>5</td></tr>
+<tr><td>11</td><td>CPE112</td><td>87</td><td><span class="grade">A</span></td><td>Introduction to Computer Engineering</td><td>2</td><td>10</td></tr>
+</tbody>
+</table>
+</div>
+<div class="summary second-result-summary">
+<div><span class="data-label">Total Units</span><strong>20</strong></div>
+<div><span class="data-label">Total Points</span><strong>96</strong></div>
+<div><span class="data-label">Previous GP</span><strong>4.85</strong></div>
+<div><span class="data-label">Current GP</span><strong>4.80</strong></div>
+<div><span class="data-label">Cumulative GPA</span><strong>4.85</strong></div>
+</div>
+</div>
+</div></section>
+<section class="page" id="timetable"><p class="eyebrow">Weekly schedule</p><h2>Course Timetable</h2><p class="subtitle">200 Level · Computer Engineering · Academic activities, 8:00 AM – 7:00 PM.</p><div class="card" id="timetableList"></div></section>
+<section class="page" id="registration"><p class="eyebrow">Academic registration</p><h2>Course Registration</h2><p class="subtitle">200 Level · Computer Engineering · 2025/2026 Academic Session</p><div class="card"><div class="meta-grid"><div><span class="data-label">Student</span><b>Ifechukwu Abumchukwu Jesse</b></div><div><span class="data-label">Matric Number</span><b>EU250-303-4990</b></div><div><span class="data-label">Department</span><b>Computer Engineering</b></div></div></div><div class="card" style="margin-top:20px"><h3>Select Courses</h3><div class="registration-note">This is an editable indicative course template based on subjects commonly found in 200-level Computer Engineering programmes in Nigeria. Course codes, titles, units and departmental requirements must be confirmed against the University’s approved course catalogue before final registration.</div><div class="course-list" id="courseList"><label class="course-row"><input checked="" data-units="3" type="checkbox"/><b class="course-code">CPE 201</b><span class="course-title">Circuit Theory I</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input checked="" data-units="3" type="checkbox"/><b class="course-code">CPE 203</b><span class="course-title">Digital Electronics</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input checked="" data-units="3" type="checkbox"/><b class="course-code">CPE 205</b><span class="course-title">Programming Methodology</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input checked="" data-units="3" type="checkbox"/><b class="course-code">CPE 207</b><span class="course-title">Computer Architecture</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input checked="" data-units="3" type="checkbox"/><b class="course-code">EEE 201</b><span class="course-title">Electrical Engineering Fundamentals</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input checked="" data-units="3" type="checkbox"/><b class="course-code">MTH 201</b><span class="course-title">Differential Equations</span><span class="semester">First semester</span><b class="course-unit">3 units</b></label><label class="course-row"><input checked="" data-units="2" type="checkbox"/><b class="course-code">GST 211</b><span class="course-title">Philosophy, Logic and Human Existence</span><span class="semester">First semester</span><b class="course-unit">2 units</b></label></div><div class="course-total"><span>Selected credit units <strong id="selectedUnits">20</strong></span><button class="btn" id="registerCourses">Register Courses</button></div><div class="success" id="courseSuccess">Course registration received.An email will be sent for your course registration.</div></div></section>
+<section class="page" id="fees">
+<p class="eyebrow">Finance</p>
+<h2>School Fees &amp; Payments</h2>
+<p class="subtitle">Review your fee obligations and start one central payment session for the first-session charges.</p>
+<div class="finance-banner">
+<div><span class="data-label">Central payment system</span><strong>Choose Half or Full School Fees, then all required first-session fees are included automatically.</strong></div>
+<span class="status payment-required">PAYMENT REQUIRED</span>
+</div>
+<div class="fee-list">
+<div class="fee">
+<div><h3>School Fees</h3><p>Full payment ₦1,950,000 · Half payment ₦975,000</p></div>
+<span class="status unpaid">PAYMENT REQUIRED</span>
+<button class="btn" data-go="selection" type="button">Pay School Fees</button>
+</div>
+<div class="fee">
+<div><h3>Medical Fee</h3><p>₦200,000 · Medical services and coverage</p></div>
+<span class="status unpaid">UNPAID</span>
+<button class="btn btn-outline" data-go="selection" type="button">Make Payment</button>
+</div>
+<div class="fee">
+<div><h3>Academic Resource Fee &amp; Laboratory Access and Practical Materials</h3><p>₦250,000 · Academic resources, laboratory access and practical materials</p></div>
+<span class="status unpaid">UNPAID</span>
+<button class="btn btn-outline" data-go="selection" type="button">Make Payment</button>
+</div>
+<div class="fee">
+<div><h3>Hostel Maintenance and Residential Services</h3><p>₦150,000 · Hostel maintenance and residential services</p></div>
+<span class="status unpaid">UNPAID</span>
+<button class="btn btn-outline" data-go="selection" type="button">Make Payment</button>
+</div>
+</div>
+<div class="card" style="margin-top:20px">
+<h3>First-session totals</h3>
+<div class="fee-total-grid">
+<div><span class="data-label">Half Payment Total</span><strong>₦1,575,000</strong></div>
+<div><span class="data-label">Full Payment Total</span><strong>₦2,550,000</strong></div>
+</div>
+<div class="notice">The 2026/2027 Academic Fees Structure is informational only. Use School Fees &amp; Payments for the payment flow.</div>
+</div>
+</section><section class="page" id="fees-2026-2027">
+<p class="eyebrow">2026/2027 academic session</p>
+<div class="fee-document-header"><p class="fee-university-title">ELIZADE UNIVERSITY, ILARA-MOKIN</p><p class="fee-session-title">2026/2027 ACADEMIC SESSION</p></div><div class="fee-structure-heading">
+<div><h2>Academic Fees Structure</h2><p class="subtitle">Local &amp; International Students</p></div>
+<span class="approval-badge">SENATE APPROVAL STATUS: TO BE OFFICIALLY CONFIRMED</span>
+</div>
+<div class="fee-structure-controls card">
+<div class="control-block">
+<span class="data-label">Student Category</span>
+<div class="segmented" id="feeStudentType">
+<button class="segment active" data-student-type="local" type="button">Local Students</button>
+<button class="segment" data-student-type="international" type="button">International Students</button>
+</div>
+</div>
+<div class="control-block">
+<span class="data-label">Level</span>
+<div class="segmented" id="feeLevel">
+<button class="segment active" data-fee-level="100" type="button">100 Level</button>
+<button class="segment" data-fee-level="200-500" type="button">200–500 Level</button>
+</div>
+</div>
+<div class="control-block fee-search-block">
+<label class="data-label" for="feeProgrammeSearch">Programme Search</label>
+<input autocomplete="off" class="fee-search" id="feeProgrammeSearch" placeholder="Search programme..." type="search"/>
+</div>
+</div>
+<div class="card fee-table-card">
+<div class="fee-table-head">
+<div><h3>2026/2027 Fee Schedule</h3><p class="subtitle" id="feeSelectionLabel" style="margin:4px 0 0">Local Students · 100 Level</p></div>
+<button class="btn btn-outline" id="printFeeStructure" type="button">Print / Save as PDF</button>
+</div>
+<div class="result-table-wrap">
+<table class="fee-structure-table">
+<thead><tr><th>Faculty</th><th>Programme</th><th id="feeColumnLabel">Fee (₦)</th></tr></thead>
+<tbody id="feeStructureBody"></tbody>
+</table>
+</div>
+<p class="empty-state" hidden="" id="feeNoResults">No programme matched your search.</p>
+</div>
+<div class="notes-grid">
+<div class="card">
+<h3>Important Notes — Local Students</h3>
+<ol class="fee-notes">
+<li><strong>Acceptance Fee:</strong> All newly admitted 100 Level students are required to pay a non-refundable acceptance fee of ₦100,000.</li>
+<li><strong>Academic Fees Coverage:</strong> Academic fees cover tuition, examinations, registration, accommodation and other chargeable student amenities and services provided by the University. Feeding and personal expenses are not included.</li>
+<li><strong>Clinical Fee:</strong> Nursing Science students from 200 Level to 500 Level and Medical Laboratory Science students from 300 Level to 500 Level are required to pay a clinical fee of ₦500,000 per student per session in addition to applicable academic fees.</li>
+<li><strong>Payment Schedule:</strong> 50% of academic fees is payable before resumption and registration. The remaining 50% is payable on or before resumption for the second semester.</li>
+<li><strong>Parents’ Forum Due:</strong> ₦10,000 through the University portal.</li>
+<li><strong>Additional Charges:</strong> Hostel maintenance, student study fees, medical fees, school materials and other applicable levies and charges are payable separately where applicable.</li>
+</ol>
+</div>
+<div class="card">
+<h3>Important Notes — International Students</h3>
+<ol class="fee-notes">
+<li><strong>Acceptance Fee:</strong> $500 for newly admitted 100 Level students.</li>
+<li><strong>Clinical Fee:</strong> Nursing Science students from 200 Level to 500 Level and Medical Laboratory Science students from 300 Level to 500 Level are required to pay a clinical fee of $1,000 per student per session in addition to applicable academic fees.</li>
+<li><strong>Payment Schedule:</strong> 50% before resumption and registration. The remaining 50% on or before resumption for the second semester.</li>
+<li><strong>Parents’ Forum Due:</strong> $100 through the Bursary Department.</li>
+<li><strong>Additional Charges:</strong> Academic fees do not include applicable additional charges.</li>
+<li><strong>Personal Expenses:</strong> International students are responsible for feeding, transportation, personal expenses and other costs not specifically covered by academic fees.</li>
+</ol>
+</div>
+</div>
+<div class="card fee-general-notice">
+<h3>General Fee Information</h3>
+<p>The fee structure distinguishes between Local Student Fees in Nigerian Naira and International Student Fees in United States Dollars.</p>
+<p>All fees are applicable to the 2026/2027 academic session and remain subject to the University’s applicable policies, approved charges and any official amendments issued during the academic session.</p>
+<p>Additional charges such as hostel maintenance, student study fees, medical fees, school materials and other applicable levies are not included in the academic fees stated in the table and may be billed separately.</p>
+<div class="notice">SENATE APPROVAL STATUS: TO BE OFFICIALLY CONFIRMED</div>
+<p class="print-note">Use “Print / Save as PDF” to create a PDF copy from your browser’s print dialog.</p>
+</div>
+</section>
+<section class="page" id="selection">
+<p class="eyebrow">School fees</p>
+<h2>Select Payment Option</h2>
+<p class="subtitle">Choose Half or Full School Fees. Medical, Academic Resource/Laboratory, and Hostel charges will be included automatically.</p>
+<div class="card">
+<div class="option-grid">
+<button class="pay-option selected" data-payment-plan="full" type="button"><b>Full Payment</b><strong>₦1,950,000</strong><small>Settle the full school fees balance at once.</small></button>
+<button class="pay-option" data-payment-plan="half" type="button"><b>Half Payment</b><strong>₦975,000</strong><small>Make the first half payment instalment.</small></button>
+</div>
+<div class="payment-inclusion-grid">
+<div><span class="data-label">Medical Fee</span><strong>₦200,000</strong></div>
+<div><span class="data-label">Academic Resource &amp; Laboratory</span><strong>₦250,000</strong></div>
+<div><span class="data-label">Hostel Maintenance</span><strong>₦150,000</strong></div>
+</div>
+<div class="selection-footer">
+<span>Selected: <b id="selectedText">Full Payment — ₦1,950,000</b></span>
+<button class="btn" id="continueToSummary" type="button">Continue to Summary</button>
+</div>
+</div>
+</section><section class="page" id="payment-summary">
+<p class="eyebrow">First session payment</p><h2>Payment Summary</h2>
+<p class="subtitle">Review the complete first-session charges before generating payment details.</p>
+<div class="card">
+<div class="payment-summary-head">
+<div><span class="data-label">Payment Plan</span><strong id="summaryPlan">Full Payment</strong></div>
+<div class="summary-total"><span class="data-label">Total</span><strong id="summaryTotal">₦2,550,000</strong></div>
+</div>
+<div class="payment-summary-list">
+<div><span>School Fees — <b id="summarySchoolLabel">Full Payment</b></span><strong id="summarySchoolAmount">₦1,950,000</strong></div>
+<div><span>Medical Fee</span><strong>₦200,000</strong></div>
+<div><span>Academic Resource Fee &amp; Laboratory Access</span><strong>₦250,000</strong></div>
+<div><span>Hostel Maintenance and Residential Services</span><strong>₦150,000</strong></div>
+<div class="grand"><span>Total First Session Payment</span><strong id="summaryGrandTotal">₦2,550,000</strong></div>
+</div>
+<div class="selection-footer">
+<button class="btn btn-outline" id="backToSelection" type="button">Back to Payment Selection</button>
+<button class="btn" id="generatePayment" type="button">Make Payment</button>
+</div>
+</div>
+</section><section class="page" id="payment-generation">
+<p class="eyebrow">Secure payment session</p><h2>Generating Payment Account</h2>
+<div class="card"><div class="loader-box generation-box"><div>
+<div class="loader"></div>
+<h3>Please wait while payment account is generated...</h3>
+<p id="generationMessage">Preparing your payment session. Please do not close this page.</p>
+</div></div></div>
+</section><section class="page" id="payment-confirmation-loading">
+<p class="eyebrow">Payment confirmation</p><h2>Payment Confirmation</h2>
+<div class="card">
+<div class="loader-box confirmation-loading"><div>
+<div class="loader"></div><h3>Please wait...</h3><p>Thank you. Your payment notice is being submitted.</p>
+</div></div>
+</div>
+</section><section class="page" id="payment-confirmation-result">
+<p class="eyebrow">Payment status</p><h2>Payment Confirmation</h2>
+<div class="card">
+<div class="confirmation-result">
+<div class="complete-check">✓</div>
+<p class="eyebrow">Payment status</p>
+<h3>PAYMENT YET TO BE CONFIRMED</h3>
+<p class="subtitle">Further information will be passed via your school email.</p>
+<div class="confirmation-details">
+<div><span class="data-label">Payment Reference</span><b id="confirmationReference">—</b></div>
+<div><span class="data-label">Amount</span><b id="confirmationAmount">—</b></div>
+<div><span class="data-label">Payment Plan</span><b id="confirmationPlan">—</b></div>
+<div><span class="data-label">Current Status</span><b>PAYMENT YET TO BE CONFIRMED</b></div>
+</div>
+<button class="btn" id="backToDashboardFromConfirmation" type="button">Back to Dashboard</button>
+</div>
+</div>
+</section>
+<section class="page" id="payment">
+<p class="eyebrow">Secure payment session</p><h2>Payment Details</h2>
+<p class="subtitle">Use the payment account details below to complete your selected payment.</p>
+<div class="payment-hero">
+<div><p id="paymentPlanLabel">Full Payment</p><b id="paymentTotal">₦2,550,000</b><small class="payment-ref" id="paymentReference">Reference: —</small></div>
+<div class="count"><span>Time remaining</span><strong id="timer">59:00</strong></div>
+</div>
+<div class="card" style="margin-top:20px">
+<div class="payment-status-row"><span class="status session-active" id="paymentStatus">PAYMENT SESSION ACTIVE</span><span class="data-label">Session validity: 59 minutes</span></div>
+<h3>Payment Account Details</h3>
+<div class="bank-details payment-bank-grid">
+<div><span class="data-label">Bank</span><b id="paymentBank">Pending provider configuration</b></div>
+<div><span class="data-label">Account Name</span><b id="paymentAccountName">Pending provider configuration</b></div>
+<div><span class="data-label">Account Number</span><b id="paymentAccountNumber">Pending provider configuration</b></div>
+</div>
+<div class="notice" id="timerMsg">Complete the transfer before this payment session expires.</div>
+<div class="payment-detail-actions">
+<button class="btn" id="madePayment" type="button">I HAVE MADE PAYMENT - CONTINUE</button>
+<button class="btn btn-outline" hidden="" id="newPaymentSession" type="button">Generate New Payment Session</button>
+</div>
+<p class="demo-note">School fees are secured by kora pays</p>
+</div>
+</section>
+<section class="page" id="drug"><p class="eyebrow">Health services</p><span class="confidential">CONFIDENTIAL STUDENT RECORD</span><h2>Drug Test Evaluation</h2><p class="subtitle">This record is intended for the student and authorised University personnel only.</p><div class="card"><div class="info-grid"><div class="info-item"><span class="data-label">Student Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div class="info-item"><span class="data-label">Matriculation Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Department</span><b>Computer Engineering</b></div><div class="info-item"><span class="data-label">Evaluation Status</span><b>Completed</b></div></div><h3 style="margin-top:24px">Recorded Evaluations</h3><div class="result-table-wrap"><table class="test-table"><thead><tr><th>Evaluation Date</th><th>Result</th></tr></thead><tbody><tr><td>13 April 2026</td><td>Negative</td></tr><tr><td>17 May 2026</td><td>Negative</td></tr><tr><td>8 July 2026</td><td>Negative</td></tr></tbody></table></div><div class="eval"><span class="data-label" style="color:#437e67">Evaluation Summary</span><strong>All recorded tests are negative</strong><span>Student evaluation records have been completed and maintained by the University Health Centre.</span></div></div></section>
+<section class="page" id="guardian"><p class="eyebrow">Campus safety</p><h2>Parent &amp; Guardian Verification</h2><p class="subtitle">A voluntary, consent-based verification experience for campus visits.</p><div class="card verification-stages" id="guardianFlow"><div class="guardian-stage active" id="guardianIntro"><h3>Why verification is requested</h3><p class="subtitle" style="font-size:14px;line-height:1.6">Parent and guardian verification can help support a safer school environment, improve visitor management, and assist security personnel in confirming authorized visitors when they visit the campus.</p><div class="verification-choice">
+<button class="verification-option" data-verification="female" type="button">
+<span class="verification-icon">♀</span>
+<span>
+<strong>Female Verification</strong>
+<small>Select this verification section to continue.</small>
+</span>
+</button>
+<button class="verification-option" data-verification="male" type="button">
+<span class="verification-icon">♂</span>
+<span>
+<strong>Male Verification</strong>
+<small>Select this verification section to continue.</small>
+</span>
+</button>
+</div>
+<div class="notice">The camera will only be activated after you choose to start verification and your browser asks for permission. This demonstration does not secretly record, upload, permanently store, or retain facial images. .</div><label class="consent-box"><input id="guardianConsent" type="checkbox"/><span>I understand why camera verification is being requested and I consent to continue.</span></label><button class="btn" disabled="" id="startCamera" style="margin-top:17px">Start Camera Verification</button><p class="access-note">Camera access works on supported browsers, usually when deployed over HTTPS.</p></div><div class="guardian-stage" id="guardianCamera"><h3>Camera Verification</h3><p class="subtitle" style="font-size:13px">Position your face within the guide, then select Capture to continue.</p><div class="camera-frame">
+<video aria-label="Live camera preview" autoplay="" id="cameraPreview" muted="" playsinline=""></video>
+<div aria-hidden="true" class="scanner-overlay">
+<div class="scanner-face-guide"></div>
+<div class="scanner-line"></div>
+<div class="scanner-corners">
+<span></span><span></span><span></span><span></span>
+</div>
+</div>
+</div>
+<div class="camera-error" hidden="" id="cameraError" role="alert"></div><button class="btn" id="captureVerification" style="margin-top:17px">Capture</button><button class="btn btn-outline" id="cancelCamera" style="margin-left:8px">Cancel</button></div><div class="guardian-stage" id="guardianProcessing"><div class="processing"><div><div class="processing-ring" style="margin:0 auto 18px"></div><h3>Verifying...</h3><p class="subtitle" style="font-size:13px">Your verification is being securely processed. Please wait while the scanning process is completed.</p></div></div></div><div class="guardian-stage" id="guardianComplete"><div class="processing"><div><div class="complete-check">✓</div><h3>Verification Complete ✓</h3><p class="subtitle" style="font-size:14px;line-height:1.55">
+<strong id="verificationResult">Verification completed successfully.</strong><br/>
   Thank you for completing the verification process and helping support a safe and secure university environment.
 </p>
 <button class="btn" id="finishVerification">Finish</button></div></div></div></div></section>
-      <section class="page" id="services"><p class="eyebrow">Student support</p><h2>Student Services</h2><p class="subtitle">Quick access to University resources, records and support.</p><div class="service-grid"><article class="service-card"><div class="q-icon">✉</div><h3>Announcements</h3><p>Stay up to date with academic, departmental and campus notices.</p><button class="btn" data-go="announcements">View Announcements</button></article><article class="service-card"><div class="q-icon">?</div><h3>Support / Help Desk</h3><p>Find contacts and guidance for academic and portal assistance.</p><button class="btn" data-go="support">Get Support</button></article><article class="service-card"><div class="q-icon">⌂</div><h3>Hostel Information</h3><p>Review accommodation guidance and residential services.</p><button class="btn" data-go="hostel-info">View Hostel Info</button></article><article class="service-card"><div class="q-icon">▤</div><h3>Library Services</h3><p>Explore research support, borrowing and study resources.</p><button class="btn" data-go="library">Open Library Services</button></article><article class="service-card"><div class="q-icon">▣</div><h3>Student ID Card</h3><p>View your campus identity card information.</p><button class="btn" data-go="id-card">View ID Card</button></article><article class="service-card"><div class="q-icon">⚙</div><h3>Settings</h3><p>Review notifications and basic account preferences.</p><button class="btn" data-go="settings">Open Settings</button></article></div></section>
-      <section class="page" id="announcements"><p class="eyebrow">University updates</p><h2>Announcements</h2><p class="subtitle">Recent notices relevant to your academic journey.</p><div class="support-list"><div><b>Course registration window</b><span>Review your selected courses and submit your registration before the departmental deadline.</span></div><div><b>Faculty of Engineering notice</b><span>Students should check the timetable before attending laboratory practical sessions.</span></div><div><b>Library orientation resources</b><span>Online library guidance and study skills resources are available through Library Services.</span></div></div></section>
-      <section class="page" id="support"><p class="eyebrow">Need assistance?</p><h2>Support / Help Desk</h2><p class="subtitle">Start with the service best suited to your enquiry.</p><div class="support-list"><div><b>Academic and registration enquiries</b><span>Contact your department or Faculty Office for course and registration support.</span></div><div><b>Fees and bursary enquiries</b><span>Visit the school bursary for confirmation of charges and approved payment instructions.</span></div><div><b>Portal assistance</b><span>Use the University ICT support channel for account access and technical issues.</span></div></div></section>
-      <section class="page" id="hostel-info"><p class="eyebrow">Residential services</p><h2>Hostel Information</h2><p class="subtitle">Accommodation details for resident students.</p><div class="card"><div class="info-grid"><div class="info-item"><span class="data-label">Accommodation Status</span><b>Pending hostel allocation</b></div><div class="info-item"><span class="data-label">Hostel Levy</span><b>₦150,000</b></div><div class="info-item"><span class="data-label">Payment Status</span><b>Unpaid</b></div></div><div class="notice">Room allocation and residency guidance are issued by the Student Affairs and Hostel Management offices after required approvals.</div><button class="btn" data-go="hostel-payment">Make Hostel Payment</button></div></section>
-      <section class="page" id="library"><p class="eyebrow">Learning resources</p><h2>Library Services</h2><p class="subtitle">Support for study, research and responsible use of information.</p><div class="service-grid"><article class="service-card"><div class="q-icon">⌕</div><h3>Catalogue & Research</h3><p>Use the library catalogue and ask library staff for research guidance.</p></article><article class="service-card"><div class="q-icon">◫</div><h3>Borrowing Services</h3><p>Bring your student identification card when using borrowing services.</p></article><article class="service-card"><div class="q-icon">▧</div><h3>Study Spaces</h3><p>Quiet reading and group-study spaces are subject to library rules.</p></article></div></section>
-      <section class="page" id="id-card"><p class="eyebrow">Campus identity</p><h2>Student ID Card</h2><p class="subtitle">Your basic campus identification record.</p><div class="card" style="max-width:520px;background:linear-gradient(135deg,#f8fbfd,#e9f1f5)"><div class="profile-card" style="margin:0;background:transparent;border:0;padding:0"><div class="profile-avatar">IJ</div><div><h3>Ifechukwu Abumchukwu Jesse</h3><p>Computer Engineering · 200 Level</p></div></div><div class="info-grid" style="margin-top:22px"><div class="info-item"><span class="data-label">Matric Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Faculty</span><b>Engineering</b></div></div><p style="font-size:12px;color:var(--muted);margin:18px 0 0">This is a portal reference card. A physical or digital card is issued only through the authorised University process.</p></div></section>
-      <section class="page" id="settings"><p class="eyebrow">Account preferences</p><h2>Settings</h2><p class="subtitle">Manage local portal preferences for this demonstration.</p><div class="card"><div class="support-list"><div><b>Email notifications</b><span>Important academic updates will appear in the portal. Email delivery requires a connected backend service.</span></div><div><b>Preferred contact details</b><span>Contact information is managed through the authorised student records process.</span></div><div><b>Privacy</b><span>Keep your portal access and student information confidential.</span></div></div></div></section>
-      <footer class="page-footer">For more information, contact: <a href="mailto:infoadmissionelizadeuniversity@gmail.com">infoadmissionelizadeuniversity@gmail.com</a></footer>
-    </main>
-  </div>
-  <section class="access-screen" id="portalAccess" aria-label="Student portal access"><div class="access-card"><img class="access-logo" src="images/elizade-logo.png" alt="Elizade University logo"><h1>Student Portal Access</h1><p>Please enter your username and password to continue.</p><form id="portalAccessForm"><label for="portalUsername">Username</label>
-<input id="portalUsername" type="text" autocomplete="username" required>
-
+<section class="page" id="services"><p class="eyebrow">Student support</p><h2>Student Services</h2><p class="subtitle">Quick access to University resources, records and support.</p><div class="service-grid"><article class="service-card"><div class="q-icon">✉</div><h3>Announcements</h3><p>Stay up to date with academic, departmental and campus notices.</p><button class="btn" data-go="announcements">View Announcements</button></article><article class="service-card"><div class="q-icon">?</div><h3>Support / Help Desk</h3><p>Find contacts and guidance for academic and portal assistance.</p><button class="btn" data-go="support">Get Support</button></article><article class="service-card"><div class="q-icon">⌂</div><h3>Hostel Information</h3><p>Review accommodation guidance and residential services.</p><button class="btn" data-go="hostel-info">View Hostel Info</button></article><article class="service-card"><div class="q-icon">▤</div><h3>Library Services</h3><p>Explore research support, borrowing and study resources.</p><button class="btn" data-go="library">Open Library Services</button></article><article class="service-card"><div class="q-icon">▣</div><h3>Student ID Card</h3><p>View your campus identity card information.</p><button class="btn" data-go="id-card">View ID Card</button></article><article class="service-card"><div class="q-icon">⚙</div><h3>Settings</h3><p>Review notifications and basic account preferences.</p><button class="btn" data-go="settings">Open Settings</button></article></div></section>
+<section class="page" id="announcements"><p class="eyebrow">University updates</p><h2>Announcements</h2><p class="subtitle">Recent notices relevant to your academic journey.</p><div class="support-list"><div><b>Course registration window</b><span>Review your selected courses and submit your registration before the departmental deadline.</span></div><div><b>Faculty of Engineering notice</b><span>Students should check the timetable before attending laboratory practical sessions.</span></div><div><b>Library orientation resources</b><span>Online library guidance and study skills resources are available through Library Services.</span></div></div></section>
+<section class="page" id="support"><p class="eyebrow">Need assistance?</p><h2>Support / Help Desk</h2><p class="subtitle">Start with the service best suited to your enquiry.</p><div class="support-list"><div><b>Academic and registration enquiries</b><span>Contact your department or Faculty Office for course and registration support.</span></div><div><b>Fees and bursary enquiries</b><span>Visit the school bursary for confirmation of charges and approved payment instructions.</span></div><div><b>Portal assistance</b><span>Use the University ICT support channel for account access and technical issues.</span></div></div></section>
+<section class="page" id="hostel-info"><p class="eyebrow">Residential services</p><h2>Hostel Information</h2><p class="subtitle">Accommodation details for resident students.</p><div class="card"><div class="info-grid"><div class="info-item"><span class="data-label">Accommodation Status</span><b>Pending hostel allocation</b></div><div class="info-item"><span class="data-label">Hostel Levy</span><b>₦150,000</b></div><div class="info-item"><span class="data-label">Payment Status</span><b>Unpaid</b></div></div><div class="notice">Room allocation and residency guidance are issued by the Student Affairs and Hostel Management offices after required approvals.</div><button class="btn" data-go="selection" type="button">Make Payment</button></div></section>
+<section class="page" id="library"><p class="eyebrow">Learning resources</p><h2>Library Services</h2><p class="subtitle">Support for study, research and responsible use of information.</p><div class="service-grid"><article class="service-card"><div class="q-icon">⌕</div><h3>Catalogue &amp; Research</h3><p>Use the library catalogue and ask library staff for research guidance.</p></article><article class="service-card"><div class="q-icon">◫</div><h3>Borrowing Services</h3><p>Bring your student identification card when using borrowing services.</p></article><article class="service-card"><div class="q-icon">▧</div><h3>Study Spaces</h3><p>Quiet reading and group-study spaces are subject to library rules.</p></article></div></section>
+<section class="page" id="id-card"><p class="eyebrow">Campus identity</p><h2>Student ID Card</h2><p class="subtitle">Your basic campus identification record.</p><div class="card" style="max-width:520px;background:linear-gradient(135deg,#f8fbfd,#e9f1f5)"><div class="profile-card" style="margin:0;background:transparent;border:0;padding:0"><div class="profile-avatar">IJ</div><div><h3>Ifechukwu Abumchukwu Jesse</h3><p>Computer Engineering · 200 Level</p></div></div><div class="info-grid" style="margin-top:22px"><div class="info-item"><span class="data-label">Matric Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Faculty</span><b>Engineering</b></div></div><p style="font-size:12px;color:var(--muted);margin:18px 0 0">This is a portal reference card. A physical or digital card is issued only through the authorised University process.</p></div></section>
+<section class="page" id="settings"><p class="eyebrow">Account preferences</p><h2>Settings</h2><p class="subtitle">Manage local portal preferences for this demonstration.</p><div class="card"><div class="support-list"><div><b>Email notifications</b><span>Important academic updates will appear in the portal. Email delivery requires a connected backend service.</span></div><div><b>Preferred contact details</b><span>Contact information is managed through the authorised student records process.</span></div><div><b>Privacy</b><span>Keep your portal access and student information confidential.</span></div></div></div></section>
+<footer class="page-footer">For more information, contact: <a href="mailto:infoadmissionelizadeuniversity@gmail.com">infoadmissionelizadeuniversity@gmail.com</a></footer>
+</main>
+</div>
+<section aria-label="Student portal access" class="access-screen" id="portalAccess"><div class="access-card"><img alt="Elizade University logo" class="access-logo" src="images/elizade-logo.png"/><h1>Student Portal Access</h1><p>Please enter your username and password to continue.</p><form id="portalAccessForm"><label for="portalUsername">Username</label>
+<input autocomplete="username" id="portalUsername" required="" type="text"/>
 <label for="portalPassword">Password</label>
-<input id="portalPassword" type="password" autocomplete="current-password" required><p class="access-error" id="portalAccessError" role="alert"></p><button class="btn" type="submit">Continue</button></form><p class="access-note">Demonstration-only front-end access gate. Production access control must be implemented on a secure server.</p></div></section>
-  <section class="screen-shield" id="financeAccess" aria-label="Confidential financial information access"><div class="finance-modal"><div class="finance-lock" aria-hidden="true">⌑</div><h2>Financial Information Locked</h2><p>This section contains confidential school fees, payment and levy information. Enter the payment access code to continue.</p><form id="financeAccessForm"><label for="financePassword">Payment access code</label><input id="financePassword" type="password" autocomplete="current-password" required><p class="finance-error" id="financeAccessError" role="alert"></p><button class="btn" type="submit">Continue</button><button class="btn btn-outline" type="button" id="financeCancel">Cancel</button></form><p class="access-note">Demonstration-only front-end gate. Production financial access requires server-side authorization.</p></div></section>
-  <div class="toast" id="toast" role="status" aria-live="polite"><button id="toastClose" aria-label="Close notification">×</button><span id="toastText"></span></div>
-  <button class="assistant-launcher" id="assistantLauncher" aria-label="Open virtual assistant" aria-expanded="false"><img src="images/portal-assistant-robot.png" alt="Friendly virtual assistant robot"><span class="assistant-status" aria-hidden="true"></span></button>
-  <section class="assistant-panel" id="assistantPanel" aria-label="Portal virtual assistant" aria-live="polite">
-    <header class="assistant-header"><img src="images/portal-assistant-robot.png" alt=""><div><b>Portal Assistant</b><small>Here to help you find your way</small></div><div class="assistant-controls"><button id="assistantMinimize" aria-label="Minimize assistant">−</button><button id="assistantClose" aria-label="Close assistant">×</button></div></header>
-    <div class="assistant-body" id="assistantMessages"><div class="chat-bubble">Hello Ifechukwu! I’m your portal guide. Ask me where to find a service, or use one of the quick actions below.</div><div class="assistant-quick"><button data-assistant-action="register">How do I register my courses?</button><button data-assistant-action="payments">How do I make a payment?</button><button data-assistant-action="timetable">Show my timetable</button><button data-assistant-action="support">Contact support</button></div><p class="assistant-disclaimer">This is a front-end portal guide using predefined responses. It is not connected to a live AI service.</p></div>
-    <form class="assistant-input" id="assistantForm"><input id="assistantInput" type="search" placeholder="Ask about the portal…" aria-label="Ask the portal assistant"><button type="submit">Send</button></form>
-  </section>
-  <script>
-    const titles={dashboard:'Dashboard',profile:'My Profile',results:'Academic Results',timetable:'Course Timetable',registration:'Course Registration',fees:'School Fees & Payments',selection:'Select Payment Option',payment:'Payment Details','medical-payment':'Medical Payment Instructions','hostel-payment':'Hostel Payment Instructions',drug:'Drug Test Evaluation',guardian:'Parent & Guardian Verification',services:'Student Services',announcements:'Announcements',support:'Support / Help Desk','hostel-info':'Hostel Information',library:'Library Services','id-card':'Student ID Card',settings:'Settings'};
-    const financePages=['fees','selection','payment','medical-payment','hostel-payment'];let financeUnlocked=false,financeDestination=null;
-    const go=(id,bypassFinance=false)=>{if(financePages.includes(id)&&!financeUnlocked&&!bypassFinance){openFinanceGate(id);return}if(id!=='guardian')stopCamera();document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav-link').forEach(x=>x.classList.toggle('active',x.dataset.page===id));document.getElementById('crumb').textContent='Student Portal / '+titles[id];document.getElementById('shell').classList.remove('menu-open');window.scrollTo({top:0,behavior:'smooth'});if(id==='payment')startTimer();};
-    document.querySelectorAll('[data-go]').forEach(x=>x.addEventListener('click',e=>{e.preventDefault();go(x.dataset.go)})); document.querySelectorAll('.nav-link').forEach(x=>x.addEventListener('click',()=>go(x.dataset.page))); document.getElementById('menuBtn').onclick=()=>document.getElementById('shell').classList.toggle('menu-open');
-    // Demo-only gates. Replace these client-side checks with secure server-side authentication and authorization in production.
-    const portalAccess=document.getElementById('portalAccess'),
-portalUsername=document.getElementById('portalUsername'),
-portalPassword=document.getElementById('portalPassword'),
-portalAccessError=document.getElementById('portalAccessError');
+<input autocomplete="current-password" id="portalPassword" required="" type="password"/><p class="access-error" id="portalAccessError" role="alert"></p><button class="btn" type="submit">Continue</button></form><p class="access-note">Demonstration-only front-end access gate. Production access control must be implemented on a secure server.</p></div></section>
+<section aria-label="Confidential financial information access" class="screen-shield" id="financeAccess"><div class="finance-modal"><div aria-hidden="true" class="finance-lock">⌑</div><h2>Financial Information Locked</h2><p>This section contains confidential school fees, payment and levy information. Enter the payment access code to continue.</p><form id="financeAccessForm"><label for="financePassword">Payment access code</label><input autocomplete="current-password" id="financePassword" required="" type="password"/><p class="finance-error" id="financeAccessError" role="alert"></p><button class="btn" type="submit">Continue</button><button class="btn btn-outline" id="financeCancel" type="button">Cancel</button></form><p class="access-note">login pay to fees payment always keep it safe always </p></div></section>
+<div aria-live="polite" class="toast" id="toast" role="status"><button aria-label="Close notification" id="toastClose">×</button><span id="toastText"></span></div>
+<button aria-expanded="false" aria-label="Open virtual assistant" class="assistant-launcher" id="assistantLauncher"><img alt="Friendly virtual assistant robot" src="images/portal-assistant-robot.png"/><span aria-hidden="true" class="assistant-status"></span></button>
+<section aria-label="Portal virtual assistant" aria-live="polite" class="assistant-panel" id="assistantPanel">
+<header class="assistant-header"><img alt="" src="images/portal-assistant-robot.png"/><div><b>Portal Assistant</b><small>Here to help you find your way</small></div><div class="assistant-controls"><button aria-label="Minimize assistant" id="assistantMinimize">−</button><button aria-label="Close assistant" id="assistantClose">×</button></div></header>
+<div class="assistant-body" id="assistantMessages"><div class="chat-bubble">Hello Ifechukwu! I’m your portal guide. Ask me where to find a service, or use one of the quick actions below.</div><div class="assistant-quick"><button data-assistant-action="register">How do I register my courses?</button><button data-assistant-action="payments">How do I make a payment?</button><button data-assistant-action="timetable">Show my timetable</button><button data-assistant-action="support">Contact support</button></div><p class="assistant-disclaimer">This is a front-end portal guide using predefined responses. It is not connected to a live AI service.</p></div>
+<form class="assistant-input" id="assistantForm"><input aria-label="Ask the portal assistant" id="assistantInput" placeholder="Ask about the portal…" type="search"/><button type="submit">Send</button></form>
+</section>
+<script>
+const titles={dashboard:'Dashboard',profile:'My Profile',results:'Academic Results',timetable:'Course Timetable',registration:'Course Registration',fees:'School Fees & Payments','fees-2026-2027':'2026/2027 Academic Fees Structure',selection:'Select Payment Option','payment-summary':'Payment Summary','payment-generation':'Generating Payment Account',payment:'Payment Details','payment-confirmation-loading':'Payment Confirmation','payment-confirmation-result':'Payment Yet to be Confirmed',drug:'Drug Test Evaluation',guardian:'Parent & Guardian Verification',services:'Student Services',announcements:'Announcements',support:'Support / Help Desk','hostel-info':'Hostel Information',library:'Library Services','id-card':'Student ID Card',settings:'Settings'};
+const feeConfig={schoolFees:{half:975000,full:1950000},medical:200000,academicResource:250000,hostel:150000};
+const totalForPlan=plan=>feeConfig.schoolFees[plan]+feeConfig.medical+feeConfig.academicResource+feeConfig.hostel;
+const formatNaira=value=>'₦'+Number(value).toLocaleString('en-NG');
+const financePages=['fees','selection','payment-summary','payment-generation','payment','payment-confirmation-loading','payment-confirmation-result'];
+let financeUnlocked=false,financeDestination=null,currentPaymentPlan='full',paymentSession=null,paymentTimerId=null,generationTimerId=null,confirmationTimerId=null;
 
-document.getElementById('portalAccessForm').onsubmit=e=>{
+function setActivePage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
+  document.querySelectorAll('.nav-link').forEach(n=>n.classList.toggle('active',n.dataset.page===id));
+  const crumb=document.getElementById('crumb'); if(crumb) crumb.textContent='Student Portal / '+(titles[id]||id);
+  document.getElementById('shell')?.classList.remove('menu-open');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function pushPage(id){if(history.pushState&&history.state?.page!==id)history.pushState({page:id},'',location.href)}
+function go(id,{bypassFinance=false,historyMode=true}={}){
+  if(!document.getElementById(id))return false;
+  if(financePages.includes(id)&&!financeUnlocked&&!bypassFinance){financeDestination=id;openFinanceGate();return false}
+  if(historyMode)pushPage(id);
+  setActivePage(id);
+  if(id==='payment-summary')renderPaymentSummary();
+  if(id==='payment') {renderPaymentDetails();startPaymentTimer();}
+  if(id==='fees-2026-2027')renderFeeStructure();
+  if(id!=='guardian')stopCamera();
+  return true;
+}
+addEventListener('popstate',e=>{
+  const id=e.state?.page||'dashboard';
+  if(financePages.includes(id)&&!financeUnlocked){openFinanceGate();return}
+  setActivePage(id);
+  if(id==='payment-summary')renderPaymentSummary();
+  if(id==='payment'){renderPaymentDetails();startPaymentTimer();}
+  if(id==='fees-2026-2027')renderFeeStructure();
+});
+addEventListener('load',()=>{if(!history.state?.page)history.replaceState({page:'dashboard'},'',location.href)});
+
+document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();go(el.dataset.go)}));
+document.querySelectorAll('.nav-link').forEach(link=>link.addEventListener('click',()=>go(link.dataset.page)));
+document.getElementById('menuBtn')?.addEventListener('click',()=>document.getElementById('shell')?.classList.toggle('menu-open'));
+
+/* Login */
+const portalAccess=document.getElementById('portalAccess'),portalUsername=document.getElementById('portalUsername'),portalPassword=document.getElementById('portalPassword'),portalAccessError=document.getElementById('portalAccessError');
+document.getElementById('portalAccessForm')?.addEventListener('submit',e=>{
   e.preventDefault();
-
-  if(
-    portalUsername.value.trim()==='Ifechukwu Abumchukwu' &&
-    portalPassword.value==='ifechukw2007'
-  ){
-    portalAccess.classList.add('hidden');
-    portalAccessError.textContent='';
-    portalUsername.value='';
-    portalPassword.value='';
-    showToast('Portal unlocked. Welcome back.');
-  }else{
-    portalAccessError.textContent='Incorrect username or password. Please try again.';
-    portalPassword.value='';
-    portalPassword.focus();
-  }
-};
-
-document.getElementById('lockPortal').onclick=()=>{
-  stopCamera();
-  financeUnlocked=false;
-  portalAccess.classList.remove('hidden');
-  portalUsername.value='';
-  portalPassword.value='';
-  portalAccessError.textContent='';
-  portalUsername.focus();
-};
-    const financeAccess=document.getElementById('financeAccess'),financePassword=document.getElementById('financePassword'),financeAccessError=document.getElementById('financeAccessError');function openFinanceGate(destination){financeDestination=destination;financePassword.value='';financeAccessError.textContent='';financeAccess.classList.add('open');setTimeout(()=>financePassword.focus(),100)}document.getElementById('financeAccessForm').onsubmit=e=>{e.preventDefault();if(financePassword.value==='jesselife'){financeUnlocked=true;financeAccess.classList.remove('open');const destination=financeDestination||'fees';financeDestination=null;go(destination,true);showToast('Financial information unlocked for this session.')}else{financeAccessError.textContent='That access code is not correct. Please try again.';financePassword.focus();}};document.getElementById('financeCancel').onclick=()=>{financeAccess.classList.remove('open');financeDestination=null;};
-    let cameraStream=null;const guardianStages=document.querySelectorAll('.guardian-stage'),captureVerification=document.getElementById('captureVerification');function setGuardianStage(id){guardianStages.forEach(stage=>stage.classList.toggle('active',stage.id===id))}function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(track=>track.stop());cameraStream=null}const preview=document.getElementById('cameraPreview');if(preview)preview.srcObject=null}function cameraMessage(error){if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)return 'Camera access is not supported by this browser. Please use a supported browser on a device with a camera.';if(error&&['NotAllowedError','SecurityError'].includes(error.name))return 'Camera permission was denied. Please allow camera access in your browser settings and try again.';if(error&&['NotFoundError','DevicesNotFoundError'].includes(error.name))return 'No camera was found on this device. Please connect a camera and try again.';return 'We could not access the camera. Please check your device and browser permissions, then try again.'}const guardianConsent=document.getElementById('guardianConsent'),startCamera=document.getElementById('startCamera'),cameraError=document.getElementById('cameraError');let selectedVerification = '';
-
-const verificationOptions = document.querySelectorAll('.verification-option');
-
-function updateVerificationButton() {
-  startCamera.disabled = !(guardianConsent.checked && selectedVerification);
-}
-function resetVerificationSelection() {
-  selectedVerification = '';
-  verificationOptions.forEach(option =>
-    option.classList.remove('selected')
-  );
-  guardianConsent.checked = false;
-  updateVerificationButton();
-}
-
-guardianConsent.onchange = updateVerificationButton;
-
-verificationOptions.forEach(option => {
-  option.onclick = () => {
-    selectedVerification = option.dataset.verification;
-
-    verificationOptions.forEach(item =>
-      item.classList.toggle('selected', item === option)
-    );
-
-    updateVerificationButton();
-  };
-});startCamera.onclick=async()=>{if(!guardianConsent.checked)return;cameraError.hidden=true;captureVerification.disabled=true;if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){cameraError.textContent=cameraMessage();cameraError.hidden=false;setGuardianStage('guardianCamera');return}try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});document.getElementById('cameraPreview').srcObject=cameraStream;captureVerification.disabled=false;setGuardianStage('guardianCamera')}catch(error){cameraError.textContent=cameraMessage(error);cameraError.hidden=false;setGuardianStage('guardianCamera')}};document.getElementById('cancelCamera').onclick=()=>{stopCamera();resetVerificationSelection();setGuardianStage('guardianIntro')};captureVerification.onclick=()=>{if(!cameraStream)return;stopCamera();setGuardianStage('guardianProcessing');const verificationResult = document.getElementById('verificationResult');
-verificationResult.textContent =
-  selectedVerification === 'female'
-    ? 'Female verification section completed.'
-    : 'Male verification section completed.';setTimeout(()=>setGuardianStage('guardianComplete'),20000)};document.getElementById('finishVerification').onclick=()=>{stopCamera();resetVerificationSelection();setGuardianStage('guardianIntro');showToast('Verification flow finished.image stored thank you.');};
-    // Front-end assistant: responses are intentionally local and can be replaced by an authenticated AI API later.
-    const assistantPanel=document.getElementById('assistantPanel'),assistantLauncher=document.getElementById('assistantLauncher'),assistantMessages=document.getElementById('assistantMessages'),assistantInput=document.getElementById('assistantInput');
-    function assistantOpen(){assistantPanel.classList.add('open');assistantPanel.classList.remove('minimized');assistantLauncher.setAttribute('aria-expanded','true');assistantInput.focus()}function assistantClose(){assistantPanel.classList.remove('open');assistantLauncher.setAttribute('aria-expanded','false')}function addAssistantMessage(text,user=false){const bubble=document.createElement('div');bubble.className='chat-bubble'+(user?' user':'');bubble.textContent=text;assistantMessages.insertBefore(bubble,assistantMessages.querySelector('.assistant-quick'));assistantMessages.scrollTop=assistantMessages.scrollHeight}function helpWith(key){const replies={register:['Course Registration lets you select courses and see the total credit units before submitting.', 'registration'],payments:['Open School Fees & Payments to choose a school-fee option or view Medical and Hostel payment instructions.', 'fees'],timetable:['Your weekly schedule is available on the Course Timetable page.', 'timetable'],support:['The Support / Help Desk page lists academic, bursary and portal assistance options.', 'support'],hostel:['Hostel Information shows accommodation guidance and links to the hostel payment instructions.', 'hostel-info'],library:['Library Services contains study, catalogue and borrowing guidance.', 'library'],id:['Your Student ID Card reference is available under Student Services.', 'id-card'],announcements:['Recent academic and campus notices are collected in Announcements.', 'announcements']};const [message,page]=replies[key];addAssistantMessage(message);setTimeout(()=>go(page),350)} assistantLauncher.onclick=()=>assistantPanel.classList.contains('open')?assistantClose():assistantOpen();document.getElementById('assistantClose').onclick=assistantClose;document.getElementById('assistantMinimize').onclick=()=>assistantPanel.classList.toggle('minimized');document.querySelectorAll('[data-assistant-action]').forEach(button=>button.onclick=()=>{const key=button.dataset.assistantAction;addAssistantMessage(button.textContent,true);helpWith(key)});document.getElementById('assistantForm').onsubmit=e=>{e.preventDefault();const query=assistantInput.value.trim();if(!query)return;addAssistantMessage(query,true);assistantInput.value='';const normalized=query.toLowerCase();const match=normalized.includes('register')||normalized.includes('course')?'register':normalized.includes('pay')||normalized.includes('fee')||normalized.includes('medical')?'payments':normalized.includes('time')||normalized.includes('schedule')?'timetable':normalized.includes('hostel')?'hostel':normalized.includes('library')?'library':normalized.includes('id card')||normalized.includes('identity')?'id':normalized.includes('announce')||normalized.includes('news')?'announcements':normalized.includes('support')||normalized.includes('help')?'support':null;if(match)helpWith(match);else addAssistantMessage('I can help you locate Course Registration, Payments, Timetable, Hostel Information, Library Services, Student ID, Announcements, and Support. Try one of those terms.');};
-    // Uses the visitor's device date; no server connection is required.
-    document.getElementById('currentDate').textContent=new Intl.DateTimeFormat(undefined,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date());
-    function updateClock(){document.getElementById('liveClock').textContent=new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())} updateClock();setInterval(updateClock,1000);
-    const toast=document.getElementById('toast'),toastText=document.getElementById('toastText');let toastTimer;function playNotificationSound(){try{const AudioContext=window.AudioContext||window.webkitAudioContext;if(!AudioContext)return;const context=new AudioContext(),oscillator=context.createOscillator(),gain=context.createGain();oscillator.frequency.value=660;gain.gain.setValueAtTime(.035,context.currentTime);gain.gain.exponentialRampToValueAtTime(.001,context.currentTime+.16);oscillator.connect(gain).connect(context.destination);oscillator.start();oscillator.stop(context.currentTime+.16)}catch(error){/* Browsers may block sound until a user has interacted with the page. */}}function showToast(message){toastText.textContent=message;toast.classList.add('show');playNotificationSound();clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),7000)}document.getElementById('toastClose').onclick=()=>toast.classList.remove('show');
-    const themeToggle=document.getElementById('themeToggle');function setTheme(theme){document.documentElement.dataset.theme=theme;themeToggle.textContent=theme==='dark'?'☼ Light':'◐ Dark';localStorage.setItem('eu-dashboard-theme',theme)}setTheme(localStorage.getItem('eu-dashboard-theme')||'light');themeToggle.onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
-    let choice='Full Payment', amount='₦1,950,000'; document.querySelectorAll('.pay-option').forEach(x=>x.onclick=()=>{document.querySelectorAll('.pay-option').forEach(a=>a.classList.remove('selected'));x.classList.add('selected');choice=x.dataset.option;amount=x.dataset.amount;document.getElementById('selectedText').textContent=choice+' — '+amount;document.getElementById('payChoice').textContent=choice+' — '+amount});
-    let seconds=1200; let timerStarted=false; function startTimer(){if(!financeUnlocked||timerStarted)return;timerStarted=true;setInterval(()=>{if(seconds<=0)return;seconds--;let m=String(Math.floor(seconds/60)).padStart(2,'0'),s=String(seconds%60).padStart(2,'0');document.getElementById('timer').textContent=m+':'+s;if(seconds===0){document.getElementById('timerMsg').textContent='This payment session has expired. Please return and generate a new payment session.';document.getElementById('timerMsg').style.borderColor='#b13b42';document.getElementById('madePayment').disabled=true;document.getElementById('madePayment').style.opacity='.5'}},1000)} document.getElementById('madePayment').onclick=()=>{document.getElementById('successMsg').classList.add('show');document.getElementById('madePayment').style.display='none'};
-    const courseChecks=document.querySelectorAll('#courseList input'); const unitOutput=document.getElementById('selectedUnits'); function updateUnits(){unitOutput.textContent=[...courseChecks].filter(x=>x.checked).reduce((sum,x)=>sum+Number(x.dataset.units),0)} courseChecks.forEach(x=>x.addEventListener('change',updateUnits)); document.getElementById('registerCourses').onclick=()=>{if(Number(unitOutput.textContent)===0){showToast('Please select at least one course before registering.');return}document.getElementById('courseSuccess').classList.add('show');showToast('Course registration received.');document.getElementById('courseSuccess').scrollIntoView({behavior:'smooth',block:'nearest'})};
-    function startPaymentLoading(pageId,loaderId,contentId,waitId){go(pageId);const loader=document.getElementById(loaderId),content=document.getElementById(contentId);if(loader.classList.contains('done')||loader.dataset.loading)return;loader.dataset.loading='true';let left=30,wait=document.getElementById(waitId),interval=setInterval(()=>{left--;wait.textContent=left;if(left<=0){clearInterval(interval);loader.classList.add('done');content.classList.add('show');showToast('Payment information is ready.')}} ,1000)} document.getElementById('medicalPayBtn').onclick=()=>startPaymentLoading('medical-payment','medicalLoader','medicalContent','medicalWait');document.getElementById('hostelPayBtn').onclick=()=>startPaymentLoading('hostel-payment','hostelLoader','hostelContent','hostelWait');document.querySelector('[data-go="hostel-payment"]').addEventListener('click',e=>{e.preventDefault();startPaymentLoading('hostel-payment','hostelLoader','hostelContent','hostelWait')});document.getElementById('medicalPaymentMade').onclick=()=>showToast('service down.');document.getElementById('hostelPaymentMade').onclick=()=>showToast('payment details not available Thank you.');
-    const days=[['Monday',[['8:00 – 10:00 AM','CPE 201 · Circuit Theory I','Lecture'],['10:30 AM – 12:30 PM','MTH 201 · Differential Equations','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:00 – 6:00 PM','CPE 203 · Digital Electronics','Lecture']]],['Tuesday',[['9:00 – 11:00 AM','EEE 201 · Electrical Engineering Fundamentals','Lecture'],['11:30 AM – 1:30 PM','CPE 205 · Programming Methodology','Practical'],['2:00 – 4:00 PM','BREAK','Break'],['5:00 – 7:00 PM','Independent Study Period','Study']]],['Wednesday',[['8:00 – 10:00 AM','CPE 207 · Computer Architecture','Lecture'],['10:30 AM – 12:30 PM','PHY 201 · Electromagnetism','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:30 – 6:30 PM','CPE 203 · Digital Electronics Lab','Practical']]],['Thursday',[['9:00 – 11:00 AM','GST 211 · Philosophy, Logic & Human Existence','Lecture'],['11:30 AM – 1:30 PM','CPE 205 · Programming Methodology','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:30 – 6:00 PM','Departmental Tutorial / Study','Study']]],['Friday',[['8:00 – 10:00 AM','MTH 201 · Differential Equations','Tutorial'],['10:30 AM – 12:30 PM','CPE 201 · Circuit Theory I','Tutorial'],['2:00 – 4:00 PM','BREAK','Break'],['4:00 – 6:00 PM','CPE 207 · Computer Architecture','Lecture']]]];
-    document.getElementById('timetableList').innerHTML=days.map(([day,slots])=>`<div class="day"><h3>${day}</h3><div class="slots">${slots.map(([time,name,type])=>`<div class="slot ${type==='Break'?'break':type==='Study'?'study':''}"><span class="time">${time}</span><span>${name}</span><span class="badge">${type}</span></div>`).join('')}</div></div>`).join('');
-    // Notification Centre
-const notificationBell = document.getElementById('notificationBell');
-const notificationPanel = document.getElementById('notificationPanel');
-const notificationBadge = document.getElementById('notificationBadge');
-const notificationCountText = document.getElementById('notificationCountText');
-const markAllRead = document.getElementById('markAllRead');
-
-function updateNotificationCount() {
-  const unreadCount = document.querySelectorAll('.notification-item.unread').length;
-
-  notificationCountText.textContent =
-    unreadCount === 0
-      ? 'You are all caught up'
-      : `${unreadCount} unread notification${unreadCount === 1 ? '' : 's'}`;
-
-  notificationBadge.textContent = unreadCount;
-  notificationBadge.style.display = unreadCount === 0 ? 'none' : 'grid';
-}
-
-notificationBell.addEventListener('click', () => {
-  const isOpen = notificationPanel.classList.toggle('open');
-
-  notificationBell.setAttribute('aria-expanded', isOpen);
-  notificationPanel.setAttribute('aria-hidden', !isOpen);
+  if(portalUsername.value.trim()==='Ifechukwu Abumchukwu'&&portalPassword.value==='ifechukw2007'){
+    portalAccess.classList.add('hidden');portalAccessError.textContent='';portalUsername.value='';portalPassword.value='';history.replaceState({page:'dashboard'},'',location.href);setActivePage('dashboard');showToast('Portal unlocked. Welcome back.');
+  }else{portalAccessError.textContent='Incorrect username or password. Please try again.';portalPassword.value='';portalPassword.focus();}
+});
+document.getElementById('lockPortal')?.addEventListener('click',()=>{
+  stopCamera();clearPaymentIntervals();financeUnlocked=false;financeDestination=null;paymentSession=null;closeFinanceGate();portalAccess.classList.remove('hidden');portalUsername.value='';portalPassword.value='';portalAccessError.textContent='';history.replaceState({page:'dashboard'},'',location.href);setActivePage('dashboard');portalUsername.focus();
 });
 
-document.querySelectorAll('.notification-item').forEach(item => {
-  item.addEventListener('click', () => {
-    item.classList.remove('unread');
-    updateNotificationCount();
+/* Finance gate */
+const financeAccess=document.getElementById('financeAccess'),financePassword=document.getElementById('financePassword'),financeAccessError=document.getElementById('financeAccessError');
+function openFinanceGate(){financePassword.value='';financeAccessError.textContent='';financeAccess.classList.add('open');setTimeout(()=>financePassword.focus(),100)}
+function closeFinanceGate(){financeAccess.classList.remove('open')}
+document.getElementById('financeAccessForm')?.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(financePassword.value==='jesselife'){financeUnlocked=true;closeFinanceGate();const destination=financeDestination||'fees';financeDestination=null;go(destination,{bypassFinance:true});showToast('Financial information unlocked for this session.')}
+  else{financeAccessError.textContent='That access code is not correct. Please try again.';financePassword.focus();}
+});
+document.getElementById('financeCancel')?.addEventListener('click',()=>{closeFinanceGate();financeDestination=null});
 
-    // If the notification links to an existing portal page, navigate there.
-    if (item.dataset.go) {
-      notificationPanel.classList.remove('open');
-      notificationBell.setAttribute('aria-expanded', 'false');
-      go(item.dataset.go);
+/* Theme and clock */
+const themeToggle=document.getElementById('themeToggle');function setTheme(theme){document.documentElement.dataset.theme=theme;if(themeToggle)themeToggle.textContent=theme==='dark'?'☼ Light':'◐ Dark';localStorage.setItem('eu-dashboard-theme',theme)}
+setTheme(localStorage.getItem('eu-dashboard-theme')||'light');themeToggle?.addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark'));
+const currentDate=document.getElementById('currentDate'),liveClock=document.getElementById('liveClock');
+if(currentDate)currentDate.textContent=new Intl.DateTimeFormat(undefined,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date());
+function updateClock(){if(liveClock)liveClock.textContent=new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())}
+updateClock();setInterval(updateClock,1000);
+
+/* Toast */
+const toast=document.getElementById('toast'),toastText=document.getElementById('toastText');let toastTimer;
+function showToast(message){if(!toast||!toastText)return;toastText.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),7000)}
+document.getElementById('toastClose')?.addEventListener('click',()=>toast.classList.remove('show'));
+
+/* Results */
+function activateSemester(target){
+  document.querySelectorAll('.semester-view').forEach(v=>{const active=v.id===target;v.classList.toggle('active',active);v.setAttribute('aria-hidden',String(!active))});
+  document.querySelectorAll('.semester-tab').forEach(t=>{const active=t.dataset.semesterTarget===target;t.classList.toggle('active',active);t.setAttribute('aria-selected',String(active))});
+  const semesterLabel=target==='secondSemesterResult'?'Second Semester':'First Semester';
+  const printButton=document.getElementById('printResult');
+  const downloadButton=document.getElementById('downloadResult');
+  if(printButton)printButton.textContent=`Print ${semesterLabel} Result`;
+  if(downloadButton)downloadButton.textContent=`Download ${semesterLabel} Result`;
+  if(document.getElementById('results')?.classList.contains('active'))history.replaceState({...history.state,semester:target},'',location.href);
+}
+document.querySelectorAll('.semester-tab').forEach(t=>t.addEventListener('click',()=>activateSemester(t.dataset.semesterTarget)));
+function activeSemesterElement(){return document.querySelector('#results .semester-view.active')||document.getElementById('firstSemesterResult')}
+document.getElementById('printResult')?.addEventListener('click',()=>{const active=activeSemesterElement();if(!active)return;document.body.classList.add('print-result');window.print();setTimeout(()=>document.body.classList.remove('print-result'),500)});
+function buildResultDocument(){
+  const active=activeSemesterElement(),semester=active?.id==='secondSemesterResult'?'Second Semester':'First Semester',clone=active?.cloneNode(true);
+  clone?.querySelectorAll('button').forEach(b=>b.remove());
+  const filename=`Elizade_${semester.replace(/\s+/g,'_')}_Result_2025_2026.doc`;
+  const documentHtml=`<!doctype html><html><head><meta charset="utf-8"><title>Elizade University ${semester} Result</title><style>body{font-family:Arial,sans-serif;color:#18212c;margin:40px}h2,h3{color:#0b2848}table{width:100%;border-collapse:collapse;margin-top:18px;font-size:12px}th,td{border:1px solid #d9e1e7;padding:9px}th{background:#eef3f6;text-align:left}.data-label{display:block;font-size:10px;text-transform:uppercase;color:#6b7785}.summary{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.summary div{border:1px solid #d9e1e7;padding:12px;min-width:120px}</style></head><body><h2>ELIZADE UNIVERSITY, ILARA-MOKIN</h2><h3>${semester} Result</h3>${clone?.innerHTML||''}</body></html>`;
+  return {filename,documentHtml};
+}
+document.getElementById('downloadResult')?.addEventListener('click',()=>{const {filename,documentHtml}=buildResultDocument();const blob=new Blob([documentHtml],{type:'application/msword'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500);showToast('Result document generated and downloaded.')});
+
+/* Central payment */
+const paymentPlanButtons=document.querySelectorAll('.pay-option[data-payment-plan]');
+const planLabel=plan=>plan==='half'?'Half Payment':'Full Payment';
+function updateSelectedPaymentOption(){paymentPlanButtons.forEach(b=>b.classList.toggle('selected',b.dataset.paymentPlan===currentPaymentPlan));const el=document.getElementById('selectedText');if(el)el.textContent=`${planLabel(currentPaymentPlan)} — ${formatNaira(feeConfig.schoolFees[currentPaymentPlan])}`}
+paymentPlanButtons.forEach(b=>b.addEventListener('click',()=>{currentPaymentPlan=b.dataset.paymentPlan;updateSelectedPaymentOption();renderPaymentSummary()}));
+function renderPaymentSummary(){
+  const school=feeConfig.schoolFees[currentPaymentPlan],total=totalForPlan(currentPaymentPlan),set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
+  set('summaryPlan',planLabel(currentPaymentPlan));set('summaryTotal',formatNaira(total));set('summarySchoolLabel',planLabel(currentPaymentPlan));set('summarySchoolAmount',formatNaira(school));set('summaryGrandTotal',formatNaira(total));updateSelectedPaymentOption();
+}
+document.getElementById('continueToSummary')?.addEventListener('click',()=>{renderPaymentSummary();go('payment-summary')});
+document.getElementById('backToSelection')?.addEventListener('click',()=>go('selection'));
+function createPaymentReference(){return `EU-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2,7).toUpperCase()}`}
+function clearPaymentIntervals(){clearInterval(paymentTimerId);clearInterval(generationTimerId);clearInterval(confirmationTimerId);paymentTimerId=generationTimerId=confirmationTimerId=null}
+
+document.getElementById('generatePayment')?.addEventListener('click',()=>{
+  clearPaymentIntervals();
+  paymentSession={plan:currentPaymentPlan,total:totalForPlan(currentPaymentPlan),reference:createPaymentReference(),createdAt:Date.now(),expiresAt:null,status:'PAYMENT SESSION ACTIVE'};
+  go('payment-generation',{historyMode:true});
+  let remaining=30;
+  generationTimerId=setInterval(()=>{
+    remaining--;
+    if(remaining<=0){
+      clearInterval(generationTimerId);generationTimerId=null;
+      paymentSession.expiresAt=Date.now()+59*60*1000;
+      renderPaymentDetails();go('payment',{bypassFinance:true});startPaymentTimer();showToast('Payment account is ready.');
     }
-  });
+  },1000);
 });
 
-markAllRead.addEventListener('click', () => {
-  document.querySelectorAll('.notification-item.unread').forEach(item => {
-    item.classList.remove('unread');
-  });
+function renderPaymentDetails(){
+  if(!paymentSession)return;
+  const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
+  if(paymentSession.expiresAt&&Date.now()>=paymentSession.expiresAt)paymentSession.status='PAYMENT SESSION EXPIRED';
+  set('paymentPlanLabel',planLabel(paymentSession.plan));set('paymentTotal',formatNaira(paymentSession.total));set('paymentReference','Reference: '+paymentSession.reference);
+  const status=document.getElementById('paymentStatus'),made=document.getElementById('madePayment'),newSession=document.getElementById('newPaymentSession'),timerMsg=document.getElementById('timerMsg');
+  if(status){status.textContent=paymentSession.status;status.className='status '+(paymentSession.status==='PAYMENT SESSION ACTIVE'?'session-active':'unpaid')}
+  if(timerMsg)timerMsg.textContent=paymentSession.status==='PAYMENT SESSION EXPIRED'?'This payment session has expired. Generate a new session to continue.':'Complete the transfer before this payment session expires.';
+  if(made){made.disabled=paymentSession.status!=='PAYMENT SESSION ACTIVE';made.style.opacity=made.disabled?'.55':'1'}
+  if(newSession)newSession.hidden=paymentSession.status!=='PAYMENT SESSION EXPIRED';
+  updatePaymentTimerDisplay();
+}
+function updatePaymentTimerDisplay(){
+  const timer=document.getElementById('timer');if(!timer)return;
+  if(!paymentSession?.expiresAt){timer.textContent='59:00';return}
+  const remaining=Math.max(0,paymentSession.expiresAt-Date.now()),totalSeconds=Math.floor(remaining/1000),m=String(Math.floor(totalSeconds/60)).padStart(2,'0'),s=String(totalSeconds%60).padStart(2,'0');
+  timer.textContent=`${m}:${s}`;
+  if(totalSeconds<=0){paymentSession.status='PAYMENT SESSION EXPIRED';renderPaymentDetails()}
+}
+function startPaymentTimer(){clearInterval(paymentTimerId);updatePaymentTimerDisplay();if(!paymentSession?.expiresAt)return;paymentTimerId=setInterval(()=>{if(document.getElementById('payment')?.classList.contains('active'))updatePaymentTimerDisplay()},1000)}
+document.getElementById('madePayment')?.addEventListener('click',()=>{if(paymentSession?.status==='PAYMENT SESSION ACTIVE')startPaymentConfirmation()});
+document.getElementById('newPaymentSession')?.addEventListener('click',()=>{clearPaymentIntervals();paymentSession=null;currentPaymentPlan='full';go('selection')});
 
-  updateNotificationCount();
-  showToast('All notifications have been marked as read.');
+function startPaymentConfirmation(){
+  clearInterval(confirmationTimerId);
+  go('payment-confirmation-loading',{bypassFinance:true,historyMode:true});
+  let remaining=13;
+  confirmationTimerId=setInterval(()=>{
+    remaining--;
+    if(remaining<=0){
+      clearInterval(confirmationTimerId);confirmationTimerId=null;
+      if(paymentSession)paymentSession.status='PAYMENT YET TO BE CONFIRMED';
+      const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
+      set('confirmationReference',paymentSession?.reference||'—');
+      set('confirmationAmount',paymentSession?formatNaira(paymentSession.total):'—');
+      set('confirmationPlan',paymentSession?planLabel(paymentSession.plan):'—');
+      go('payment-confirmation-result',{bypassFinance:true,historyMode:true});
+    }
+  },1000);
+}
+document.getElementById('backToDashboardFromConfirmation')?.addEventListener('click',()=>go('dashboard'));
+
+/* 2026/2027 fees */
+const feeData=[
+  ['Humanities','English',1750000,1650000,5000,4000],['Humanities','Performing & Film Arts',1750000,1650000,5000,4000],['Humanities','International Relations',1750000,1650000,5000,4000],
+  ['Social & Management Sciences','Accounting',1800000,1650000,3500,3200],['Social & Management Sciences','Business Administration',1800000,1650000,3500,3200],['Social & Management Sciences','Economics',1800000,1650000,3500,3200],['Social & Management Sciences','Human Resource Management',1800000,1650000,3500,3200],['Social & Management Sciences','Mass Communication',1800000,1650000,3500,3200],['Social & Management Sciences','Political Science',1800000,1650000,3500,3200],['Social & Management Sciences','Sociology',1800000,1650000,3500,3200],['Social & Management Sciences','Tourism & Hospitality Management',1800000,1650000,3500,3200],
+  ['Basic & Applied Sciences / Allied Sciences','Applied Geophysics',1900050,1800050,4500,4000],['Basic & Applied Sciences / Allied Sciences','Anatomy',1900050,1800050,4500,4000],['Basic & Applied Sciences / Allied Sciences','Physics & Electronics',1900050,1800050,4500,4000],['Basic & Applied Sciences / Allied Sciences','Biotechnology',1900050,1800050,4500,4000],['Basic & Applied Sciences / Allied Sciences','Biochemistry',1900050,1800050,4500,4000],['Basic & Applied Sciences / Allied Sciences','Microbiology',1900050,1800050,4500,4000],['Basic & Applied Sciences / Allied Sciences','Environmental Management & Toxicology',1900050,1800050,4500,4000],['Basic & Applied Sciences / Allied Sciences','Physiology',1900050,1800050,4500,4000],
+  ['Computing & Technology','Computer Science',2500000,2000000,7000,6500],['Computing & Technology','Cybersecurity',2500000,2000000,7000,6500],['Computing & Technology','Software Engineering',2500000,2000000,7000,6500],
+  ['Health Sciences','Public Health',2800000,2650000,9500,9000],['Health Sciences','Medical Laboratory Science',2300000,2300000,9500,9000],['Health Sciences','Nursing Science',5550000,4700000,10500,10000],
+  ['Environmental Sciences','Architecture',1800000,1750000,5000,4500],['Environmental Sciences','Estate Management',1800000,1750000,5000,4500],['Environmental Sciences','Quantity Surveying',1800000,1750000,5000,4500],
+  ['Engineering','Automotive Engineering',2150000,1950000,9500,9300],['Engineering','Civil Engineering',2150000,1950000,9500,9300],['Engineering','Computer Engineering',2150000,1950000,9500,9300],['Engineering','Electrical & Electronics Engineering',2150000,1950000,9500,9300],['Engineering','Information & Communication Engineering',2150000,1950000,9500,9300],['Engineering','Mechatronics Engineering',2150000,1950000,9500,9300],['Engineering','Mechanical Engineering',2150000,1950000,9500,9300],
+  ['Law','Law',4000000,3750000,12000,11000]
+].map(([faculty,programme,local100,local200,international100,international200])=>({faculty,programme,local100,local200,international100,international200}));
+
+let feeStudentType='local',feeLevel='100',feeSearch='';
+function escapeHtml(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function renderFeeStructure(){
+  const body=document.getElementById('feeStructureBody'),empty=document.getElementById('feeNoResults');if(!body)return;
+  const query=feeSearch.trim().toLowerCase(),rows=feeData.filter(i=>!query||i.programme.toLowerCase().includes(query)||i.faculty.toLowerCase().includes(query));
+  const key=feeStudentType==='local'?(feeLevel==='100'?'local100':'local200'):(feeLevel==='100'?'international100':'international200');
+  body.innerHTML=rows.map(i=>`<tr><td>${escapeHtml(i.faculty)}</td><td>${escapeHtml(i.programme)}</td><td>${feeStudentType==='local'?formatNaira(i[key]):'$'+Number(i[key]).toLocaleString('en-US')}</td></tr>`).join('');
+  if(empty)empty.hidden=rows.length>0;
+  const label=document.getElementById('feeSelectionLabel');if(label)label.textContent=`${feeStudentType==='local'?'Local Students':'International Students'} · ${feeLevel==='100'?'100 Level':'200–500 Level'}`;
+  const col=document.getElementById('feeColumnLabel');if(col)col.textContent=feeStudentType==='local'?'Fee (₦)':'Fee (USD)';
+  document.querySelectorAll('[data-student-type]').forEach(b=>b.classList.toggle('active',b.dataset.studentType===feeStudentType));
+  document.querySelectorAll('[data-fee-level]').forEach(b=>b.classList.toggle('active',b.dataset.feeLevel===feeLevel));
+}
+document.querySelectorAll('[data-student-type]').forEach(b=>b.addEventListener('click',()=>{feeStudentType=b.dataset.studentType;renderFeeStructure()}));
+document.querySelectorAll('[data-fee-level]').forEach(b=>b.addEventListener('click',()=>{feeLevel=b.dataset.feeLevel;renderFeeStructure()}));
+document.getElementById('feeProgrammeSearch')?.addEventListener('input',e=>{feeSearch=e.target.value;renderFeeStructure()});
+document.getElementById('printFeeStructure')?.addEventListener('click',()=>{document.body.classList.add('print-fees');window.print();setTimeout(()=>document.body.classList.remove('print-fees'),500)});
+
+/* Registration / timetable */
+const courseChecks=document.querySelectorAll('#courseList input'),unitOutput=document.getElementById('selectedUnits');
+function updateUnits(){if(unitOutput)unitOutput.textContent=[...courseChecks].filter(x=>x.checked).reduce((sum,x)=>sum+Number(x.dataset.units),0)}
+courseChecks.forEach(x=>x.addEventListener('change',updateUnits));updateUnits();
+document.getElementById('registerCourses')?.addEventListener('click',()=>{if(Number(unitOutput?.textContent||0)===0){showToast('Please select at least one course before registering.');return}document.getElementById('courseSuccess')?.classList.add('show');showToast('Course registration received.')});
+const days=[['Monday',[['8:00 – 10:00 AM','CPE 201 · Circuit Theory I','Lecture'],['10:30 AM – 12:30 PM','MTH 201 · Differential Equations','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:00 – 6:00 PM','CPE 203 · Digital Electronics','Lecture']]],['Tuesday',[['9:00 – 11:00 AM','EEE 201 · Electrical Engineering Fundamentals','Lecture'],['11:30 AM – 1:30 PM','CPE 205 · Programming Methodology','Practical'],['2:00 – 4:00 PM','BREAK','Break'],['5:00 – 7:00 PM','Independent Study Period','Study']]],['Wednesday',[['8:00 – 10:00 AM','CPE 207 · Computer Architecture','Lecture'],['10:30 AM – 12:30 PM','PHY 201 · Electromagnetism','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:30 – 6:30 PM','CPE 203 · Digital Electronics Lab','Practical']]],['Thursday',[['9:00 – 11:00 AM','GST 211 · Philosophy, Logic & Human Existence','Lecture'],['11:30 AM – 1:30 PM','CPE 205 · Programming Methodology','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:30 – 6:00 PM','Departmental Tutorial / Study','Study']]],['Friday',[['8:00 – 10:00 AM','MTH 201 · Differential Equations','Tutorial'],['10:30 AM – 12:30 PM','CPE 201 · Circuit Theory I','Tutorial'],['2:00 – 4:00 PM','BREAK','Break'],['4:00 – 6:00 PM','CPE 207 · Computer Architecture','Lecture']]]];
+const timetableList=document.getElementById('timetableList');if(timetableList)timetableList.innerHTML=days.map(([day,slots])=>`<div class="day"><h3>${day}</h3><div class="slots">${slots.map(([time,name,type])=>`<div class="slot ${type==='Break'?'break':type==='Study'?'study':''}"><span class="time">${time}</span><span>${escapeHtml(name)}</span><span class="badge">${type}</span></div>`).join('')}</div></div>`).join('');
+
+/* Parent verification */
+let cameraStream=null,selectedVerification='';const guardianStages=document.querySelectorAll('.guardian-stage'),captureVerification=document.getElementById('captureVerification'),guardianConsent=document.getElementById('guardianConsent'),startCamera=document.getElementById('startCamera'),cameraError=document.getElementById('cameraError');
+function setGuardianStage(id){guardianStages.forEach(s=>s.classList.toggle('active',s.id===id))}
+function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null}const p=document.getElementById('cameraPreview');if(p)p.srcObject=null}
+function cameraMessage(error){if(!navigator.mediaDevices?.getUserMedia)return'Camera access is not supported by this browser. Please use a supported browser on a device with a camera.';if(error&&['NotAllowedError','SecurityError'].includes(error.name))return'Camera permission was denied. Please allow camera access in your browser settings and try again.';if(error&&['NotFoundError','DevicesNotFoundError'].includes(error.name))return'No camera was found on this device. Please connect a camera and try again.';return'We could not access the camera. Please check your device and browser permissions, then try again.'}
+function updateVerificationButton(){if(startCamera)startCamera.disabled=!(guardianConsent?.checked&&selectedVerification)}
+function resetVerificationSelection(){selectedVerification='';document.querySelectorAll('.verification-option').forEach(o=>o.classList.remove('selected'));if(guardianConsent)guardianConsent.checked=false;updateVerificationButton()}
+guardianConsent?.addEventListener('change',updateVerificationButton);
+document.querySelectorAll('.verification-option').forEach(o=>o.addEventListener('click',()=>{selectedVerification=o.dataset.verification||'';document.querySelectorAll('.verification-option').forEach(i=>i.classList.toggle('selected',i===o));updateVerificationButton()}));
+startCamera?.addEventListener('click',async()=>{
+  if(!guardianConsent?.checked||!selectedVerification)return;
+  if(cameraError)cameraError.hidden=true;if(captureVerification)captureVerification.disabled=true;
+  if(!navigator.mediaDevices?.getUserMedia){if(cameraError){cameraError.textContent=cameraMessage();cameraError.hidden=false}setGuardianStage('guardianCamera');return}
+  try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});const preview=document.getElementById('cameraPreview');if(preview)preview.srcObject=cameraStream;if(captureVerification)captureVerification.disabled=false;setGuardianStage('guardianCamera')}
+  catch(error){if(cameraError){cameraError.textContent=cameraMessage(error);cameraError.hidden=false}setGuardianStage('guardianCamera')}
 });
+document.getElementById('cancelCamera')?.addEventListener('click',()=>{stopCamera();resetVerificationSelection();setGuardianStage('guardianIntro')});
+captureVerification?.addEventListener('click',()=>{if(!cameraStream)return;stopCamera();setGuardianStage('guardianProcessing');const r=document.getElementById('verificationResult');if(r)r.textContent=selectedVerification==='female'?'Female verification section completed.':'Male verification section completed.';setTimeout(()=>setGuardianStage('guardianComplete'),20000)});
+document.getElementById('finishVerification')?.addEventListener('click',()=>{stopCamera();resetVerificationSelection();setGuardianStage('guardianIntro');showToast('Verification flow finished.')});
 
-document.addEventListener('click', event => {
-  if (
-    !notificationPanel.contains(event.target) &&
-    !notificationBell.contains(event.target)
-  ) {
-    notificationPanel.classList.remove('open');
-    notificationBell.setAttribute('aria-expanded', 'false');
-    notificationPanel.setAttribute('aria-hidden', 'true');
-  }
-});
+/* Assistant */
+const assistantPanel=document.getElementById('assistantPanel'),assistantLauncher=document.getElementById('assistantLauncher'),assistantMessages=document.getElementById('assistantMessages'),assistantInput=document.getElementById('assistantInput');
+function assistantOpen(){assistantPanel?.classList.add('open');assistantPanel?.classList.remove('minimized');assistantLauncher?.setAttribute('aria-expanded','true');assistantInput?.focus()}
+function assistantClose(){assistantPanel?.classList.remove('open');assistantLauncher?.setAttribute('aria-expanded','false')}
+function addAssistantMessage(message,user=false){if(!assistantMessages)return;const bubble=document.createElement('div');bubble.className='chat-bubble'+(user?' user':'');bubble.textContent=message;assistantMessages.insertBefore(bubble,assistantMessages.querySelector('.assistant-quick'));assistantMessages.scrollTop=assistantMessages.scrollHeight}
+function helpWith(key){const replies={register:['Course Registration lets you select courses and see total credit units before submitting.','registration'],payments:['School Fees & Payments is the central payment area. Choose Half or Full School Fees and required first-session charges are added automatically.','fees'],feeStructure:['The 2026/2027 Academic Fees Structure is informational and shows Local and International fees by level and programme.','fees-2026-2027'],timetable:['Your weekly schedule is available on Course Timetable.','timetable'],support:['The Support / Help Desk page lists academic, bursary and portal assistance options.','support'],hostel:['Hostel Information shows accommodation guidance and the central payment flow.','hostel-info'],library:['Library Services contains study and borrowing guidance.','library'],id:['Your Student ID Card reference is available under Student Services.','id-card'],announcements:['Recent notices are collected in Announcements.','announcements']};const [msg,page]=replies[key]||replies.support;addAssistantMessage(msg);setTimeout(()=>go(page),350)}
+assistantLauncher?.addEventListener('click',()=>assistantPanel?.classList.contains('open')?assistantClose():assistantOpen());document.getElementById('assistantClose')?.addEventListener('click',assistantClose);document.getElementById('assistantMinimize')?.addEventListener('click',()=>assistantPanel?.classList.toggle('minimized'));
+document.querySelectorAll('[data-assistant-action]').forEach(b=>b.addEventListener('click',()=>{const key=b.dataset.assistantAction;addAssistantMessage(b.textContent,true);helpWith(key)}));
+document.getElementById('assistantForm')?.addEventListener('submit',e=>{e.preventDefault();const q=assistantInput?.value.trim();if(!q)return;addAssistantMessage(q,true);assistantInput.value='';const n=q.toLowerCase(),match=n.includes('fee structure')||n.includes('2026')?'feeStructure':n.includes('register')||n.includes('course')?'register':n.includes('pay')||n.includes('fee')||n.includes('medical')?'payments':n.includes('time')||n.includes('schedule')?'timetable':n.includes('hostel')?'hostel':n.includes('library')?'library':n.includes('id card')||n.includes('identity')?'id':n.includes('announce')||n.includes('news')?'announcements':n.includes('support')||n.includes('help')?'support':null;if(match)helpWith(match);else addAssistantMessage('I can help with Course Registration, School Fees, 2026/2027 Fee Structure, Timetable, Hostel Information, Library Services, Student ID, Announcements, and Support.')});
 
+/* Notifications */
+const notificationBell=document.getElementById('notificationBell'),notificationPanel=document.getElementById('notificationPanel'),notificationBadge=document.getElementById('notificationBadge'),notificationCountText=document.getElementById('notificationCountText'),markAllRead=document.getElementById('markAllRead');
+function updateNotificationCount(){const c=document.querySelectorAll('.notification-item.unread').length;if(notificationCountText)notificationCountText.textContent=c===0?'You are all caught up':`${c} unread notification${c===1?'':'s'}`;if(notificationBadge){notificationBadge.textContent=c;notificationBadge.style.display=c===0?'none':'grid'}}
+notificationBell?.addEventListener('click',()=>{const open=notificationPanel?.classList.toggle('open');notificationBell.setAttribute('aria-expanded',String(!!open));notificationPanel?.setAttribute('aria-hidden',String(!open))});
+document.querySelectorAll('.notification-item').forEach(item=>item.addEventListener('click',()=>{item.classList.remove('unread');updateNotificationCount();if(item.dataset.go){notificationPanel?.classList.remove('open');notificationBell?.setAttribute('aria-expanded','false');go(item.dataset.go)}}));
+markAllRead?.addEventListener('click',()=>{document.querySelectorAll('.notification-item.unread').forEach(i=>i.classList.remove('unread'));updateNotificationCount();showToast('All notifications have been marked as read.')});
+document.addEventListener('click',e=>{if(notificationPanel&&!notificationPanel.contains(e.target)&&!notificationBell?.contains(e.target)){notificationPanel.classList.remove('open');notificationBell?.setAttribute('aria-expanded','false');notificationPanel.setAttribute('aria-hidden','true')}});
 updateNotificationCount();
-  </script>
+
+/* Initial state */
+updateSelectedPaymentOption();renderPaymentSummary();renderFeeStructure();setActivePage('dashboard');
+</script>
 </body>
 </html>
