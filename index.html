@@ -377,6 +377,12 @@
 .senate-approved-notice{border:1px solid #b9dfc9;border-left:4px solid #157c5a;background:#eff8f4;color:#155a42}
 [data-theme="dark"] .approval-badge{border-color:#397b60;background:#1e382f;color:#d3f3e4}
 [data-theme="dark"] .senate-approved-notice{border-color:#397b60;background:#1e382f;color:#d3f3e4}
+
+/* Favorite room selection */
+.room-pick-card{margin:24px 0;padding:24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#fff 0%,#f4f8fc 100%);display:flex;align-items:center;justify-content:space-between;gap:22px;box-shadow:0 8px 24px rgba(11,40,72,.05)}
+.room-pick-copy{display:flex;align-items:flex-start;gap:16px}.room-pick-icon{width:54px;height:54px;flex:0 0 54px;border-radius:15px;background:#e8f0f8;color:var(--navy);display:grid;place-items:center;font-size:27px}.room-pick-card h3{margin:0 0 7px;color:var(--navy)}.room-pick-card p{margin:0;color:var(--muted);line-height:1.6}.room-pick-status{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:6px 10px;border-radius:999px;background:#fff4df;color:#8a5a08;font-size:12px;font-weight:700}.room-pick-btn{white-space:nowrap}
+.room-modal-backdrop{position:fixed;inset:0;background:rgba(9,24,42,.58);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}.room-modal-backdrop.open{display:flex}.room-modal{width:min(100%,440px);background:#fff;border-radius:20px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.25);text-align:center}.room-modal-icon{width:62px;height:62px;border-radius:50%;background:#fff3d9;color:#98620b;display:grid;place-items:center;font-size:28px;margin:0 auto 16px}.room-modal h3{margin:0 0 10px;color:var(--navy)}.room-modal p{margin:0 0 22px;color:var(--muted);line-height:1.65}.room-modal-actions{display:flex;justify-content:center;gap:10px}.room-modal-close{border:0;cursor:pointer}
+@media(max-width:650px){.room-pick-card{align-items:stretch;flex-direction:column}.room-pick-btn{width:100%}.room-pick-copy{gap:12px}.room-modal{padding:23px}}
 </style>
 </head>
 <body>
@@ -436,7 +442,7 @@
 </button>
 </div>
 </div>
-<section class="page active" id="dashboard"><p class="eyebrow">Student portal</p><div class="welcome"><div><h2>Welcome back, Ifechukwu.</h2><p>Here is an overview of your academic journey at Elizade University.</p></div><div class="session">Current Session<b>2026 / 2027</b></div></div><div class="privacy-warning"><b>DO NOT SHARE YOUR STUDENT LINK WITH ANYBODY</b><span>Your dashboard link may contain private academic and financial information. Keep it confidential and sign out on shared devices.</span></div><div class="profile-card"><div class="profile-avatar">IJ</div><div><h3>Ifechukwu Abumchukwu Jesse</h3><p>Computer Engineering · Faculty of Engineering</p></div><div class="profile-meta"><div><span>Matric Number</span><b>EU250-303-4990</b></div><div><span>Academic Level</span><b>200 Level</b></div><div><span>Age</span><b>19 Years</b></div></div></div><div class="section-title"><h3>Quick Access</h3><a data-go="profile" href="#">View profile →</a></div><div class="quick-grid"><button class="quick" data-go="profile"><span class="q-icon">◉</span><b>My Profile</b><small>Personal details</small></button><button class="quick" data-go="results"><span class="q-icon">▤</span><b>Academic Results</b><small>View semester grades</small></button><button class="quick" data-go="timetable"><span class="q-icon">▦</span><b>Course Timetable</b><small>Weekly schedule</small></button><button class="quick" data-go="registration"><span class="q-icon">☑</span><b>Course Registration</b><small>Select current courses</small></button><button class="quick" data-go="fees"><span class="q-icon">₦</span><b>School Fees</b><small>Payments &amp; levies</small></button><button class="quick" data-go="drug"><span class="q-icon">▣</span><b>Drug Test</b><small>Evaluation record</small></button><button class="quick" data-go="services"><span class="q-icon">⋮</span><b>Student Services</b><small>Help and resources</small></button><button class="quick" data-go="fees-2026-2027" type="button"><span class="q-icon">₦</span><b>2026/2027 Fees Structure</b><small>Local &amp; international</small></button></div></section>
+<section class="page active" id="dashboard"><p class="eyebrow">Student portal</p><div class="welcome"><div><h2>Welcome back, Ifechukwu.</h2><p>Here is an overview of your academic journey at Elizade University.</p></div><div class="session">Current Session<b>2026 / 2027</b></div></div><div class="privacy-warning"><b>DO NOT SHARE YOUR STUDENT LINK WITH ANYBODY</b><span>Your dashboard link may contain private academic and financial information. Keep it confidential and sign out on shared devices.</span></div><div class="profile-card"><div class="profile-avatar">IJ</div><div><h3>Ifechukwu Abumchukwu Jesse</h3><p>Computer Engineering · Faculty of Engineering</p></div><div class="profile-meta"><div><span>Matric Number</span><b>EU250-303-4990</b></div><div><span>Academic Level</span><b>200 Level</b></div><div><span>Age</span><b>19 Years</b></div></div></div><div class="section-title"><h3>Quick Access</h3><a data-go="profile" href="#">View profile →</a></div><div class="quick-grid"><button class="quick" data-go="profile"><span class="q-icon">◉</span><b>My Profile</b><small>Personal details</small></button><button class="quick" data-go="results"><span class="q-icon">▤</span><b>Academic Results</b><small>View semester grades</small></button><button class="quick" data-go="timetable"><span class="q-icon">▦</span><b>Course Timetable</b><small>Weekly schedule</small></button><button class="quick" data-go="registration"><span class="q-icon">☑</span><b>Course Registration</b><small>Select current courses</small></button><button class="quick" data-go="fees"><span class="q-icon">₦</span><b>School Fees</b><small>Payments &amp; levies</small></button><button class="quick" data-go="drug"><span class="q-icon">▣</span><b>Drug Test</b><small>Evaluation record</small></button><button class="quick" data-go="services"><span class="q-icon">⋮</span><b>Student Services</b><small>Help and resources</small></button><button class="quick" data-go="fees-2026-2027" type="button"><span class="q-icon">₦</span><b>2026/2027 Fees Structure</b><small>Local &amp; international</small></button></div><div class="room-pick-card"><div class="room-pick-copy"><div class="room-pick-icon" aria-hidden="true">🛏️</div><div><h3>Pick Your Favorite Room</h3><p>Choose your preferred hostel room after your required school fee payment has been confirmed.</p><span class="room-pick-status">🔒 Room selection locked</span></div></div><button class="btn room-pick-btn" id="openRoomSelection" type="button">🔒 Pick Your Room</button></div></section>
 <section class="page" id="profile"><p class="eyebrow">Student record</p><h2>My Profile</h2><p class="subtitle">Your currently registered academic and personal information.</p><div class="two-col"><div class="card"><h3>Student Information</h3><div class="info-grid"><div class="info-item"><span class="data-label">Full Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div class="info-item"><span class="data-label">Age</span><b>19 Years</b></div><div class="info-item"><span class="data-label">Matriculation Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Department</span><b>Computer Engineering</b></div><div class="info-item"><span class="data-label">Faculty</span><b>Engineering</b></div><div class="info-item"><span class="data-label">Current Level</span><b>200 Level</b></div></div></div><div class="card"><h3>Academic Status</h3><span class="status paid">ACTIVE STUDENT</span><p class="subtitle" style="font-size:13px;margin:16px 0 0">You are currently enrolled for the 2026/2027 academic session.</p></div></div></section>
 <section class="page" id="results"><p class="eyebrow">Academic record</p><h2>Academic Results</h2><p class="subtitle">2025/2026 Academic Session · Select a semester below to view the full result.</p><div class="result-toolbar">
 <div aria-label="Semester result" class="semester-switcher" role="tablist">
@@ -517,19 +523,19 @@
 <button class="btn btn-outline" data-go="selection" type="button">Make Payment</button>
 </div>
 <div class="fee">
-<div><h3>Academic Resource Fee &amp; Laboratory Access and Practical Materials</h3><p>₦250,000 · Academic resources, laboratory access and practical materials. This fee is for the first semester only.</p></div>
+<div><h3>Academic Resource Fee &amp; Laboratory Access and Practical Materials</h3><p>₦250,000 · Academic resources, laboratory access and practical materials. This fee is for the first session only.</p></div>
 <span class="status unpaid">UNPAID</span>
 <button class="btn btn-outline" data-go="selection" type="button">Make Payment</button>
 </div>
 <div class="fee">
-<div><h3>Hostel Maintenance and Residential Services</h3><p>₦150,000 · Hostel maintenance and residential services. This fee is for the first semester only.</p></div>
+<div><h3>Hostel Maintenance and Residential Services</h3><p>₦150,000 · Hostel maintenance and residential services. This fee is for the first session only.</p></div>
 <span class="status unpaid">UNPAID</span>
 <button class="btn btn-outline" data-go="selection" type="button">Make Payment</button>
 </div>
 </div>
 <div class="notice" style="margin-top:16px">Health insurance is coming soon for students from 200 Level to 500 Level.</div>
 <div class="card" style="margin-top:20px">
-<h3>First-semester totals</h3>
+<h3>First-session totals</h3>
 <div class="fee-total-grid">
 <div><span class="data-label">Half Payment Total</span><strong>₦1,575,000</strong></div>
 <div><span class="data-label">Full Payment Total</span><strong>₦2,550,000</strong></div>
@@ -628,8 +634,8 @@
 </div>
 </div>
 </section><section class="page" id="payment-summary">
-<p class="eyebrow">First semester payment</p><h2>Payment Summary</h2>
-<p class="subtitle">Review the complete first-semester charges before generating payment details.</p>
+<p class="eyebrow">First session payment</p><h2>Payment Summary</h2>
+<p class="subtitle">Review the complete first-session charges before generating payment details.</p>
 <div class="card">
 <div class="payment-summary-head">
 <div><span class="data-label">Payment Plan</span><strong id="summaryPlan">Full Payment</strong></div>
@@ -640,7 +646,7 @@
 <div><span>Medical Fee</span><strong>₦200,000</strong></div>
 <div><span>Academic Resource Fee &amp; Laboratory Access</span><strong>₦250,000</strong></div>
 <div><span>Hostel Maintenance and Residential Services</span><strong>₦150,000</strong></div>
-<div class="grand"><span>Total First Semester Payment</span><strong id="summaryGrandTotal">₦2,550,000</strong></div>
+<div class="grand"><span>Total First Session Payment</span><strong id="summaryGrandTotal">₦2,550,000</strong></div>
 </div>
 <div class="selection-footer">
 <button class="btn btn-outline" id="backToSelection" type="button">Back to Payment Selection</button>
@@ -1006,6 +1012,24 @@ updateNotificationCount();
 
 /* Initial state */
 updateSelectedPaymentOption();renderPaymentSummary();renderFeeStructure();setActivePage('dashboard');
+
+// Room selection stays locked until a real payment-verification backend is connected.
+(function setupRoomSelectionGate(){
+  const modal=document.getElementById('roomPaymentModal');
+  const openButton=document.getElementById('openRoomSelection');
+  const closeButton=document.getElementById('closeRoomPaymentModal');
+  const feesButton=document.getElementById('goToFeesFromRoomModal');
+  if(!modal||!openButton||!closeButton)return;
+  function openModal(){modal.classList.add('open');modal.setAttribute('aria-hidden','false');closeButton.focus();}
+  function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');openButton.focus();}
+  openButton.addEventListener('click',openModal);
+  closeButton.addEventListener('click',closeModal);
+  modal.addEventListener('click',event=>{if(event.target===modal)closeModal();});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&modal.classList.contains('open'))closeModal();});
+  feesButton?.addEventListener('click',()=>{closeModal();if(typeof go==='function')go('fees');});
+})();
 </script>
+
+<div class="room-modal-backdrop" id="roomPaymentModal" role="dialog" aria-modal="true" aria-labelledby="roomPaymentModalTitle" aria-hidden="true"><div class="room-modal"><div class="room-modal-icon" aria-hidden="true">🔒</div><h3 id="roomPaymentModalTitle">Room Selection Locked</h3><p>Pick your room after payment of fees has been confirmed. Once your payment is verified, you can return here to choose your preferred room.</p><div class="room-modal-actions"><button class="btn room-modal-close" id="closeRoomPaymentModal" type="button">Okay, Got It</button><button class="btn btn-secondary" id="goToFeesFromRoomModal" type="button">View Fees</button></div></div></div>
 </body>
 </html>
