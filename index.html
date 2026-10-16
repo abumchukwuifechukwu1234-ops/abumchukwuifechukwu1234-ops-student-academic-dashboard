@@ -1113,7 +1113,7 @@ captureVerification?.addEventListener('click',async()=>{
     if(r)r.textContent='Thank you very much. Image taken successfully.';
     if(title)title.textContent='Image Taken Successfully';
     const note=document.querySelector('#guardianComplete .subtitle');
-    if(note)note.textContent='Thank you very much. Your image was captured successfully. This demo does not upload or retain the captured image, and the message does not mean your identity or verification category has been confirmed.';
+    if(note)note.textContent='Thank you very much. Your image was captured successfully.';
     setGuardianStage('guardianComplete');
   }catch(error){
     stopCamera();
