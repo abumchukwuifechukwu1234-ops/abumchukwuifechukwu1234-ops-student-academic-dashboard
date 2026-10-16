@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Jersey Customizer</title>
+    <!-- Tailwind CSS for modern UI styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls for mouse rotation -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body class="bg-gray-100 h-screen flex flex-col justify-between">
+
+    <!-- Top Navigation bar resembling spized -->
+    <header class="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-black tracking-wider italic">JERSEY<span class="text-blue-600">LAB</span></h1>
+        <div class="space-x-4">
+            <button class="px-4 py-2 text-sm font-semibold border rounded-lg hover:bg-gray-50">Share design</button>
+            <button class="px-4 py-2 text-sm font-semibold bg-black text-white rounded-lg hover:bg-gray-800">Save</button>
+        </div>
+    </header>
+
+    <!-- Main 3D Viewport -->
+    <main class="flex-1 relative flex justify-center items-center overflow-hidden">
+        <div id="canvas-container" class="w-full h-full cursor-grab"></div>
+        
+        <!-- Floating Instructions -->
+        <div class="absolute top-4 bg-white/80 backdrop-blur px-4 py-2 rounded-full shadow text-xs font-medium text-gray-600 pointer-events-none">
+            Click & Drag to rotate the 3D Jersey
+        </div>
+    </main>
+
+    <!-- Bottom Customization Toolbar -->
+    <footer class="bg-white border-t shadow-lg p-4">
+        <div class="max-w-3xl mx-auto flex flex-wrap justify-around items-center gap-4">
+            
+            <!-- Color Picker Option -->
+            <div class="flex flex-col items-center">
+                <span class="text-xs font-bold text-gray-500 mb-1">Body Color</span>
+                <input type="color" id="bodyColorPicker" value="#ffffff" class="w-10 h-10 rounded cursor-pointer border-0">
+            </div>
+
+            <!-- Sleeve Color Picker Option -->
+            <div class="flex flex-col items-center">
+                <span class="text-xs font-bold text-gray-500 mb-1">Sleeve Color</span>
+                <input type="color" id="sleeveColorPicker" value="#2563eb" class="w-10 h-10 rounded cursor-pointer border-0">
+            </div>
+
+            <!-- Sleeve Length Toggle -->
+            <div class="flex flex-col items-center">
+                <span class="text-xs font-bold text-gray-500 mb-1">Sleeves</span>
+                <div class="flex bg-gray-200 p-1 rounded-lg">
+                    <button id="shortSleeveBtn" class="px-3 py-1 text-xs font-bold bg-white rounded shadow transition">Short</button>
+                    <button id="longSleeveBtn" class="px-3 py-1 text-xs font-bold text-gray-600 transition">Long</button>
+                </div>
+            </div>
+
+            <!-- Collar Toggle Style -->
+            <div class="flex flex-col items-center">
+                <span class="text-xs font-bold text-gray-500 mb-1">Collar Style</span>
+                <div class="flex bg-gray-200 p-1 rounded-lg">
+                    <button id="noCollarBtn" class="px-3 py-1 text-xs font-bold bg-white rounded shadow transition">Round</button>
+                    <button id="collarBtn" class="px-3 py-1 text-xs font-bold text-gray-600 transition">V-Neck</button>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Three.js 3D Logic Script -->
+    <script>
+        // 1. Scene, Camera, Renderer Setup
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf3f4f6);
+
+        const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+        camera.position.set(0, 0, 5.5);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        // Add Mouse Rotation Controls
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // 2. Lighting Setup
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(5, 5, 5);
+        scene.add(directionalLight);
+
+        const backLight = new THREE.DirectionalLight(0xffffff, 0.3);
+        backLight.position.set(-5, -5, -5);
+        scene.add(backLight);
+
+        // 3. Build a Procedural 3D Jersey Mesh Group
+        const jerseyGroup = new THREE.Group();
+
+        // Materials
+        const bodyMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4 });
+        const sleeveMaterial = new THREE.MeshStandardMaterial({ color: 0x2563eb, roughness: 0.4 });
+        const collarMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.5 });
+
+        // Torso Body
+        const torsoGeo = new THREE.CylinderGeometry(0.8, 0.7, 2.2, 32);
+        const torso = new THREE.Mesh(torsoGeo, bodyMaterial);
+        jerseyGroup.add(torso);
+
+        // Sleeves (Left & Right)
+        const sleeveGeoShort = new THREE.CylinderGeometry(0.35, 0.3, 0.9, 16);
+        
+        const leftSleeve = new THREE.Mesh(sleeveGeoShort, sleeveMaterial);
+        leftSleeve.position.set(1.05, 0.6, 0);
+        leftSleeve.rotation.z = -Math.PI / 4;
+        jerseyGroup.add(leftSleeve);
+
+        const rightSleeve = new THREE.Mesh(sleeveGeoShort, sleeveMaterial);
+        rightSleeve.position.set(-1.05, 0.6, 0);
+        rightSleeve.rotation.z = Math.PI / 4;
+        jerseyGroup.add(rightSleeve);
+
+        // Collar Ribbing
+        const collarGeo = new THREE.TorusGeometry(0.35, 0.06, 16, 32);
+        const collar = new THREE.Mesh(collarGeo, collarMaterial);
+        collar.position.set(0, 1.12, 0);
+        collar.rotation.x = Math.PI / 2;
+        jerseyGroup.add(collar);
+
+        scene.add(jerseyGroup);
+
+        // 4. Interactivity Logic (UI Controls)
+        
+        // Change Body Color
+        document.getElementById('bodyColorPicker').addEventListener('input', (e) => {
+            bodyMaterial.color.set(e.target.value);
+        });
+
+        // Change Sleeve Color
+        document.getElementById('sleeveColorPicker').addEventListener('input', (e) => {
+            sleeveMaterial.color.set(e.target.value);
+        });
+
+        // Sleeve Length Customization Logic
+        const shortBtn = document.getElementById('shortSleeveBtn');
+        const longBtn = document.getElementById('longSleeveBtn');
+
+        shortBtn.addEventListener('click', () => {
+            shortBtn.className = "px-3 py-1 text-xs font-bold bg-white rounded shadow transition";
+            longBtn.className = "px-3 py-1 text-xs font-bold text-gray-600 transition";
+            leftSleeve.scale.set(1, 1, 1);
+            rightSleeve.scale.set(1, 1, 1);
+        });
+
+        longBtn.addEventListener('click', () => {
+            longBtn.className = "px-3 py-1 text-xs font-bold bg-white rounded shadow transition";
+            shortBtn.className = "px-3 py-1 text-xs font-bold text-gray-600 transition";
+            leftSleeve.scale.set(1, 2.0, 1); // Stretch sleeve length
+            rightSleeve.scale.set(1, 2.0, 1);
+        });
+
+        // Collar Style Logic
+        const noCollarBtn = document.getElementById('noCollarBtn');
+        const collarBtn = document.getElementById('collarBtn');
+
+        noCollarBtn.addEventListener('click', () => {
+            noCollarBtn.className = "px-3 py-1 text-xs font-bold bg-white rounded shadow transition";
+            collarBtn.className = "px-3 py-1 text-xs font-bold text-gray-600 transition";
+            collar.scale.set(1, 1, 1);
+        });
+
+        collarBtn.addEventListener('click', () => {
+            collarBtn.className = "px-3 py-1 text-xs font-bold bg-white rounded shadow transition";
+            noCollarBtn.className = "px-3 py-1 text-xs font-bold text-gray-600 transition";
+            collar.scale.set(1.2, 1.5, 1.2); // Emulate a V-neck/wider collar look
+        });
+
+        // Window Resizing
+        window.addEventListener('resize', () => {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>

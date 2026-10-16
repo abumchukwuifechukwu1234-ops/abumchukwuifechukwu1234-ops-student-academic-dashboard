@@ -538,7 +538,7 @@
 <button class="btn btn-outline" data-go="selection" type="button">Make Payment</button>
 </div>
 <div class="fee">
-<div><h3>Hostel Maintenance and Residential Services</h3><p>₦150,000 · Hostel maintenance and residential services. This fee is for the first semester only.</p></div>
+<div><h3>Hostel Maintenance and Residential Services</h3><p>₦150,000 · Covers hostel facility upkeep, free Wi-Fi access in designated areas, routine room and shared-area maintenance, common-area cleaning, waste collection, basic sanitation, and a channel for reporting repair needs. This fee is for the first semester only.</p></div>
 <span class="status unpaid">UNPAID</span>
 <button class="btn btn-outline" data-go="selection" type="button">Make Payment</button>
 </div>
@@ -596,7 +596,7 @@
 <h3>Important Notes — Local Students</h3>
 <ol class="fee-notes">
 <li><strong>Acceptance Fee:</strong> All newly admitted 100 Level students are required to pay a non-refundable acceptance fee of ₦100,000.</li>
-<li><strong>Academic Fees Coverage:</strong> Academic fees cover tuition, examinations, registration, accommodation and other chargeable student amenities and services provided by the University. Feeding and personal expenses are not included.</li>
+<li><strong>Academic Fees Coverage:</strong> Academic fees cover tuition, examination and registration charges, and student accommodation. Feeding and personal expenses are not included.</li>
 <li><strong>Clinical Fee:</strong> Nursing Science students from 200 Level to 500 Level and Medical Laboratory Science students from 300 Level to 500 Level are required to pay a clinical fee of ₦500,000 per student per session in addition to applicable academic fees.</li>
 <li><strong>Payment Schedule:</strong> 50% of academic fees is payable before resumption and registration. The remaining 50% is payable on or before resumption for the second semester.</li>
 <li><strong>Parents’ Forum Due:</strong> ₦10,000 through the University portal.</li>
@@ -665,7 +665,7 @@
 </div>
 </section><section class="page" id="payment-generation">
 <p class="eyebrow">Secure payment session</p><h2>Generating Payment Account</h2>
-<div class="card"><div class="loader-box generation-box"><div>
+<div class="card"><div class="loader-box generation-box" id="generationStatusBox"><div>
 <div class="loader"></div>
 <h3>Please wait while payment account is generated...</h3>
 <p id="generationMessage">Preparing your payment session. Please do not close this page.</p>
@@ -702,6 +702,7 @@
 <div><p id="paymentPlanLabel">Full Payment</p><b id="paymentTotal">₦2,550,000</b><small class="payment-ref" id="paymentReference">Reference: —</small></div>
 <div class="count"><span>Time remaining</span><strong id="timer">59:00</strong></div>
 </div>
+<!-- PAYMENT ACCOUNT UI TEMPORARILY DISABLED. Uncomment this block when the official payment provider is ready.
 <div class="card" style="margin-top:20px">
 <div class="payment-status-row"><span class="status session-active" id="paymentStatus">PAYMENT SESSION ACTIVE</span><span class="data-label">Session validity: 59 minutes</span></div>
 <h3>Payment Account Details</h3>
@@ -717,6 +718,7 @@
 </div>
 <p class="demo-note">School fees are secured by kora pays</p>
 </div>
+END TEMPORARY PAYMENT ACCOUNT UI DISABLED -->
 </section>
 <section class="page" id="drug"><p class="eyebrow">Health services</p><span class="confidential">CONFIDENTIAL STUDENT RECORD</span><h2>Drug Test Evaluation</h2><p class="subtitle">This record is intended for the student and authorised University personnel only.</p><div class="card"><div class="info-grid"><div class="info-item"><span class="data-label">Student Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div class="info-item"><span class="data-label">Matriculation Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Department</span><b>Computer Engineering</b></div><div class="info-item"><span class="data-label">Evaluation Status</span><b>Completed</b></div></div><h3 style="margin-top:24px">Recorded Evaluations</h3><div class="result-table-wrap"><table class="test-table"><thead><tr><th>Evaluation Date</th><th>Result</th></tr></thead><tbody><tr><td>13 April 2026</td><td>Negative</td></tr><tr><td>17 May 2026</td><td>Negative</td></tr><tr><td>8 July 2026</td><td>Negative</td></tr></tbody></table></div><div class="eval"><span class="data-label" style="color:#437e67">Evaluation Summary</span><strong>All recorded tests are negative</strong><span>Student evaluation records have been completed and maintained by the University Health Centre.</span></div></div></section>
 <section class="page" id="guardian"><p class="eyebrow">Campus safety</p><h2>Parent &amp; Guardian Verification</h2><p class="subtitle">A voluntary, consent-based verification experience for campus visits.</p><div class="card verification-stages" id="guardianFlow"><div class="guardian-stage active" id="guardianIntro"><h3>Why verification is requested</h3><p class="subtitle" style="font-size:14px;line-height:1.6">Parent and guardian verification can help support a safer school environment, improve visitor management, and assist security personnel in confirming authorized visitors when they visit the campus.</p><div class="verification-choice">
@@ -753,7 +755,29 @@
 <section class="page" id="services"><p class="eyebrow">Student support</p><h2>Student Services</h2><p class="subtitle">Quick access to University resources, records and support.</p><div class="service-grid"><article class="service-card"><div class="q-icon">✉</div><h3>Announcements</h3><p>Stay up to date with academic, departmental and campus notices.</p><button class="btn" data-go="announcements">View Announcements</button></article><article class="service-card"><div class="q-icon">?</div><h3>Support / Help Desk</h3><p>Find contacts and guidance for academic and portal assistance.</p><button class="btn" data-go="support">Get Support</button></article><article class="service-card"><div class="q-icon">⌂</div><h3>Hostel Information</h3><p>Review accommodation guidance and residential services.</p><button class="btn" data-go="hostel-info">View Hostel Info</button></article><article class="service-card"><div class="q-icon">▤</div><h3>Library Services</h3><p>Explore research support, borrowing and study resources.</p><button class="btn" data-go="library">Open Library Services</button></article><article class="service-card"><div class="q-icon">▣</div><h3>Student ID Card</h3><p>View your campus identity card information.</p><button class="btn" data-go="id-card">View ID Card</button></article><article class="service-card"><div class="q-icon">⚙</div><h3>Settings</h3><p>Review notifications and basic account preferences.</p><button class="btn" data-go="settings">Open Settings</button></article></div></section>
 <section class="page" id="announcements"><p class="eyebrow">University updates</p><h2>Announcements</h2><p class="subtitle">Recent notices relevant to your academic journey.</p><div class="support-list"><div><b>Course registration window</b><span>Review your selected courses and submit your registration before the departmental deadline.</span></div><div><b>Faculty of Engineering notice</b><span>Students should check the timetable before attending laboratory practical sessions.</span></div><div><b>Library orientation resources</b><span>Online library guidance and study skills resources are available through Library Services.</span></div></div></section>
 <section class="page" id="support"><p class="eyebrow">Need assistance?</p><h2>Support / Help Desk</h2><p class="subtitle">Start with the service best suited to your enquiry.</p><div class="support-list"><div><b>Academic and registration enquiries</b><span>Contact your department or Faculty Office for course and registration support.</span></div><div><b>Fees and bursary enquiries</b><span>Visit the school bursary for confirmation of charges and approved payment instructions.</span></div><div><b>Portal assistance</b><span>Use the University ICT support channel for account access and technical issues.</span></div></div></section>
-<section class="page" id="hostel-info"><p class="eyebrow">Residential services</p><h2>Hostel Information</h2><p class="subtitle">Accommodation details for resident students.</p><div class="card"><div class="info-grid"><div class="info-item"><span class="data-label">Accommodation Status</span><b>Pending hostel allocation</b></div><div class="info-item"><span class="data-label">Hostel Levy</span><b>₦150,000</b></div><div class="info-item"><span class="data-label">Payment Status</span><b>Unpaid</b></div></div><div class="notice">Room allocation and residency guidance are issued by the Student Affairs and Hostel Management offices after required approvals.</div><button class="btn" data-go="selection" type="button">Make Payment</button></div></section>
+<section class="page" id="hostel-info">
+<p class="eyebrow">Residential services</p>
+<h2>Hostel Information</h2>
+<p class="subtitle">A comfortable, clean and student-friendly residence experience.</p>
+<div class="card">
+  <div class="info-grid">
+    <div class="info-item"><span class="data-label">Accommodation Status</span><b>Pending hostel allocation</b></div>
+    <div class="info-item"><span class="data-label">Hostel Maintenance Fee</span><b>₦150,000</b></div>
+    <div class="info-item"><span class="data-label">Payment Status</span><b>Unpaid</b></div>
+  </div>
+  <div class="notice">Room allocation and residency guidance are issued by the Student Affairs and Hostel Management offices after the required approvals. Residential services are subject to hostel rules and facility availability.</div>
+  <button class="btn" data-go="selection" type="button">Make Payment</button>
+</div>
+<div class="section-title"><h3>What the residential services fee supports</h3></div>
+<div class="service-grid">
+  <article class="service-card"><div class="q-icon">📶</div><h3>Wi-Fi Access</h3><p>Complimentary Wi-Fi access in designated hostel areas for coursework, research and staying connected.</p></article>
+  <article class="service-card"><div class="q-icon">🧹</div><h3>Clean Shared Spaces</h3><p>Routine cleaning of shared areas and organised waste collection to help keep the residential environment tidy.</p></article>
+  <article class="service-card"><div class="q-icon">🛠️</div><h3>Room &amp; Facility Upkeep</h3><p>Routine maintenance of rooms and shared facilities, with a clear way for residents to report repair needs.</p></article>
+  <article class="service-card"><div class="q-icon">🧼</div><h3>Basic Sanitation</h3><p>Basic sanitation support and maintenance of common facilities to promote a healthier living environment.</p></article>
+  <article class="service-card"><div class="q-icon">💡</div><h3>Shared-Area Checks</h3><p>Periodic checks of common-area lighting and fixtures, with faults recorded for maintenance follow-up.</p></article>
+  <article class="service-card"><div class="q-icon">📋</div><h3>Resident Support</h3><p>Guidance on hostel rules, reporting facility concerns and contacting the appropriate residential support office.</p></article>
+</div>
+</section>
 <section class="page" id="library"><p class="eyebrow">Learning resources</p><h2>Library Services</h2><p class="subtitle">Support for study, research and responsible use of information.</p><div class="service-grid"><article class="service-card"><div class="q-icon">⌕</div><h3>Catalogue &amp; Research</h3><p>Use the library catalogue and ask library staff for research guidance.</p></article><article class="service-card"><div class="q-icon">◫</div><h3>Borrowing Services</h3><p>Bring your student identification card when using borrowing services.</p></article><article class="service-card"><div class="q-icon">▧</div><h3>Study Spaces</h3><p>Quiet reading and group-study spaces are subject to library rules.</p></article></div></section>
 <section class="page" id="id-card"><p class="eyebrow">Campus identity</p><h2>Student ID Card</h2><p class="subtitle">Your basic campus identification record.</p><div class="card" style="max-width:520px;background:linear-gradient(135deg,#f8fbfd,#e9f1f5)"><div class="profile-card" style="margin:0;background:transparent;border:0;padding:0"><div class="profile-avatar">IJ</div><div><h3>Ifechukwu Abumchukwu Jesse</h3><p>Computer Engineering · 200 Level</p></div></div><div class="info-grid" style="margin-top:22px"><div class="info-item"><span class="data-label">Matric Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Faculty</span><b>Engineering</b></div></div><p style="font-size:12px;color:var(--muted);margin:18px 0 0">This is a portal reference card. A physical or digital card is issued only through the authorised University process.</p></div></section>
 <section class="page" id="settings"><p class="eyebrow">Account preferences</p><h2>Settings</h2><p class="subtitle">Manage local portal preferences for this demonstration.</p><div class="card"><div class="support-list"><div><b>Email notifications</b><span>Important academic updates will appear in the portal. Email delivery requires a connected backend service.</span></div><div><b>Preferred contact details</b><span>Contact information is managed through the authorised student records process.</span></div><div><b>Privacy</b><span>Keep your portal access and student information confidential.</span></div></div></div></section>
@@ -936,8 +960,19 @@ document.getElementById('generatePayment')?.addEventListener('click',()=>{
     remaining--;
     if(remaining<=0){
       clearInterval(generationTimerId);generationTimerId=null;
+      const statusBox=document.getElementById('generationStatusBox');
+      if(statusBox){
+        statusBox.innerHTML=`<div class="complete-check">✓</div>
+          <p class="eyebrow">Payment Notice</p>
+          <h3>Payment for fees will be open soon.</h3>
+          <p>Thank you for your patience. Please check back later for official payment instructions.</p>`;
+      }
+      showToast('Payment for fees will be open soon.');
+      /*
+      FUTURE PAYMENT PROVIDER FLOW — UNCOMMENT WHEN READY:
       paymentSession.expiresAt=Date.now()+59*60*1000;
-      renderPaymentDetails();go('payment',{bypassFinance:true});startPaymentTimer();showToast('Payment account is ready.');
+      renderPaymentDetails();go('payment',{bypassFinance:true});startPaymentTimer();
+      */
     }
   },1000);
 });
