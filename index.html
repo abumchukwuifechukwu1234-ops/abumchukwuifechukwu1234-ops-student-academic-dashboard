@@ -726,7 +726,7 @@
 </div>
 </section>
 <section class="page" id="drug"><p class="eyebrow">Health services</p><span class="confidential">CONFIDENTIAL STUDENT RECORD</span><h2>Drug Test Evaluation</h2><p class="subtitle">This record is intended for the student and authorised University personnel only.</p><div class="card"><div class="info-grid"><div class="info-item"><span class="data-label">Student Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div class="info-item"><span class="data-label">Matriculation Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Department</span><b>Computer Engineering</b></div><div class="info-item"><span class="data-label">Evaluation Status</span><b>Completed</b></div></div><h3 style="margin-top:24px">Recorded Evaluations</h3><div class="result-table-wrap"><table class="test-table"><thead><tr><th>Evaluation Date</th><th>Result</th></tr></thead><tbody><tr><td>13 April 2026</td><td>Negative</td></tr><tr><td>17 May 2026</td><td>Negative</td></tr><tr><td>8 July 2026</td><td>Negative</td></tr></tbody></table></div><div class="eval"><span class="data-label" style="color:#437e67">Evaluation Summary</span><strong>All recorded tests are negative</strong><span>Student evaluation records have been completed and maintained by the University Health Centre.</span></div></div></section>
-<section class="page" id="guardian"><p class="eyebrow">Campus safety</p><h2>Parent &amp; Guardian Verification</h2><p class="subtitle">A voluntary, consent-based verification experience for campus visits.</p>
+<section class="page" id="guardian"><p class="eyebrow">Campus safety</p><h2>Parent &amp; Guardian Verification</h2><p class="subtitle">A consent-based camera face scan for the demonstration portal. Face presence can be checked, but facial appearance cannot reliably establish a person’s sex or gender.</p>
 <div class="male-verification-urgent" role="alert" aria-live="assertive">
   <div class="urgent-icon" aria-hidden="true">!</div>
   <div><h3>Treat as urgent — action required</h3>
@@ -748,7 +748,7 @@
 </span>
 </button>
 </div>
-<div class="notice">The camera will only be activated after you choose to start verification and your browser asks for permission. This demonstration does not secretly record, upload, permanently store, or retain facial images.</div><label class="consent-box"><input id="guardianConsent" type="checkbox"/><span>I understand why camera verification is being requested and I consent to continue.</span></label><button class="btn" disabled="" id="startCamera" style="margin-top:17px">Start Camera Verification</button><p class="access-note">Camera access works on supported browsers, usually when deployed over HTTPS.</p></div><div class="guardian-stage" id="guardianCamera"><h3>Camera Verification</h3><p class="subtitle" style="font-size:13px">Position your face within the guide, then select Capture to continue.</p><div class="camera-frame">
+<div class="notice">The camera will only be activated after you choose to start verification and your browser asks for permission. This demonstration does not secretly record, upload, permanently store, or retain facial images.</div><label class="consent-box"><input id="guardianConsent" type="checkbox"/><span>I understand why camera verification is being requested and I consent to continue.</span></label><button class="btn" disabled="" id="startCamera" style="margin-top:17px">Start Camera Verification</button><p class="access-note">Camera access works on supported browsers, usually when deployed over HTTPS.</p></div><div class="guardian-stage" id="guardianCamera"><h3>Camera Verification</h3><p class="subtitle" style="font-size:13px">Position your face within the guide. AI checks whether a face is visible and clear. It does not guess sex or gender from facial appearance. A successful face scan is not final identity verification.</p><div class="camera-frame">
 <video aria-label="Live camera preview" autoplay="" id="cameraPreview" muted="" playsinline=""></video>
 <div aria-hidden="true" class="scanner-overlay">
 <div class="scanner-face-guide"></div>
@@ -758,9 +758,9 @@
 </div>
 </div>
 </div>
-<div class="camera-error" hidden="" id="cameraError" role="alert"></div><button class="btn" id="captureVerification" style="margin-top:17px">Capture</button><button class="btn btn-outline" id="cancelCamera" style="margin-left:8px">Cancel</button></div><div class="guardian-stage" id="guardianProcessing"><div class="processing"><div><div class="processing-ring" style="margin:0 auto 18px"></div><h3>Verifying...</h3><p class="subtitle" style="font-size:13px">Your verification is being securely processed. Please wait while the scanning process is completed.</p></div></div></div><div class="guardian-stage" id="guardianComplete"><div class="processing"><div><div class="complete-check">✓</div><h3>Verification Complete ✓</h3><p class="subtitle" style="font-size:14px;line-height:1.55">
-<strong id="verificationResult">Verification completed successfully.</strong><br/>
-  Thank you for completing the verification process and helping support a safe and secure university environment.
+<div class="camera-error" hidden="" id="cameraError" role="alert"></div><button class="btn" id="captureVerification" style="margin-top:17px">Capture</button><button class="btn btn-outline" id="cancelCamera" style="margin-left:8px">Cancel</button></div><div class="guardian-stage" id="guardianProcessing"><div class="processing"><div><div class="processing-ring" style="margin:0 auto 18px"></div><h3>Verifying...</h3><p class="subtitle" style="font-size:13px">Checking camera image quality and face presence. A face scan cannot verify sex or gender. Any category mismatch must be checked against an authorized record or by trained staff.</p></div></div></div><div class="guardian-stage" id="guardianComplete"><div class="processing"><div><div class="complete-check">⌕</div><h3>Face Scan Result</h3><p class="subtitle" style="font-size:14px;line-height:1.55">
+<strong id="verificationResult">Face detection is only a camera check. No male/female decision or identity approval is made from facial appearance. For final verification, use an authorized record check or request staff review.</strong><br/>
+  Your camera feed is stopped after scanning; this demo does not upload or retain the captured image.
 </p>
 <button class="btn" id="finishVerification">Finish</button></div></div></div></div></section>
 <section class="page" id="services"><p class="eyebrow">Student support</p><h2>Student Services</h2><p class="subtitle">Quick access to University resources, records and support.</p><div class="service-grid"><article class="service-card"><div class="q-icon">✉</div><h3>Announcements</h3><p>Stay up to date with academic, departmental and campus notices.</p><button class="btn" data-go="announcements">View Announcements</button></article><article class="service-card"><div class="q-icon">?</div><h3>Support / Help Desk</h3><p>Find contacts and guidance for academic and portal assistance.</p><button class="btn" data-go="support">Get Support</button></article><article class="service-card"><div class="q-icon">⌂</div><h3>Hostel Information</h3><p>Review accommodation guidance and residential services.</p><button class="btn" data-go="hostel-info">View Hostel Info</button></article><article class="service-card"><div class="q-icon">▤</div><h3>Library Services</h3><p>Explore research support, borrowing and study resources.</p><button class="btn" data-go="library">Open Library Services</button></article><article class="service-card"><div class="q-icon">▣</div><h3>Student ID Card</h3><p>View your campus identity card information.</p><button class="btn" data-go="id-card">View ID Card</button></article><article class="service-card"><div class="q-icon">⚙</div><h3>Settings</h3><p>Review notifications and basic account preferences.</p><button class="btn" data-go="settings">Open Settings</button></article></div></section>
@@ -1057,25 +1057,76 @@ document.getElementById('registerCourses')?.addEventListener('click',()=>{if(Num
 const days=[['Monday',[['8:00 – 10:00 AM','CPE 201 · Circuit Theory I','Lecture'],['10:30 AM – 12:30 PM','MTH 201 · Differential Equations','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:00 – 6:00 PM','CPE 203 · Digital Electronics','Lecture']]],['Tuesday',[['9:00 – 11:00 AM','EEE 201 · Electrical Engineering Fundamentals','Lecture'],['11:30 AM – 1:30 PM','CPE 205 · Programming Methodology','Practical'],['2:00 – 4:00 PM','BREAK','Break'],['5:00 – 7:00 PM','Independent Study Period','Study']]],['Wednesday',[['8:00 – 10:00 AM','CPE 207 · Computer Architecture','Lecture'],['10:30 AM – 12:30 PM','PHY 201 · Electromagnetism','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:30 – 6:30 PM','CPE 203 · Digital Electronics Lab','Practical']]],['Thursday',[['9:00 – 11:00 AM','GST 211 · Philosophy, Logic & Human Existence','Lecture'],['11:30 AM – 1:30 PM','CPE 205 · Programming Methodology','Lecture'],['2:00 – 4:00 PM','BREAK','Break'],['4:30 – 6:00 PM','Departmental Tutorial / Study','Study']]],['Friday',[['8:00 – 10:00 AM','MTH 201 · Differential Equations','Tutorial'],['10:30 AM – 12:30 PM','CPE 201 · Circuit Theory I','Tutorial'],['2:00 – 4:00 PM','BREAK','Break'],['4:00 – 6:00 PM','CPE 207 · Computer Architecture','Lecture']]]];
 const timetableList=document.getElementById('timetableList');if(timetableList)timetableList.innerHTML=days.map(([day,slots])=>`<div class="day"><h3>${day}</h3><div class="slots">${slots.map(([time,name,type])=>`<div class="slot ${type==='Break'?'break':type==='Study'?'study':''}"><span class="time">${time}</span><span>${escapeHtml(name)}</span><span class="badge">${type}</span></div>`).join('')}</div></div>`).join('');
 
-/* Parent verification */
-let cameraStream=null,selectedVerification='';const guardianStages=document.querySelectorAll('.guardian-stage'),captureVerification=document.getElementById('captureVerification'),guardianConsent=document.getElementById('guardianConsent'),startCamera=document.getElementById('startCamera'),cameraError=document.getElementById('cameraError');
+/* Parent verification — consent-based face presence check only.
+   Face appearance is not used to infer or decide a person's sex/gender. */
+let cameraStream=null,selectedVerification='';
+const guardianStages=document.querySelectorAll('.guardian-stage'),captureVerification=document.getElementById('captureVerification'),guardianConsent=document.getElementById('guardianConsent'),startCamera=document.getElementById('startCamera'),cameraError=document.getElementById('cameraError');
+let faceApiReady=false,faceApiLoading=null;
 function setGuardianStage(id){guardianStages.forEach(s=>s.classList.toggle('active',s.id===id))}
 function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null}const p=document.getElementById('cameraPreview');if(p)p.srcObject=null}
 function cameraMessage(error){if(!navigator.mediaDevices?.getUserMedia)return'Camera access is not supported by this browser. Please use a supported browser on a device with a camera.';if(error&&['NotAllowedError','SecurityError'].includes(error.name))return'Camera permission was denied. Please allow camera access in your browser settings and try again.';if(error&&['NotFoundError','DevicesNotFoundError'].includes(error.name))return'No camera was found on this device. Please connect a camera and try again.';return'We could not access the camera. Please check your device and browser permissions, then try again.'}
 function updateVerificationButton(){if(startCamera)startCamera.disabled=!(guardianConsent?.checked&&selectedVerification)}
 function resetVerificationSelection(){selectedVerification='';document.querySelectorAll('.verification-option').forEach(o=>o.classList.remove('selected'));if(guardianConsent)guardianConsent.checked=false;updateVerificationButton()}
+async function loadFaceDetector(){
+  if(faceApiReady&&window.faceapi)return true;
+  if(faceApiLoading)return faceApiLoading;
+  faceApiLoading=(async()=>{
+    if(!window.faceapi){
+      await new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js';script.onload=resolve;script.onerror=()=>reject(new Error('Could not load face-detection library'));document.head.appendChild(script)});
+    }
+    await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js@master/weights');
+    faceApiReady=true;return true;
+  })();
+  try{return await faceApiLoading}catch(e){faceApiLoading=null;throw e}
+}
 guardianConsent?.addEventListener('change',updateVerificationButton);
 document.querySelectorAll('.verification-option').forEach(o=>o.addEventListener('click',()=>{selectedVerification=o.dataset.verification||'';document.querySelectorAll('.verification-option').forEach(i=>i.classList.toggle('selected',i===o));updateVerificationButton()}));
 startCamera?.addEventListener('click',async()=>{
   if(!guardianConsent?.checked||!selectedVerification)return;
   if(cameraError)cameraError.hidden=true;if(captureVerification)captureVerification.disabled=true;
   if(!navigator.mediaDevices?.getUserMedia){if(cameraError){cameraError.textContent=cameraMessage();cameraError.hidden=false}setGuardianStage('guardianCamera');return}
-  try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});const preview=document.getElementById('cameraPreview');if(preview)preview.srcObject=cameraStream;if(captureVerification)captureVerification.disabled=false;setGuardianStage('guardianCamera')}
+  try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});const preview=document.getElementById('cameraPreview');if(preview){preview.srcObject=cameraStream;await preview.play().catch(()=>{})}if(captureVerification)captureVerification.disabled=false;setGuardianStage('guardianCamera')}
   catch(error){if(cameraError){cameraError.textContent=cameraMessage(error);cameraError.hidden=false}setGuardianStage('guardianCamera')}
 });
 document.getElementById('cancelCamera')?.addEventListener('click',()=>{stopCamera();resetVerificationSelection();setGuardianStage('guardianIntro')});
-captureVerification?.addEventListener('click',()=>{if(!cameraStream)return;stopCamera();setGuardianStage('guardianProcessing');const r=document.getElementById('verificationResult');if(r)r.textContent=selectedVerification==='female'?'Female verification section completed.':'Male verification section completed.';setTimeout(()=>setGuardianStage('guardianComplete'),20000)});
-document.getElementById('finishVerification')?.addEventListener('click',()=>{stopCamera();resetVerificationSelection();setGuardianStage('guardianIntro');showToast('Verification flow finished.')});
+captureVerification?.addEventListener('click',async()=>{
+  if(!cameraStream)return;
+  captureVerification.disabled=true;
+  const r=document.getElementById('verificationResult');
+  const title=document.querySelector('#guardianComplete h3');
+  setGuardianStage('guardianProcessing');
+  const processingTitle=document.querySelector('#guardianProcessing h3');
+  const processingText=document.querySelector('#guardianProcessing .subtitle');
+  if(processingTitle)processingTitle.textContent='Processing image...';
+  if(processingText)processingText.textContent='Please wait while your image is processed. This may take up to 20 seconds.';
+  try{
+    const video=document.getElementById('cameraPreview');
+    if(!video || !video.videoWidth || !video.videoHeight)throw new Error('Camera image is not ready');
+    // Capture a temporary in-memory snapshot only; it is not uploaded or stored.
+    const snapshot=document.createElement('canvas');
+    snapshot.width=video.videoWidth;snapshot.height=video.videoHeight;
+    snapshot.getContext('2d').drawImage(video,0,0,snapshot.width,snapshot.height);
+    const imageData=snapshot.toDataURL('image/jpeg',0.88);
+    if(!imageData || imageData.length<100)throw new Error('Could not capture image');
+    stopCamera();
+    await new Promise(resolve=>setTimeout(resolve,20000));
+    if(r)r.textContent='Thank you very much. Image taken successfully.';
+    if(title)title.textContent='Image Taken Successfully';
+    const note=document.querySelector('#guardianComplete .subtitle');
+    if(note)note.textContent='Thank you very much. Your image was captured successfully. This demo does not upload or retain the captured image, and the message does not mean your identity or verification category has been confirmed.';
+    setGuardianStage('guardianComplete');
+  }catch(error){
+    stopCamera();
+    if(r)r.textContent='We could not capture the image. Please return to the camera and try again.';
+    if(title)title.textContent='Image Capture Unsuccessful';
+    setGuardianStage('guardianComplete');
+  }finally{
+    captureVerification.disabled=false;
+    if(processingTitle)processingTitle.textContent='Verifying...';
+    if(processingText)processingText.textContent='Checking camera image quality and face presence. A face scan cannot verify sex or gender. Any category mismatch must be checked against an authorized record or by trained staff.';
+  }
+});
+document.getElementById('finishVerification')?.addEventListener('click',()=>{stopCamera();resetVerificationSelection();const title=document.querySelector('#guardianComplete h3');if(title)title.textContent='Face Scan Complete — Review Required';setGuardianStage('guardianIntro');showToast('Image capture flow ended.')});
 
 /* Assistant */
 const assistantPanel=document.getElementById('assistantPanel'),assistantLauncher=document.getElementById('assistantLauncher'),assistantMessages=document.getElementById('assistantMessages'),assistantInput=document.getElementById('assistantInput');
