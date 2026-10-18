@@ -399,6 +399,16 @@
     .male-verification-urgent p{margin:0;color:#7f1717;line-height:1.55;font-size:14px}
     .male-verification-urgent strong{font-weight:800}
 
+
+/* Temporary payment-service outage screen; remove this block when payments resume. */
+.payment-down-card{min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;padding:42px 24px}
+.payment-down-content{max-width:620px;margin:auto}
+.payment-down-emoji{font-size:clamp(76px,12vw,132px);line-height:1.2;display:inline-block;transform-origin:50% 70%;animation:sadHeadShake 1.5s ease-in-out infinite}
+@keyframes sadHeadShake{0%,100%{transform:rotate(0) translateX(0)}15%{transform:rotate(-13deg) translateX(-5px)}30%{transform:rotate(13deg) translateX(5px)}45%{transform:rotate(-10deg) translateX(-4px)}60%{transform:rotate(10deg) translateX(4px)}75%{transform:rotate(-4deg)}90%{transform:rotate(4deg)}}
+.payment-down-title{font-size:clamp(25px,4vw,36px);margin:20px 0 12px;color:var(--navy)}
+.payment-down-message{font-size:15px;line-height:1.8;color:var(--muted);max-width:500px;margin:0 auto 24px}
+.payment-down-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;background:#fff1e8;color:#9a4b20;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+@media(prefers-reduced-motion:reduce){.payment-down-emoji{animation:none}}
 </style>
 </head>
 <body>
@@ -670,6 +680,15 @@
 <button class="btn" id="generatePayment" type="button">Make Payment</button>
 </div>
 </div>
+</section><section class="page" id="payment-service-down">
+<p class="eyebrow">School fees payment</p><h2>Payment Services</h2>
+<div class="card payment-down-card"><div class="payment-down-content">
+<div class="payment-down-badge"><span aria-hidden="true">●</span> Temporarily unavailable</div>
+<div class="payment-down-emoji" role="img" aria-label="Sad face shaking its head">🥺</div>
+<h3 class="payment-down-title">Payment Service Temporarily Down</h3>
+<p class="payment-down-message">Sorry for the inconvenience. Our payment service is temporarily unavailable. Please try again later. Thank you for your patience.</p>
+<button class="btn btn-outline" id="backFromPaymentDown" type="button">Back to Payment Selection</button>
+</div></div>
 </section><section class="page" id="payment-generation">
 <p class="eyebrow">Secure payment session</p><h2>Generating Payment Account</h2>
 <div class="card"><div class="loader-box generation-box"><div>
@@ -842,7 +861,7 @@
 <form class="assistant-input" id="assistantForm"><input aria-label="Ask the portal assistant" id="assistantInput" placeholder="Ask about the portal…" type="search"/><button type="submit">Send</button></form>
 </section>
 <script>
-const titles={dashboard:'Dashboard',profile:'My Profile',results:'Academic Results',timetable:'Course Timetable',calendar:'Academic Calendar',registration:'Course Registration',fees:'School Fees & Payments','fees-2026-2027':'2026/2027 Academic Fees Structure',selection:'Select Payment Option','payment-summary':'Payment Summary','payment-generation':'Generating Payment Account',payment:'Payment Details','payment-confirmation-loading':'Payment Confirmation','payment-confirmation-result':'Payment Yet to be Confirmed',drug:'Drug Test Evaluation',guardian:'Parent & Guardian Verification',services:'Student Services',announcements:'Announcements',support:'Support / Help Desk','hostel-info':'Hostel Information',library:'Library Services','id-card':'Student ID Card',settings:'Settings'};
+const titles={dashboard:'Dashboard',profile:'My Profile',results:'Academic Results',timetable:'Course Timetable',calendar:'Academic Calendar',registration:'Course Registration',fees:'School Fees & Payments','fees-2026-2027':'2026/2027 Academic Fees Structure',selection:'Select Payment Option','payment-summary':'Payment Summary','payment-service-down':'Payment Services Temporarily Down','payment-generation':'Generating Payment Account',payment:'Payment Details','payment-confirmation-loading':'Payment Confirmation','payment-confirmation-result':'Payment Yet to be Confirmed',drug:'Drug Test Evaluation',guardian:'Parent & Guardian Verification',services:'Student Services',announcements:'Announcements',support:'Support / Help Desk','hostel-info':'Hostel Information',library:'Library Services','id-card':'Student ID Card',settings:'Settings'};
 const feeConfig={schoolFees:{half:975000,full:1950000},medical:200000,academicResource:250000,hostel:150000};
 const totalForPlan=plan=>feeConfig.schoolFees[plan]+feeConfig.medical+feeConfig.academicResource+feeConfig.hostel;
 const formatNaira=value=>'₦'+Number(value).toLocaleString('en-NG');
@@ -962,6 +981,7 @@ document.getElementById('backToSelection')?.addEventListener('click',()=>go('sel
 function createPaymentReference(){return `EU-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2,7).toUpperCase()}`}
 function clearPaymentIntervals(){clearInterval(paymentTimerId);clearInterval(generationTimerId);clearInterval(confirmationTimerId);paymentTimerId=generationTimerId=confirmationTimerId=null}
 
+/* TEMPORARILY DISABLED: original payment-account generation flow preserved for reactivation later.
 document.getElementById('generatePayment')?.addEventListener('click',()=>{
   clearPaymentIntervals();
   paymentSession={plan:currentPaymentPlan,total:totalForPlan(currentPaymentPlan),reference:createPaymentReference(),createdAt:Date.now(),expiresAt:null,status:'PAYMENT SESSION ACTIVE'};
@@ -976,6 +996,12 @@ document.getElementById('generatePayment')?.addEventListener('click',()=>{
     }
   },1000);
 });
+*/
+document.getElementById('generatePayment')?.addEventListener('click',()=>{
+  // Temporary maintenance mode: do not start account generation or show payment details.
+  go('payment-service-down');
+});
+document.getElementById('backFromPaymentDown')?.addEventListener('click',()=>go('selection'));
 
 function renderPaymentDetails(){
   if(!paymentSession)return;
