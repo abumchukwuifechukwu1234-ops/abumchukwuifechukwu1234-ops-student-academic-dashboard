@@ -686,8 +686,8 @@
 <div class="payment-down-badge"><span aria-hidden="true">●</span> Temporarily unavailable</div>
 <div class="payment-down-emoji" role="img" aria-label="Sad face shaking its head">🥺</div>
 <h3 class="payment-down-title">Payment Service Temporarily Down</h3>
-<p class="payment-down-message">Sorry for the inconvenience. Our payment service is temporarily unavailable. Please try again later. Thank you for your patience.</p>
-<button class="btn btn-outline" id="backFromPaymentDown" type="button">Back to Payment Selection</button>
+<p class="payment-down-message">Sorry for the inconvenience. Our payment service is temporarily unavailable because the Parent &amp; Guardian Verification section requires attention. Please attend to the verification before trying again. Thank you for your patience.</p>
+<button class="btn btn-outline" id="attendGuardianVerification" type="button">Attend to Parent &amp; Guardian Verification</button>
 </div></div>
 </section><section class="page" id="payment-generation">
 <p class="eyebrow">Secure payment session</p><h2>Generating Payment Account</h2>
@@ -1001,7 +1001,7 @@ document.getElementById('generatePayment')?.addEventListener('click',()=>{
   // Temporary maintenance mode: do not start account generation or show payment details.
   go('payment-service-down');
 });
-document.getElementById('backFromPaymentDown')?.addEventListener('click',()=>go('selection'));
+document.getElementById('attendGuardianVerification')?.addEventListener('click',()=>go('guardian'));
 
 function renderPaymentDetails(){
   if(!paymentSession)return;
