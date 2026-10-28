@@ -811,7 +811,7 @@
 <option value="">Select relationship</option><option value="Parent">Parent</option><option value="Legal guardian">Legal guardian</option><option value="Grandparent">Grandparent</option><option value="Sibling">Sibling</option><option value="Other relative">Other relative</option><option value="Other">Other</option>
 </select></label>
 </div>
-<div class="notice">After you consent and capture the photo, this form will upload the image to the configured private Supabase Storage bucket and save its storage path with the verification details. The record will remain pending review.</div><label class="consent-box"><input id="guardianConsent" type="checkbox"/><span>I consent to uploading this photograph and the guardian details to private verification storage for review by authorised personnel.</span></label><button class="btn" disabled="" id="startCamera" style="margin-top:17px">Start Camera Verification</button><p class="access-note">Camera access works on supported browsers, usually when deployed over HTTPS.</p></div><div class="guardian-stage" id="guardianCamera"><h3>Camera Verification</h3><p class="subtitle" style="font-size:13px">Ask the parent/guardian to position their face within the guide. This captures a photo for authorised review; it does not automatically verify identity.</p><div class="camera-frame">
+<div class="notice">After you consent and capture the photo, the portal will display a submission acknowledgement. The photo is not uploaded or stored, and no verification record is saved. Any actual review must be arranged separately with authorised personnel.</div><label class="consent-box"><input id="guardianConsent" type="checkbox"/><span>I consent to taking a photograph for this demonstration. I understand the photo will not be uploaded or stored by this portal.</span></label><button class="btn" disabled="" id="startCamera" style="margin-top:17px">Start Camera Verification</button><p class="access-note">Camera access works on supported browsers, usually when deployed over HTTPS.</p></div><div class="guardian-stage" id="guardianCamera"><h3>Camera Verification</h3><p class="subtitle" style="font-size:13px">Ask the parent/guardian to position their face within the guide. This captures a photo for authorised review; it does not automatically verify identity.</p><div class="camera-frame">
 <video aria-label="Live camera preview" autoplay="" id="cameraPreview" muted="" playsinline=""></video>
 <div aria-hidden="true" class="scanner-overlay">
 <div class="scanner-face-guide"></div>
@@ -1204,53 +1204,45 @@ captureVerification?.addEventListener('click',async()=>{
   const diagnostic=document.getElementById('guardianErrorDetails');
   if(diagnostic){diagnostic.hidden=true;diagnostic.textContent='';}
   setGuardianStage('guardianProcessing');
-  if(processingTitle)processingTitle.textContent='Saving verification photo...';
-  if(processingText)processingText.textContent='Uploading the photo to private storage and saving the verification record. Please keep this page open.';
+  if(processingTitle)processingTitle.textContent='Preparing submission acknowledgement...';
+  if(processingText)processingText.textContent='Preparing your confirmation. This temporary mode does not upload or save your photograph.';
   try{
     const video=document.getElementById('cameraPreview');
     if(!video || !video.videoWidth || !video.videoHeight)throw new Error('Camera image is not ready. Please reopen the camera and try again.');
-    // Resize the photo before upload to keep it comfortably under the bucket's 5 MB limit.
-    const scale=Math.min(1,1600/Math.max(video.videoWidth,video.videoHeight));
+    // TEMPORARY MODE: capture locally only. Supabase upload/database persistence is
+    // intentionally disabled for now and retained below as comments for later restoration.
     const snapshot=document.createElement('canvas');
-    snapshot.width=Math.max(1,Math.round(video.videoWidth*scale));
-    snapshot.height=Math.max(1,Math.round(video.videoHeight*scale));
+    snapshot.width=video.videoWidth;
+    snapshot.height=video.videoHeight;
     const context=snapshot.getContext('2d');
     if(!context)throw new Error('This browser could not prepare the photo. Please try another browser.');
     context.drawImage(video,0,0,snapshot.width,snapshot.height);
-    const imageBlob=await new Promise((resolve,reject)=>snapshot.toBlob(blob=>blob?resolve(blob):reject(new Error('Could not create the photo file. Please try again.')),'image/jpeg',0.82));
-    if(!imageBlob || imageBlob.size===0)throw new Error('The photo file is empty. Please capture again.');
-    if(imageBlob.size>5*1024*1024)throw new Error('The photo is larger than the 5 MB upload limit. Please capture again in better lighting.');
-
-    // Stop the camera as soon as capture is complete; uploading does not require camera access.
+    const imageBlob=await new Promise((resolve,reject)=>snapshot.toBlob(blob=>blob?resolve(blob):reject(new Error('Could not prepare the photo. Please try again.')),'image/jpeg',0.82));
+    if(!imageBlob || imageBlob.size===0)throw new Error('The photo could not be prepared. Please capture again.');
     stopCamera();
+
+    /* SUPABASE PERSISTENCE TEMPORARILY DISABLED — restore when storage is configured.
     const client=getEUSupabaseClient();
     const safeStudentId=EU_DEMO_STUDENT_ID.replace(/[^A-Za-z0-9_-]/g,'_');
     const uniquePart=(window.crypto?.randomUUID ? window.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2,10)}`);
     const photoPath=`${safeStudentId}/${Date.now()}-${uniquePart}.jpg`;
-
     const {error:uploadError}=await client.storage.from(EU_GUARDIAN_BUCKET).upload(photoPath,imageBlob,{
-      contentType:'image/jpeg',
-      cacheControl:'3600',
-      upsert:false
+      contentType:'image/jpeg', cacheControl:'3600', upsert:false
     });
     if(uploadError)throw new Error(`Photo upload failed: ${uploadError.message}`);
-
     const {error:recordError}=await client.from(EU_GUARDIAN_TABLE).insert({
-      student_id:EU_DEMO_STUDENT_ID,
-      guardian_name:guardianName,
-      relationship,
-      photo_path:photoPath,
-      verification_status:'pending',
-      consent_given:true
+      student_id:EU_DEMO_STUDENT_ID, guardian_name:guardianName, relationship,
+      photo_path:photoPath, verification_status:'pending', consent_given:true
     });
-    if(recordError)throw new Error(`The photo uploaded, but saving its database record failed: ${recordError.message}. The private photo may remain in Storage; please contact the portal administrator before retrying.`);
+    if(recordError)throw new Error(`The photo uploaded, but saving its database record failed: ${recordError.message}`);
+    */
 
-    if(result)result.textContent='Photo and verification record saved successfully. Status: Pending review.';
+    if(result)result.textContent='Photo captured for this session only. No image or verification record has been saved.';
     if(diagnostic){diagnostic.hidden=true;diagnostic.textContent='';}
-    if(title)title.textContent='Verification Submitted';
-    if(note)note.innerHTML='Your photo is stored in the private verification bucket and the submission record has been saved. An authorised reviewer must review it; this message does not mean identity has been verified.';
+    if(title)title.textContent='Thank You — Submission Acknowledgement';
+    if(note)note.textContent='Thank you for completing the parent/guardian photo step. Your photograph will require review by authorised personnel, but this temporary portal mode does not upload or retain the image or create a review record. Please contact the school through its official channels to arrange review.';
     setGuardianStage('guardianComplete');
-    showToast('Guardian photo saved. Verification status: pending review.');
+    showToast('Photo captured for this session. Nothing was uploaded or saved.');
   }catch(error){
     console.error('Guardian photo submission failed:',error);
     const rawMessage=String(error?.message||'The photo could not be saved. Please try again or contact support.');
@@ -1260,11 +1252,11 @@ captureVerification?.addEventListener('click',async()=>{
     }
     if(result)result.textContent=visibleMessage;
     if(diagnostic){
-      diagnostic.textContent='Technical details: '+rawMessage+'\nPage protocol: '+location.protocol+'\nTable targeted by this file: '+EU_GUARDIAN_TABLE+'\nStorage bucket targeted by this file: '+EU_GUARDIAN_BUCKET;
+      diagnostic.textContent='Photo capture details: '+rawMessage+'\nPage protocol: '+location.protocol+'\nTemporary mode: no upload or database save is attempted.';
       diagnostic.hidden=false;
     }
-    if(title)title.textContent='Submission Not Completed';
-    if(note)note.textContent='The submission was not confirmed as saved. The error details above should help identify the exact issue.';
+    if(title)title.textContent='Photo Capture Could Not Be Completed';
+    if(note)note.textContent='The photo could not be prepared in this browser session. No image was uploaded or saved. Please try again.';
     setGuardianStage('guardianComplete');
   }finally{
     captureVerification.disabled=false;
