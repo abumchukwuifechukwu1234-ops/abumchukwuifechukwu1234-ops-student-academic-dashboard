@@ -173,7 +173,22 @@
     opacity: 1;
   }
 }
-    .camera-frame::after { content:""; position:absolute; width:45%; height:62%; border:2px solid #c99835; border-radius:45% 45% 40% 40%; box-shadow:0 0 0 999px #061a2a45; pointer-events:none; }.camera-error { color:#a33b42; background:#fff1f1; border-left:3px solid #b13b42; padding:12px; font-size:13px; border-radius:4px; margin-top:15px; }.processing { min-height:260px; display:grid; place-items:center; text-align:center; }.processing-ring { width:58px; height:58px; border:5px solid #dce7ee; border-top-color:var(--gold); border-radius:50%; animation:spin 1s linear infinite; }.complete-check { width:70px; height:70px; display:grid; place-items:center; margin:0 auto 18px; border-radius:50%; background:#e2f4eb; color:#187151; font-size:35px; animation:checkPop .35s ease both; } @keyframes checkPop { from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1} } [data-theme="dark"] .access-card,[data-theme="dark"] .finance-modal { background:#172630; } [data-theme="dark"] .access-card h1,[data-theme="dark"] .finance-modal h2 { color:#e0edf6; } [data-theme="dark"] .consent-box { background:#1c303c; } [data-theme="dark"] .access-card input,[data-theme="dark"] .finance-modal input,[data-theme="dark"] .lock-button { background:#10212b; color:#e3edf4; border-color:#385568; }
+    .camera-frame::after { content:""; position:absolute; width:45%; height:62%; border:2px solid #c99835; border-radius:45% 45% 40% 40%; box-shadow:0 0 0 999px #061a2a45; pointer-events:none; }.camera-error { color:#a33b42; background:#fff1f1; border-left:3px solid #b13b42; padding:12px; font-size:13px; border-radius:4px; margin-top:15px; }.processing { min-height:260px; display:grid; place-items:center; text-align:center; }.processing-ring { width:58px; height:58px; border:5px solid #dce7ee; border-top-color:var(--gold); border-radius:50%; animation:spin 1s linear infinite; }.complete-check { width:70px; height:70px; display:grid; place-items:center; margin:0 auto 18px; border-radius:50%; background:#e2f4eb; color:#187151; font-size:35px; animation:checkPop .35s ease both; }
+.pending-status-icon{background:#fff3d6;color:#8a5a00;border:2px solid #f0d28b;font-size:35px;font-weight:800}
+.pending-status-icon span{transform:translateY(-7px);letter-spacing:2px}
+.pending-status-text{color:#8a5a00!important}
+.payment-receipt-notice{max-width:760px;margin:18px auto;padding:16px 20px;text-align:left;background:#fff9eb;border:1px solid #f0d28b;border-left:5px solid #c28a20;border-radius:10px;color:#5d481c}
+.payment-receipt-notice strong{display:block;margin-bottom:5px;color:#76520d}
+.payment-receipt-notice p{margin:0;line-height:1.6;font-size:14px}
+.guardian-pending-notice{border-color:#d6a84e;border-left-color:#c28a20;background:#fff9eb;color:#5d481c;box-shadow:0 5px 18px rgba(120,85,20,.08)}
+.guardian-pending-notice .urgent-icon{background:#c28a20;color:#fff}
+.guardian-pending-notice h3{color:#76520d}
+.guardian-pending-notice p{color:#5d481c}
+[data-theme="dark"] .payment-receipt-notice{background:#2b281e;border-color:#80672e;color:#f1e4c2}
+[data-theme="dark"] .payment-receipt-notice strong{color:#f2d58d}
+[data-theme="dark"] .guardian-pending-notice{background:#2b281e;color:#f1e4c2}
+[data-theme="dark"] .guardian-pending-notice h3,[data-theme="dark"] .guardian-pending-notice p{color:#f1e4c2}
+@keyframes checkPop { from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1} } [data-theme="dark"] .access-card,[data-theme="dark"] .finance-modal { background:#172630; } [data-theme="dark"] .access-card h1,[data-theme="dark"] .finance-modal h2 { color:#e0edf6; } [data-theme="dark"] .consent-box { background:#1c303c; } [data-theme="dark"] .access-card input,[data-theme="dark"] .finance-modal input,[data-theme="dark"] .lock-button { background:#10212b; color:#e3edf4; border-color:#385568; }
     @media(max-width:1050px){.quick-grid{grid-template-columns:repeat(3,1fr)}.profile-meta{gap:12px}.two-col{grid-template-columns:1fr}.sidebar-profile{display:none}.service-grid{grid-template-columns:1fr 1fr}} @media(max-width:760px){.shell{display:block} aside{position:fixed; z-index:10; transform:translateX(-100%); transition:.2s; width:245px; height:100vh}.shell.menu-open aside{transform:translateX(0)}main{padding:0 18px 30px}.topbar{min-height:68px;margin-bottom:24px}.hamburger{display:block;background:none;border:0;font-size:22px;color:var(--navy)}.top-right{gap:8px}.top-right .date,.clock{display:inline-block}h2{font-size:25px}.welcome{padding:24px}.welcome .session{display:none}.profile-card{grid-template-columns:auto 1fr;padding:18px}.profile-meta{grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; width:100%; gap:10px}.profile-meta div{padding-left:0;border:0}.quick-grid{grid-template-columns:1fr 1fr;gap:10px}.quick{min-height:112px}.info-grid,.meta-grid{grid-template-columns:1fr 1fr}.fee{grid-template-columns:1fr auto;gap:12px}.fee .btn{grid-column:1/-1;width:100%}.option-grid{grid-template-columns:1fr}.bank-details,.service-grid{grid-template-columns:1fr}.payment-hero{display:block}.count{text-align:left;margin-top:20px}.summary{grid-template-columns:1fr}.slot{grid-template-columns:1fr auto}.slot .time{grid-column:1/-1}.slot small{display:none}.selection-footer{align-items:start;gap:15px;flex-direction:column}.selection-footer .btn{width:100%}.course-row{grid-template-columns:24px 1fr 55px}.course-row .course-code{grid-column:2}.course-row .semester{grid-column:2}.course-row .course-title{grid-column:2}.course-row .course-unit{grid-column:3;grid-row:1/4}.course-total{align-items:start;gap:15px;flex-direction:column}.toast{left:18px;right:18px;bottom:18px;max-width:none}.assistant-launcher{right:12px;bottom:12px;width:78px;height:93px}.assistant-panel{right:12px;bottom:111px;width:calc(100vw - 24px);max-height:min(540px,calc(100vh - 130px))}.access-card,.finance-modal{padding:25px 20px}.camera-frame{aspect-ratio:3/4}}
     /* Notification Centre */
 .notification-bell {
@@ -393,10 +408,10 @@
 .room-modal-backdrop{position:fixed;inset:0;background:rgba(9,24,42,.58);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}.room-modal-backdrop.open{display:flex}.room-modal{width:min(100%,440px);background:#fff;border-radius:20px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.25);text-align:center}.room-modal-icon{width:62px;height:62px;border-radius:50%;background:#fff3d9;color:#98620b;display:grid;place-items:center;font-size:28px;margin:0 auto 16px}.room-modal h3{margin:0 0 10px;color:var(--navy)}.room-modal p{margin:0 0 22px;color:var(--muted);line-height:1.65}.room-modal-actions{display:flex;justify-content:center;gap:10px}.room-modal-close{border:0;cursor:pointer}
 @media(max-width:650px){.room-pick-card{align-items:stretch;flex-direction:column}.room-pick-btn{width:100%}.room-pick-copy{gap:12px}.room-modal{padding:23px}}
 
-    .male-verification-urgent{display:flex;gap:14px;align-items:flex-start;margin:0 0 22px;padding:17px 19px;border:2px solid #c62828;border-left:8px solid #c62828;border-radius:10px;background:#fff0f0;color:#7f1717;box-shadow:0 5px 18px rgba(160,20,20,.12)}
-    .male-verification-urgent .urgent-icon{flex:0 0 38px;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#c62828;color:#fff;font-size:21px;font-weight:800}
-    .male-verification-urgent h3{margin:0 0 6px;color:#a01818;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
-    .male-verification-urgent p{margin:0;color:#7f1717;line-height:1.55;font-size:14px}
+    .male-verification-urgent{display:flex;gap:14px;align-items:flex-start;margin:0 0 22px;padding:17px 19px;border:2px solid #d6a323;border-left:8px solid #d6a323;border-radius:10px;background:#fff8df;color:#684f0b;box-shadow:0 5px 18px rgba(160,120,20,.12)}
+    .male-verification-urgent .urgent-icon{flex:0 0 38px;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#c28a20;color:#fff;font-size:21px;font-weight:800}
+    .male-verification-urgent h3{margin:0 0 6px;color:#805d0a;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+    .male-verification-urgent p{margin:0;color:#684f0b;line-height:1.55;font-size:14px}
     .male-verification-urgent strong{font-weight:800}
 
 
@@ -409,7 +424,18 @@
 .payment-down-message{font-size:15px;line-height:1.8;color:var(--muted);max-width:500px;margin:0 auto 24px}
 .payment-down-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;background:#fff1e8;color:#9a4b20;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 @media(prefers-reduced-motion:reduce){.payment-down-emoji{animation:none}}
+
+/* Guardian details fields for the Supabase photo submission flow */
+.guardian-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.guardian-field{display:grid;gap:7px;color:var(--navy);font-size:12px;font-weight:700;text-align:left}
+.guardian-field input,.guardian-field select{width:100%;min-width:0;padding:11px 12px;border:1px solid #c9d7df;border-radius:7px;background:#fff;color:#18212c;font:inherit;font-size:14px;font-weight:400}
+.guardian-field input:focus,.guardian-field select:focus{outline:2px solid #91b7d1;outline-offset:1px}
+.guardian-upload-status{font-size:13px;line-height:1.5;margin:14px 0;color:var(--muted)}.guardian-error-details{max-width:720px;margin:14px auto 0;padding:12px 14px;border:1px solid #efb7bb;border-left:4px solid #b13b42;border-radius:6px;background:#fff4f4;color:#8b2028;text-align:left;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}[data-theme="dark"] .guardian-error-details{background:#351e23;color:#ffd8dc;border-color:#81434a}
+[data-theme="dark"] .guardian-field input,[data-theme="dark"] .guardian-field select{background:#10212b;color:#e3edf4;border-color:#385568}
+@media(max-width:650px){.guardian-details-grid{grid-template-columns:1fr}}
+
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 <div class="shell" id="shell">
@@ -707,15 +733,19 @@
 <p class="eyebrow">Payment status</p><h2>Payment Confirmation</h2>
 <div class="card">
 <div class="confirmation-result">
-<div class="complete-check">✓</div>
-<p class="eyebrow">Payment status</p>
-<h3>PAYMENT YET TO BE CONFIRMED</h3>
-<p class="subtitle">Further information will be passed via your school email.</p>
+<div class="complete-check pending-status-icon" aria-hidden="true"><span>…</span></div>
+<p class="eyebrow">Payment status update</p>
+<h3>PAYMENT NOTICE RECEIVED — PENDING VERIFICATION</h3>
+<p class="subtitle">Thank you. Your payment information has been submitted for review. This message does not confirm that funds have been received or cleared.</p>
+<div class="payment-receipt-notice" role="status">
+  <strong>Receipt notification</strong>
+  <p>Once the payment has been verified, a receipt will be sent to the registered parent/guardian email within 24 hours. Any further updates will also be communicated through the registered email address(es).</p>
+</div>
 <div class="confirmation-details">
 <div><span class="data-label">Payment Reference</span><b id="confirmationReference">—</b></div>
 <div><span class="data-label">Amount</span><b id="confirmationAmount">—</b></div>
 <div><span class="data-label">Payment Plan</span><b id="confirmationPlan">—</b></div>
-<div><span class="data-label">Current Status</span><b>PAYMENT YET TO BE CONFIRMED</b></div>
+<div><span class="data-label">Current Status</span><b class="pending-status-text">PENDING VERIFICATION</b></div>
 </div>
 <button class="btn" id="backToDashboardFromConfirmation" type="button">Back to Dashboard</button>
 </div>
@@ -745,11 +775,11 @@
 </div>
 </section>
 <section class="page" id="drug"><p class="eyebrow">Health services</p><span class="confidential">CONFIDENTIAL STUDENT RECORD</span><h2>Drug Test Evaluation</h2><p class="subtitle">This record is intended for the student and authorised University personnel only.</p><div class="card"><div class="info-grid"><div class="info-item"><span class="data-label">Student Name</span><b>Ifechukwu Abumchukwu Jesse</b></div><div class="info-item"><span class="data-label">Matriculation Number</span><b>EU250-303-4990</b></div><div class="info-item"><span class="data-label">Department</span><b>Computer Engineering</b></div><div class="info-item"><span class="data-label">Evaluation Status</span><b>Completed</b></div></div><h3 style="margin-top:24px">Recorded Evaluations</h3><div class="result-table-wrap"><table class="test-table"><thead><tr><th>Evaluation Date</th><th>Result</th></tr></thead><tbody><tr><td>13 April 2026</td><td>Negative</td></tr><tr><td>17 May 2026</td><td>Negative</td></tr><tr><td>8 July 2026</td><td>Negative</td></tr></tbody></table></div><div class="eval"><span class="data-label" style="color:#437e67">Evaluation Summary</span><strong>All recorded tests are negative</strong><span>Student evaluation records have been completed and maintained by the University Health Centre.</span></div><div class="notice" role="note" aria-label="Medical clearance update" style="margin-top:16px"><strong>Medical Clearance Update:</strong> The Drug Test Evaluation record will be updated once the required medical clearance process has been completed.</div></div></section>
-<section class="page" id="guardian"><p class="eyebrow">Campus safety</p><h2>Parent &amp; Guardian Verification</h2><p class="subtitle">A consent-based camera face scan for the demonstration portal. Face presence can be checked, but facial appearance cannot reliably establish a person’s sex or gender.</p>
-<div class="male-verification-urgent" role="alert" aria-live="assertive">
-  <div class="urgent-icon" aria-hidden="true">!</div>
-  <div><h3>Treat as urgent — action required</h3>
-  <p><strong>Previous male verification had an error.</strong> Please retry Male Verification. This must be treated as urgent and attended to <strong>before proceeding with any further actions on the student portal</strong>.</p></div>
+<section class="page" id="guardian"><p class="eyebrow">Campus safety</p><h2>Parent &amp; Guardian Verification</h2><p class="subtitle">Consent-based parent/guardian photo submission. Your photo is saved privately for an authorised review; facial appearance is not used to determine identity, sex, or gender.</p>
+<div class="male-verification-urgent guardian-pending-notice" role="status" aria-live="polite">
+  <div class="urgent-icon" aria-hidden="true">i</div>
+  <div><h3>Parent/Guardian Verification — Pending Review</h3>
+  <p>Thank you for complying with the parent/guardian verification process. Your submission is pending review, and you may continue accessing the student portal. Updates will be communicated to the student’s registered school email and the parent/guardian email provided.</p></div>
 </div>
 <div class="card verification-stages" id="guardianFlow"><div class="guardian-stage active" id="guardianIntro"><h3>Why verification is requested</h3><p class="subtitle" style="font-size:14px;line-height:1.6">Parent and guardian verification can help support a safer school environment, improve visitor management, and assist security personnel in confirming authorized visitors when they visit the campus.</p><div class="verification-choice">
 <button class="verification-option" data-verification="female" type="button">
@@ -767,7 +797,15 @@
 </span>
 </button>
 </div>
-<div class="notice">The camera will only be activated after you choose to start verification and your browser asks for permission. This demonstration does not secretly record, upload, permanently store, or retain facial images.</div><label class="consent-box"><input id="guardianConsent" type="checkbox"/><span>I understand why camera verification is being requested and I consent to continue.</span></label><button class="btn" disabled="" id="startCamera" style="margin-top:17px">Start Camera Verification</button><p class="access-note">Camera access works on supported browsers, usually when deployed over HTTPS.</p></div><div class="guardian-stage" id="guardianCamera"><h3>Camera Verification</h3><p class="subtitle" style="font-size:13px">Position your face within the guide. AI checks whether a face is visible and clear. It does not guess sex or gender from facial appearance. A successful face scan is not final identity verification.</p><div class="camera-frame">
+<div class="guardian-details-grid">
+<label class="guardian-field" for="guardianNameInput">Parent/guardian full name
+<input id="guardianNameInput" name="guardianName" type="text" autocomplete="name" maxlength="120" required placeholder="Enter parent or guardian name" /></label>
+<label class="guardian-field" for="guardianRelationshipInput">Relationship to student
+<select id="guardianRelationshipInput" name="guardianRelationship" required>
+<option value="">Select relationship</option><option value="Parent">Parent</option><option value="Legal guardian">Legal guardian</option><option value="Grandparent">Grandparent</option><option value="Sibling">Sibling</option><option value="Other relative">Other relative</option><option value="Other">Other</option>
+</select></label>
+</div>
+<div class="notice">After you consent and capture the photo, this form will upload the image to the configured private Supabase Storage bucket and save its storage path with the verification details. The record will remain pending review.</div><label class="consent-box"><input id="guardianConsent" type="checkbox"/><span>I consent to uploading this photograph and the guardian details to private verification storage for review by authorised personnel.</span></label><button class="btn" disabled="" id="startCamera" style="margin-top:17px">Start Camera Verification</button><p class="access-note">Camera access works on supported browsers, usually when deployed over HTTPS.</p></div><div class="guardian-stage" id="guardianCamera"><h3>Camera Verification</h3><p class="subtitle" style="font-size:13px">Ask the parent/guardian to position their face within the guide. This captures a photo for authorised review; it does not automatically verify identity.</p><div class="camera-frame">
 <video aria-label="Live camera preview" autoplay="" id="cameraPreview" muted="" playsinline=""></video>
 <div aria-hidden="true" class="scanner-overlay">
 <div class="scanner-face-guide"></div>
@@ -778,9 +816,10 @@
 </div>
 </div>
 <div class="camera-error" hidden="" id="cameraError" role="alert"></div><button class="btn" id="captureVerification" style="margin-top:17px">Capture</button><button class="btn btn-outline" id="cancelCamera" style="margin-left:8px">Cancel</button></div><div class="guardian-stage" id="guardianProcessing"><div class="processing"><div><div class="processing-ring" style="margin:0 auto 18px"></div><h3>Verifying...</h3><p class="subtitle" style="font-size:13px">Checking camera image quality and face presence. A face scan cannot verify sex or gender. Any category mismatch must be checked against an authorized record or by trained staff.</p></div></div></div><div class="guardian-stage" id="guardianComplete"><div class="processing"><div><div class="complete-check">⌕</div><h3>Face Scan Result</h3><p class="subtitle" style="font-size:14px;line-height:1.55">
-<strong id="verificationResult">Face detection is only a camera check. No male/female decision or identity approval is made from facial appearance. For final verification, use an authorized record check or request staff review.</strong><br/>
-  Your camera feed is stopped after scanning; this demo does not upload or retain the captured image.
+<strong id="verificationResult">Your submission status will appear here.</strong><br/>
+  The photo is stored privately and the database record remains pending until an authorised reviewer checks it.
 </p>
+<div id="guardianErrorDetails" class="guardian-error-details" role="alert" hidden></div>
 <button class="btn" id="finishVerification">Finish</button></div></div></div></div></section>
 <section class="page" id="services"><p class="eyebrow">Student support</p><h2>Student Services</h2><p class="subtitle">Quick access to University resources, records and support.</p><div class="service-grid"><article class="service-card"><div class="q-icon">✉</div><h3>Announcements</h3><p>Stay up to date with academic, departmental and campus notices.</p><button class="btn" data-go="announcements">View Announcements</button></article><article class="service-card"><div class="q-icon">?</div><h3>Support / Help Desk</h3><p>Find contacts and guidance for academic and portal assistance.</p><button class="btn" data-go="support">Get Support</button></article><article class="service-card"><div class="q-icon">⌂</div><h3>Hostel Information</h3><p>Review accommodation guidance and residential services.</p><button class="btn" data-go="hostel-info">View Hostel Info</button></article><article class="service-card"><div class="q-icon">▤</div><h3>Library Services</h3><p>Explore research support, borrowing and study resources.</p><button class="btn" data-go="library">Open Library Services</button></article><article class="service-card"><div class="q-icon">▣</div><h3>Student ID Card</h3><p>View your campus identity card information.</p><button class="btn" data-go="id-card">View ID Card</button></article><article class="service-card"><div class="q-icon">⚙</div><h3>Settings</h3><p>Review notifications and basic account preferences.</p><button class="btn" data-go="settings">Open Settings</button></article></div></section>
 <section class="page" id="announcements"><p class="eyebrow">University updates</p><h2>Announcements</h2><p class="subtitle">Recent notices relevant to your academic journey.</p><div class="support-list"><div><b>Course registration window</b><span>Review your selected courses and submit your registration before the departmental deadline.</span></div><div><b>Faculty of Engineering notice</b><span>Students should check the timetable before attending laboratory practical sessions.</span></div><div><b>Library orientation resources</b><span>Online library guidance and study skills resources are available through Library Services.</span></div></div></section>
@@ -861,6 +900,26 @@
 <form class="assistant-input" id="assistantForm"><input aria-label="Ask the portal assistant" id="assistantInput" placeholder="Ask about the portal…" type="search"/><button type="submit">Send</button></form>
 </section>
 <script>
+/* Supabase browser configuration.
+   Use the Project URL and publishable key from your Elizade University Supabase project.
+   NEVER put a secret/service_role key in this HTML file. */
+const EU_SUPABASE_URL = 'https://dgkzlawgdqzwqtxfphyh.supabase.co';
+const EU_SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_p3egUmnyJ5dz6F94WDmAqA_Ebg_uLjz';
+const EU_GUARDIAN_BUCKET = 'guardian-verification-photos';
+const EU_GUARDIAN_TABLE = 'guardian_verifications';
+const EU_DEMO_STUDENT_ID = 'EU250-303-4990';
+let euSupabaseClient = null;
+function getEUSupabaseClient(){
+  if(EU_SUPABASE_PUBLISHABLE_KEY === 'PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE' || !EU_SUPABASE_PUBLISHABLE_KEY.trim()){
+    throw new Error('Supabase is not configured yet. Add your Supabase publishable key to the EU_SUPABASE_PUBLISHABLE_KEY setting near the top of this script.');
+  }
+  if(!window.supabase || typeof window.supabase.createClient !== 'function'){
+    throw new Error('The Supabase JavaScript library did not load. Check your internet connection and reload the page.');
+  }
+  if(!euSupabaseClient) euSupabaseClient = window.supabase.createClient(EU_SUPABASE_URL, EU_SUPABASE_PUBLISHABLE_KEY);
+  return euSupabaseClient;
+}
+
 const titles={dashboard:'Dashboard',profile:'My Profile',results:'Academic Results',timetable:'Course Timetable',calendar:'Academic Calendar',registration:'Course Registration',fees:'School Fees & Payments','fees-2026-2027':'2026/2027 Academic Fees Structure',selection:'Select Payment Option','payment-summary':'Payment Summary','payment-service-down':'Payment Services Temporarily Down','payment-generation':'Generating Payment Account',payment:'Payment Details','payment-confirmation-loading':'Payment Confirmation','payment-confirmation-result':'Payment Yet to be Confirmed',drug:'Drug Test Evaluation',guardian:'Parent & Guardian Verification',services:'Student Services',announcements:'Announcements',support:'Support / Help Desk','hostel-info':'Hostel Information',library:'Library Services','id-card':'Student ID Card',settings:'Settings'};
 const feeConfig={schoolFees:{half:975000,full:1950000},medical:200000,academicResource:250000,hostel:150000};
 const totalForPlan=plan=>feeConfig.schoolFees[plan]+feeConfig.medical+feeConfig.academicResource+feeConfig.hostel;
@@ -901,7 +960,7 @@ document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e
 document.querySelectorAll('.nav-link').forEach(link=>link.addEventListener('click',()=>go(link.dataset.page)));
 document.getElementById('menuBtn')?.addEventListener('click',()=>document.getElementById('shell')?.classList.toggle('menu-open'));
 
-/* Login */
+/* Login — this is a front-end demonstration gate, not server-side identity authentication. */
 const portalAccess=document.getElementById('portalAccess'),portalUsername=document.getElementById('portalUsername'),portalPassword=document.getElementById('portalPassword'),portalAccessError=document.getElementById('portalAccessError');
 document.getElementById('portalAccessForm')?.addEventListener('submit',e=>{
   e.preventDefault();
@@ -981,7 +1040,7 @@ document.getElementById('backToSelection')?.addEventListener('click',()=>go('sel
 function createPaymentReference(){return `EU-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2,7).toUpperCase()}`}
 function clearPaymentIntervals(){clearInterval(paymentTimerId);clearInterval(generationTimerId);clearInterval(confirmationTimerId);paymentTimerId=generationTimerId=confirmationTimerId=null}
 
-/* TEMPORARILY DISABLED: original payment-account generation flow preserved for reactivation later.
+// Restored original payment-account generation flow.
 document.getElementById('generatePayment')?.addEventListener('click',()=>{
   clearPaymentIntervals();
   paymentSession={plan:currentPaymentPlan,total:totalForPlan(currentPaymentPlan),reference:createPaymentReference(),createdAt:Date.now(),expiresAt:null,status:'PAYMENT SESSION ACTIVE'};
@@ -995,11 +1054,6 @@ document.getElementById('generatePayment')?.addEventListener('click',()=>{
       renderPaymentDetails();go('payment',{bypassFinance:true});startPaymentTimer();showToast('Payment account is ready.');
     }
   },1000);
-});
-*/
-document.getElementById('generatePayment')?.addEventListener('click',()=>{
-  // Temporary maintenance mode: do not start account generation or show payment details.
-  go('payment-service-down');
 });
 document.getElementById('attendGuardianVerification')?.addEventListener('click',()=>go('guardian'));
 
@@ -1091,7 +1145,14 @@ let faceApiReady=false,faceApiLoading=null;
 function setGuardianStage(id){guardianStages.forEach(s=>s.classList.toggle('active',s.id===id))}
 function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null}const p=document.getElementById('cameraPreview');if(p)p.srcObject=null}
 function cameraMessage(error){if(!navigator.mediaDevices?.getUserMedia)return'Camera access is not supported by this browser. Please use a supported browser on a device with a camera.';if(error&&['NotAllowedError','SecurityError'].includes(error.name))return'Camera permission was denied. Please allow camera access in your browser settings and try again.';if(error&&['NotFoundError','DevicesNotFoundError'].includes(error.name))return'No camera was found on this device. Please connect a camera and try again.';return'We could not access the camera. Please check your device and browser permissions, then try again.'}
-function updateVerificationButton(){if(startCamera)startCamera.disabled=!(guardianConsent?.checked&&selectedVerification)}
+const guardianNameInput=document.getElementById('guardianNameInput');
+const guardianRelationshipInput=document.getElementById('guardianRelationshipInput');
+function updateVerificationButton(){
+  const detailsReady=Boolean(guardianNameInput?.value.trim() && guardianRelationshipInput?.value);
+  if(startCamera)startCamera.disabled=!(guardianConsent?.checked&&selectedVerification&&detailsReady);
+}
+guardianNameInput?.addEventListener('input',updateVerificationButton);
+guardianRelationshipInput?.addEventListener('change',updateVerificationButton);
 function resetVerificationSelection(){selectedVerification='';document.querySelectorAll('.verification-option').forEach(o=>o.classList.remove('selected'));if(guardianConsent)guardianConsent.checked=false;updateVerificationButton()}
 async function loadFaceDetector(){
   if(faceApiReady&&window.faceapi)return true;
@@ -1117,34 +1178,87 @@ startCamera?.addEventListener('click',async()=>{
 document.getElementById('cancelCamera')?.addEventListener('click',()=>{stopCamera();resetVerificationSelection();setGuardianStage('guardianIntro')});
 captureVerification?.addEventListener('click',async()=>{
   if(!cameraStream)return;
+  if(!guardianConsent?.checked || !selectedVerification){
+    if(cameraError){cameraError.textContent='Please select a verification category and provide consent before capturing.';cameraError.hidden=false;}
+    return;
+  }
+  const guardianName=guardianNameInput?.value.trim()||'';
+  const relationship=guardianRelationshipInput?.value||'';
+  if(!guardianName || !relationship){
+    if(cameraError){cameraError.textContent='Enter the parent/guardian name and relationship before taking the photo.';cameraError.hidden=false;}
+    setGuardianStage('guardianIntro'); updateVerificationButton(); return;
+  }
   captureVerification.disabled=true;
-  const r=document.getElementById('verificationResult');
+  if(cameraError){cameraError.hidden=true;cameraError.textContent='';}
+  const result=document.getElementById('verificationResult');
   const title=document.querySelector('#guardianComplete h3');
-  setGuardianStage('guardianProcessing');
   const processingTitle=document.querySelector('#guardianProcessing h3');
   const processingText=document.querySelector('#guardianProcessing .subtitle');
-  if(processingTitle)processingTitle.textContent='Processing image...';
-  if(processingText)processingText.textContent='Please wait while your image is processed. This may take up to 20 seconds.';
+  const note=document.querySelector('#guardianComplete .subtitle');
+  const diagnostic=document.getElementById('guardianErrorDetails');
+  if(diagnostic){diagnostic.hidden=true;diagnostic.textContent='';}
+  setGuardianStage('guardianProcessing');
+  if(processingTitle)processingTitle.textContent='Saving verification photo...';
+  if(processingText)processingText.textContent='Uploading the photo to private storage and saving the verification record. Please keep this page open.';
   try{
     const video=document.getElementById('cameraPreview');
-    if(!video || !video.videoWidth || !video.videoHeight)throw new Error('Camera image is not ready');
-    // Capture a temporary in-memory snapshot only; it is not uploaded or stored.
+    if(!video || !video.videoWidth || !video.videoHeight)throw new Error('Camera image is not ready. Please reopen the camera and try again.');
+    // Resize the photo before upload to keep it comfortably under the bucket's 5 MB limit.
+    const scale=Math.min(1,1600/Math.max(video.videoWidth,video.videoHeight));
     const snapshot=document.createElement('canvas');
-    snapshot.width=video.videoWidth;snapshot.height=video.videoHeight;
-    snapshot.getContext('2d').drawImage(video,0,0,snapshot.width,snapshot.height);
-    const imageData=snapshot.toDataURL('image/jpeg',0.88);
-    if(!imageData || imageData.length<100)throw new Error('Could not capture image');
+    snapshot.width=Math.max(1,Math.round(video.videoWidth*scale));
+    snapshot.height=Math.max(1,Math.round(video.videoHeight*scale));
+    const context=snapshot.getContext('2d');
+    if(!context)throw new Error('This browser could not prepare the photo. Please try another browser.');
+    context.drawImage(video,0,0,snapshot.width,snapshot.height);
+    const imageBlob=await new Promise((resolve,reject)=>snapshot.toBlob(blob=>blob?resolve(blob):reject(new Error('Could not create the photo file. Please try again.')),'image/jpeg',0.82));
+    if(!imageBlob || imageBlob.size===0)throw new Error('The photo file is empty. Please capture again.');
+    if(imageBlob.size>5*1024*1024)throw new Error('The photo is larger than the 5 MB upload limit. Please capture again in better lighting.');
+
+    // Stop the camera as soon as capture is complete; uploading does not require camera access.
     stopCamera();
-    await new Promise(resolve=>setTimeout(resolve,20000));
-    if(r)r.textContent='Thank you very much. Image taken successfully.';
-    if(title)title.textContent='Image Taken Successfully';
-    const note=document.querySelector('#guardianComplete .subtitle');
-    if(note)note.textContent='Thank you very much. Your image was captured successfully.';
+    const client=getEUSupabaseClient();
+    const safeStudentId=EU_DEMO_STUDENT_ID.replace(/[^A-Za-z0-9_-]/g,'_');
+    const uniquePart=(window.crypto?.randomUUID ? window.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2,10)}`);
+    const photoPath=`${safeStudentId}/${Date.now()}-${uniquePart}.jpg`;
+
+    const {error:uploadError}=await client.storage.from(EU_GUARDIAN_BUCKET).upload(photoPath,imageBlob,{
+      contentType:'image/jpeg',
+      cacheControl:'3600',
+      upsert:false
+    });
+    if(uploadError)throw new Error(`Photo upload failed: ${uploadError.message}`);
+
+    const {error:recordError}=await client.from(EU_GUARDIAN_TABLE).insert({
+      student_id:EU_DEMO_STUDENT_ID,
+      guardian_name:guardianName,
+      relationship,
+      photo_path:photoPath,
+      verification_status:'pending',
+      consent_given:true
+    });
+    if(recordError)throw new Error(`The photo uploaded, but saving its database record failed: ${recordError.message}. The private photo may remain in Storage; please contact the portal administrator before retrying.`);
+
+    if(result)result.textContent='Photo and verification record saved successfully. Status: Pending review.';
+    if(diagnostic){diagnostic.hidden=true;diagnostic.textContent='';}
+    if(title)title.textContent='Verification Submitted';
+    if(note)note.innerHTML='Your photo is stored in the private verification bucket and the submission record has been saved. An authorised reviewer must review it; this message does not mean identity has been verified.';
     setGuardianStage('guardianComplete');
+    showToast('Guardian photo saved. Verification status: pending review.');
   }catch(error){
-    stopCamera();
-    if(r)r.textContent='We could not capture the image. Please return to the camera and try again.';
-    if(title)title.textContent='Image Capture Unsuccessful';
+    console.error('Guardian photo submission failed:',error);
+    const rawMessage=String(error?.message||'The photo could not be saved. Please try again or contact support.');
+    let visibleMessage=rawMessage;
+    if(location.protocol==='file:' && /failed to fetch|network|cors|fetch/i.test(rawMessage)){
+      visibleMessage='This page is opened directly from Downloads (file://), which can interfere with web requests. Open the site over localhost or HTTPS, then retry. Original error: '+rawMessage;
+    }
+    if(result)result.textContent=visibleMessage;
+    if(diagnostic){
+      diagnostic.textContent='Technical details: '+rawMessage+'\nPage protocol: '+location.protocol+'\nTable targeted by this file: '+EU_GUARDIAN_TABLE+'\nStorage bucket targeted by this file: '+EU_GUARDIAN_BUCKET;
+      diagnostic.hidden=false;
+    }
+    if(title)title.textContent='Submission Not Completed';
+    if(note)note.textContent='The submission was not confirmed as saved. The error details above should help identify the exact issue.';
     setGuardianStage('guardianComplete');
   }finally{
     captureVerification.disabled=false;
@@ -1152,7 +1266,7 @@ captureVerification?.addEventListener('click',async()=>{
     if(processingText)processingText.textContent='Checking camera image quality and face presence. A face scan cannot verify sex or gender. Any category mismatch must be checked against an authorized record or by trained staff.';
   }
 });
-document.getElementById('finishVerification')?.addEventListener('click',()=>{stopCamera();resetVerificationSelection();const title=document.querySelector('#guardianComplete h3');if(title)title.textContent='Face Scan Complete — Review Required';setGuardianStage('guardianIntro');showToast('Image capture flow ended.')});
+document.getElementById('finishVerification')?.addEventListener('click',()=>{stopCamera();resetVerificationSelection();const title=document.querySelector('#guardianComplete h3');if(title)title.textContent='Verification Submitted';setGuardianStage('guardianIntro');showToast('Parent/guardian verification screen closed.')});
 
 /* Assistant */
 const assistantPanel=document.getElementById('assistantPanel'),assistantLauncher=document.getElementById('assistantLauncher'),assistantMessages=document.getElementById('assistantMessages'),assistantInput=document.getElementById('assistantInput');
