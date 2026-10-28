@@ -1240,7 +1240,7 @@ captureVerification?.addEventListener('click',async()=>{
     if(result)result.textContent='Photo captured for this session only. No image or verification record has been saved.';
     if(diagnostic){diagnostic.hidden=true;diagnostic.textContent='';}
     if(title)title.textContent='Thank You — Submission Acknowledgement';
-    if(note)note.textContent='Thank you for completing the parent/guardian photo step. Your photograph will require review by authorised personnel, but this temporary portal mode does not upload or retain the image or create a review record. Please contact the school through its official channels to arrange review.';
+    if(note)note.textContent='Thank you for completing the parent/guardian photo step. Your photograph will require review by authorised personnel';
     setGuardianStage('guardianComplete');
     showToast('Photo captured for this session. Nothing was uploaded or saved.');
   }catch(error){
