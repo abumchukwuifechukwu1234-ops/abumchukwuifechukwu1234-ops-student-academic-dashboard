@@ -434,6 +434,20 @@
 [data-theme="dark"] .guardian-field input,[data-theme="dark"] .guardian-field select{background:#10212b;color:#e3edf4;border-color:#385568}
 @media(max-width:650px){.guardian-details-grid{grid-template-columns:1fr}}
 
+
+/* Payment receipt upload interface */
+.receipt-upload-card{margin:20px 0 18px;padding:20px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.receipt-upload-card h3{margin:0 0 8px;color:var(--navy)}
+.receipt-upload-card p{font-size:13px;line-height:1.6;color:var(--muted)}
+.receipt-dropzone{display:block;margin:14px 0;padding:22px;border:1.5px dashed #9fb5c5;border-radius:9px;background:#f7fafc;text-align:center;cursor:pointer}
+.receipt-dropzone strong{display:block;color:var(--navy);margin-bottom:5px}
+.receipt-dropzone small{color:var(--muted)}
+.receipt-dropzone input{display:block;width:100%;margin-top:12px;font-size:13px}
+.receipt-preview{display:none;max-width:100%;max-height:300px;margin:14px auto;border-radius:8px;border:1px solid var(--line)}
+.receipt-feedback{display:none;margin-top:12px;padding:12px;border-radius:7px;font-size:13px;line-height:1.5}
+.receipt-feedback.show{display:block}.receipt-feedback.ok{background:#e7f5ed;color:#176c4d;border:1px solid #b9dfc9}.receipt-feedback.error{background:#fff0f0;color:#9b2f37;border:1px solid #edc4c7}
+[data-theme="dark"] .receipt-upload-card{background:#172630;border-color:#29404f}[data-theme="dark"] .receipt-dropzone{background:#1c303c;border-color:#46657c}
+
 </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -753,6 +767,22 @@
 <div><span class="data-label">Payment Plan</span><b id="confirmationPlan">—</b></div>
 <div><span class="data-label">Current Status</span><b class="pending-status-text">PENDING VERIFICATION</b></div>
 </div>
+
+<div class="receipt-upload-card" id="receiptUploadCard">
+  <h3>Already paid? Upload your payment receipt</h3>
+  <p>If your transfer has not been attended to yet, attach a clear screenshot or photo of your bank transfer receipt so it can be associated with this pending payment for review.</p>
+  <label class="receipt-dropzone" for="paymentReceiptFile">
+    <strong>＋ Select Receipt Image</strong>
+    <small>JPG, PNG or WEBP · Maximum file size 5 MB</small>
+    <input id="paymentReceiptFile" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="receiptUploadHelp">
+  </label>
+  <p id="receiptUploadHelp">Check that the transfer amount, date and transaction reference are visible. Do not upload passwords, PINs or one-time codes.</p>
+  <img id="paymentReceiptPreview" class="receipt-preview" alt="Selected payment receipt preview">
+  <button class="btn" id="submitPaymentReceipt" type="button" disabled>Submit Receipt for Review</button>
+  <div class="receipt-feedback" id="receiptUploadFeedback" role="status" aria-live="polite"></div>
+  <p class="demo-note"><strong></strong> </p>
+</div>
+
 <button class="btn" id="backToDashboardFromConfirmation" type="button">Back to Dashboard</button>
 </div>
 </div>
@@ -768,9 +798,9 @@
 <div class="payment-status-row"><span class="status session-active" id="paymentStatus">PAYMENT SESSION ACTIVE</span><span class="data-label">Session validity: 59 minutes</span></div>
 <h3>Payment Account Details</h3>
 <div class="bank-details payment-bank-grid">
-<div><span class="data-label">Bank</span><b id="paymentBank">Pending provider configuration</b></div>
-<div><span class="data-label">Account Name</span><b id="paymentAccountName">Pending provider configuration</b></div>
-<div><span class="data-label">Account Number</span><b id="paymentAccountNumber">Pending provider configuration</b></div>
+<div><span class="data-label">Bank</span><b id="paymentBank">Wema Bank</b></div>
+<div><span class="data-label">Account Name</span><b id="paymentAccountName">Birisconcept/elizade University</b></div>
+<div><span class="data-label">Account Number</span><b id="paymentAccountNumber">9818766212</b></div>
 </div>
 <div class="notice" id="timerMsg">Complete the transfer before this payment session expires.</div>
 <div class="payment-detail-actions">
@@ -1104,6 +1134,34 @@ function startPaymentConfirmation(){
   },1000);
 }
 document.getElementById('backToDashboardFromConfirmation')?.addEventListener('click',()=>go('dashboard'));
+
+// Receipt image selection and preview. This prototype does not upload the image to a server.
+(()=>{
+ const input=document.getElementById('paymentReceiptFile');
+ const preview=document.getElementById('paymentReceiptPreview');
+ const submit=document.getElementById('submitPaymentReceipt');
+ const feedback=document.getElementById('receiptUploadFeedback');
+ let selectedFile=null;
+ const showFeedback=(message,type)=>{if(!feedback)return;feedback.textContent=message;feedback.className='receipt-feedback show '+type;};
+ input?.addEventListener('change',()=>{
+   selectedFile=null; if(preview){preview.removeAttribute('src');preview.style.display='none';} if(submit)submit.disabled=true;
+   if(feedback){feedback.textContent='';feedback.className='receipt-feedback';}
+   const file=input.files?.[0]; if(!file)return;
+   const allowed=['image/jpeg','image/png','image/webp'];
+   if(!allowed.includes(file.type)){input.value='';showFeedback('Please choose a JPG, PNG or WEBP image.','error');return;}
+   if(file.size>5*1024*1024){input.value='';showFeedback('This image is larger than 5 MB. Please choose a smaller image.','error');return;}
+   selectedFile=file; const reader=new FileReader();
+   reader.onload=()=>{if(preview){preview.src=String(reader.result);preview.style.display='block';} if(submit)submit.disabled=false;};
+   reader.onerror=()=>{selectedFile=null;if(submit)submit.disabled=true;showFeedback('Could not preview this image. Please select it again.','error');};
+   reader.readAsDataURL(file);
+ });
+ submit?.addEventListener('click',()=>{
+   if(!selectedFile){showFeedback('Select a receipt image before submitting.','error');return;}
+   const ref=document.getElementById('confirmationReference')?.textContent||'the pending payment';
+   showFeedback('Receipt image selected for '+ref+'. has been sent and will be reviewed.Thanks!','ok');
+ });
+})();
+
 
 /* 2026/2027 fees */
 const feeData=[
